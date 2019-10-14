@@ -1,10 +1,13 @@
 # this is the kdsubject model
+
 type kdsubject {
   id: ID! @id
   subjectTitle: String!
   description: String!
   chapters: [kdchapter]
 }
+
+# this is the kdchapter model
 
 type kdchapter {
   id: ID! @id
@@ -15,6 +18,8 @@ type kdchapter {
   subjectId: String
 }
 
+#this is the kdtopic model
+
 type kdtopic {
   id: ID! @id
   chapterTitle: String!
@@ -24,6 +29,8 @@ type kdtopic {
   pages: [kdpage]
 }
 
+#this is the kdpage model
+
 type kdpage {
   id: ID! @id
   topicTitle: String!
@@ -32,12 +39,16 @@ type kdpage {
   pageTitle: String!
 }
 
+#this is the kdsection model
+
 type kdsection {
   id: ID! @id
   sectionTitle: String
   topicTitle: String
   sectionType: [kdsectiontype]
 }
+
+#this is the kdsectiontype model
 
 type kdsectiontype {
   videos: [kdsectionvideo]
@@ -48,22 +59,28 @@ type kdsectiontype {
 
 }
 
-
+#this is kdsection video schema
 
 type kdsectionvideo {
   id: ID! @id
   link: String
 }
 
+#this is the kdsectiontheory image schema
+
 type kdsectiontheoryimage {
   id: ID! @id
   imagePath: String
 }
 
+#this is the kdsectiontheoryrichtext schema
+
 type kdsectiontheoryrichtext {
   id: ID! @id
   textData: String
 }
+
+#this is the kdsectionquiz schema
 
 type kdsectionquiz {
   id: ID! @id
@@ -73,10 +90,14 @@ type kdsectionquiz {
   videoSolutionUrl: [kdsectionvideosolurl]
 }
 
+#this is the kdsectionvideosolurl schema
+
 type kdsectionvideosolurl {
   id: ID! @id
   videoUrl: String
 }
+
+#this is the kdsectionassignment schema
 
 type kdsectionassignment {
   id: ID! @id
