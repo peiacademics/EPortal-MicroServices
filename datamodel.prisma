@@ -1,0 +1,86 @@
+# this is the kdsubject model
+type kdsubject {
+  id: ID! @id
+  subjectTitle: String!
+  description: String!
+  chapters: [kdchapter]
+}
+
+type kdchapter {
+  id: ID! @id
+  subjectTitle: String!
+  chapterTitle: String!
+  description: String!
+  topics: [kdtopic]
+  subjectId: String
+}
+
+type kdtopic {
+  id: ID! @id
+  chapterTitle: String!
+  description: String!
+  topicTitle:String!
+  chapterId: String
+  pages: [kdpage]
+}
+
+type kdpage {
+  id: ID! @id
+  topicTitle: String!
+  topicId: String
+  pageType:String!
+  pageTitle: String!
+}
+
+type kdsection {
+  id: ID! @id
+  sectionTitle: String
+  topicTitle: String
+  sectionType: [kdsectiontype]
+}
+
+type kdsectiontype {
+  videos: [kdsectionvideo]
+  theoryImage: [kdsectiontheoryimage]
+  theoryRichText: [kdsectiontheoryrichtext]
+  quiz:[kdsectionquiz]
+  assignment: [kdsectionassignment]
+
+}
+
+
+
+type kdsectionvideo {
+  id: ID! @id
+  link: String
+}
+
+type kdsectiontheoryimage {
+  id: ID! @id
+  imagePath: String
+}
+
+type kdsectiontheoryrichtext {
+  id: ID! @id
+  textData: String
+}
+
+type kdsectionquiz {
+  id: ID! @id
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey:String
+  videoSolutionUrl: [kdsectionvideosolurl]
+}
+
+type kdsectionvideosolurl {
+  id: ID! @id
+  videoUrl: String
+}
+
+type kdsectionassignment {
+  id: ID! @id
+  questionImagePath: String
+  answerImagePath: String
+  assignmentVideoSolution: [kdsectionvideosolurl]
+}
