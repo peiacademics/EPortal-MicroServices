@@ -39,9 +39,10 @@ type kdpage {
   topicId: String
   pageType:String!
   pageTitle: String!
-  sections:[kdsection]  @relation(name: "ALLSECTIONS",link: INLINE)
+ sections:[kdsection]  @relation(name: "ALLSECTIONS",link: INLINE)
   
 }
+
 
 #this is the kdsection model
 
@@ -57,11 +58,11 @@ type kdsection {
 
 type kdsectiontype {
   id: ID! @id
-  videos: [kdsectionvideo] @relation(name:"ALLKDSECTIONVIDEOS", storage: Embedded)
-  theoryImage: [kdsectiontheoryimage] @relation(name: "ALLKDSECTIONTHEORYIMAGE", storage: Embedded)
-  theoryRichText: [kdsectiontheoryrichtext] @relation(name: "ALLKDSECTIONTHEORYTEXT", storage: Embedded)
-  quiz:[kdsectionquiz] @relation(name: "ALLKDSECTIONqUIZ", storage: Embedded)
-  assignment: [kdsectionassignment] @relation(name: "ALLKDSECTIONASSIGNMENT", storage: Embedded)
+  videos: [kdsectionvideo] @relation(name:"ALLKDSECTIONVIDEOS", storage: Embedded) 
+  theoryImage: [kdsectiontheoryimage] @relation(name: "ALLKDSECTIONTHEORYIMAGE", storage: Embedded) 
+  theoryRichText: [kdsectiontheoryrichtext] @relation(name: "ALLKDSECTIONTHEORYTEXT", storage: Embedded) 
+  quiz:[kdsectionquiz] @relation(name: "ALLKDSECTIONqUIZ", storage: Embedded) 
+  assignment: [kdsectionassignment] @relation(name: "ALLKDSECTIONASSIGNMENT", storage: Embedded) 
  
 }
 
@@ -69,30 +70,30 @@ type kdsectiontype {
 
 type kdsectionvideo @embedded{
   id: ID! @id
-  link: String
+  link: String @default(value:"nothing")
 }
 
 #this is the kdsectiontheory image schema
 
 type kdsectiontheoryimage @embedded{
   id: ID! @id
-  imagePath: String
+  imagePath: String @default(value:"nothing")
 }
 
 #this is the kdsectiontheoryrichtext schema
 
 type kdsectiontheoryrichtext @embedded{
   id: ID! @id
-  textData: String
+  textData: String @default(value:"nothing")
 }
 
 #this is the kdsectionquiz schema
 
 type kdsectionquiz @embedded{
   id: ID! @id
-  questionsImagePath: String
-  answerImagePath: String
-  answerKey:String
+  questionsImagePath: String @default(value:"nothing")
+  answerImagePath: String @default(value:"nothing")
+  answerKey:String @default(value:"nothing")
   videoSolutionUrl: [kdsectionvideosolurl] @relation(name:"ALLKDVIDEOSOLUTIONURLS", storage:embedded)
 }
 
@@ -100,14 +101,14 @@ type kdsectionquiz @embedded{
 
 type kdsectionvideosolurl @embedded{
   id: ID! @id
-  videoUrl: String
+  videoUrl: String @default(value:"nothing")
 }
 
 #this is the kdsectionassignment schema
 
 type kdsectionassignment @embedded{
   id: ID! @id
-  questionImagePath: String
-  answerImagePath: String
+  questionImagePath: String @default(value:"nothing")
+  answerImagePath: String @default(value:"nothing")
   assignmentVideoSolution: [kdsectionvideosolurl] 
 }
