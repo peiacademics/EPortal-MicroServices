@@ -1,10 +1,10 @@
 # this is the kdsubject model
-
+ 
 type kdsubject {
   id: ID! @id
   subjectTitle: String!
   description: String!
-  chapters: [kdchapter]
+  chapters: [kdchapter] @relation(name:"ALLCHAPTERS",link: INLINE)
 }
 
 # this is the kdchapter model
@@ -14,8 +14,9 @@ type kdchapter {
   subjectTitle: String!
   chapterTitle: String!
   description: String!
-  topics: [kdtopic]
+  topics: [kdtopic] @relation(name: "ALLTOPICS",link: INLINE)  
   subjectId: String
+  
 }
 
 #this is the kdtopic model
@@ -26,7 +27,8 @@ type kdtopic {
   description: String!
   topicTitle:String!
   chapterId: String
-  pages: [kdpage]
+  pages: [kdpage]  @relation(name: "ALLPAGES",link: INLINE) 
+  
 }
 
 #this is the kdpage model
@@ -37,6 +39,8 @@ type kdpage {
   topicId: String
   pageType:String!
   pageTitle: String!
+  sections:[kdsection]  @relation(name: "ALLSECTIONS",link: INLINE)
+  
 }
 
 #this is the kdsection model
@@ -45,63 +49,65 @@ type kdsection {
   id: ID! @id
   sectionTitle: String
   topicTitle: String
-  sectionType: [kdsectiontype]
+  sectionType: [kdsectiontype] @relation(name: "ALLKDSECTIONTYPES", link:INLINE)
+  
 }
 
 #this is the kdsectiontype model
 
 type kdsectiontype {
-  videos: [kdsectionvideo]
-  theoryImage: [kdsectiontheoryimage]
-  theoryRichText: [kdsectiontheoryrichtext]
-  quiz:[kdsectionquiz]
-  assignment: [kdsectionassignment]
-
+  id: ID! @id
+  videos: [kdsectionvideo] @relation(name:"ALLKDSECTIONVIDEOS", storage: Embedded)
+  theoryImage: [kdsectiontheoryimage] @relation(name: "ALLKDSECTIONTHEORYIMAGE", storage: Embedded)
+  theoryRichText: [kdsectiontheoryrichtext] @relation(name: "ALLKDSECTIONTHEORYTEXT", storage: Embedded)
+  quiz:[kdsectionquiz] @relation(name: "ALLKDSECTIONqUIZ", storage: Embedded)
+  assignment: [kdsectionassignment] @relation(name: "ALLKDSECTIONASSIGNMENT", storage: Embedded)
+ 
 }
 
 #this is kdsection video schema
 
-type kdsectionvideo {
+type kdsectionvideo @embedded{
   id: ID! @id
   link: String
 }
 
 #this is the kdsectiontheory image schema
 
-type kdsectiontheoryimage {
+type kdsectiontheoryimage @embedded{
   id: ID! @id
   imagePath: String
 }
 
 #this is the kdsectiontheoryrichtext schema
 
-type kdsectiontheoryrichtext {
+type kdsectiontheoryrichtext @embedded{
   id: ID! @id
   textData: String
 }
 
 #this is the kdsectionquiz schema
 
-type kdsectionquiz {
+type kdsectionquiz @embedded{
   id: ID! @id
   questionsImagePath: String
   answerImagePath: String
   answerKey:String
-  videoSolutionUrl: [kdsectionvideosolurl]
+  videoSolutionUrl: [kdsectionvideosolurl] @relation(name:"ALLKDVIDEOSOLUTIONURLS", storage:embedded)
 }
 
 #this is the kdsectionvideosolurl schema
 
-type kdsectionvideosolurl {
+type kdsectionvideosolurl @embedded{
   id: ID! @id
   videoUrl: String
 }
 
 #this is the kdsectionassignment schema
 
-type kdsectionassignment {
+type kdsectionassignment @embedded{
   id: ID! @id
   questionImagePath: String
   answerImagePath: String
-  assignmentVideoSolution: [kdsectionvideosolurl]
+  assignmentVideoSolution: [kdsectionvideosolurl] 
 }

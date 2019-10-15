@@ -16,8 +16,26 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
-  post: (where?: PostWhereInput) => Promise<boolean>;
-  user: (where?: UserWhereInput) => Promise<boolean>;
+  kdchapter: (where?: kdchapterWhereInput) => Promise<boolean>;
+  kdpage: (where?: kdpageWhereInput) => Promise<boolean>;
+  kdsection: (where?: kdsectionWhereInput) => Promise<boolean>;
+  kdsectionassignment: (
+    where?: kdsectionassignmentWhereInput
+  ) => Promise<boolean>;
+  kdsectionquiz: (where?: kdsectionquizWhereInput) => Promise<boolean>;
+  kdsectiontheoryimage: (
+    where?: kdsectiontheoryimageWhereInput
+  ) => Promise<boolean>;
+  kdsectiontheoryrichtext: (
+    where?: kdsectiontheoryrichtextWhereInput
+  ) => Promise<boolean>;
+  kdsectiontype: (where?: kdsectiontypeWhereInput) => Promise<boolean>;
+  kdsectionvideo: (where?: kdsectionvideoWhereInput) => Promise<boolean>;
+  kdsectionvideosolurl: (
+    where?: kdsectionvideosolurlWhereInput
+  ) => Promise<boolean>;
+  kdsubject: (where?: kdsubjectWhereInput) => Promise<boolean>;
+  kdtopic: (where?: kdtopicWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -39,82 +57,480 @@ export interface Prisma {
    * Queries
    */
 
-  post: (where: PostWhereUniqueInput) => PostNullablePromise;
-  posts: (args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
+  kdchapter: (where: kdchapterWhereUniqueInput) => kdchapterNullablePromise;
+  kdchapters: (args?: {
+    where?: kdchapterWhereInput;
+    orderBy?: kdchapterOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<Post>;
-  postsConnection: (args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
+  }) => FragmentableArray<kdchapter>;
+  kdchaptersConnection: (args?: {
+    where?: kdchapterWhereInput;
+    orderBy?: kdchapterOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => PostConnectionPromise;
-  user: (where: UserWhereUniqueInput) => UserNullablePromise;
-  users: (args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
+  }) => kdchapterConnectionPromise;
+  kdpage: (where: kdpageWhereUniqueInput) => kdpageNullablePromise;
+  kdpages: (args?: {
+    where?: kdpageWhereInput;
+    orderBy?: kdpageOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<User>;
-  usersConnection: (args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
+  }) => FragmentableArray<kdpage>;
+  kdpagesConnection: (args?: {
+    where?: kdpageWhereInput;
+    orderBy?: kdpageOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => UserConnectionPromise;
+  }) => kdpageConnectionPromise;
+  kdsection: (where: kdsectionWhereUniqueInput) => kdsectionNullablePromise;
+  kdsections: (args?: {
+    where?: kdsectionWhereInput;
+    orderBy?: kdsectionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsection>;
+  kdsectionsConnection: (args?: {
+    where?: kdsectionWhereInput;
+    orderBy?: kdsectionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectionConnectionPromise;
+  kdsectionassignment: (
+    where: kdsectionassignmentWhereUniqueInput
+  ) => kdsectionassignmentNullablePromise;
+  kdsectionassignments: (args?: {
+    where?: kdsectionassignmentWhereInput;
+    orderBy?: kdsectionassignmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectionassignment>;
+  kdsectionassignmentsConnection: (args?: {
+    where?: kdsectionassignmentWhereInput;
+    orderBy?: kdsectionassignmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectionassignmentConnectionPromise;
+  kdsectionquiz: (
+    where: kdsectionquizWhereUniqueInput
+  ) => kdsectionquizNullablePromise;
+  kdsectionquizzes: (args?: {
+    where?: kdsectionquizWhereInput;
+    orderBy?: kdsectionquizOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectionquiz>;
+  kdsectionquizzesConnection: (args?: {
+    where?: kdsectionquizWhereInput;
+    orderBy?: kdsectionquizOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectionquizConnectionPromise;
+  kdsectiontheoryimage: (
+    where: kdsectiontheoryimageWhereUniqueInput
+  ) => kdsectiontheoryimageNullablePromise;
+  kdsectiontheoryimages: (args?: {
+    where?: kdsectiontheoryimageWhereInput;
+    orderBy?: kdsectiontheoryimageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectiontheoryimage>;
+  kdsectiontheoryimagesConnection: (args?: {
+    where?: kdsectiontheoryimageWhereInput;
+    orderBy?: kdsectiontheoryimageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectiontheoryimageConnectionPromise;
+  kdsectiontheoryrichtext: (
+    where: kdsectiontheoryrichtextWhereUniqueInput
+  ) => kdsectiontheoryrichtextNullablePromise;
+  kdsectiontheoryrichtexts: (args?: {
+    where?: kdsectiontheoryrichtextWhereInput;
+    orderBy?: kdsectiontheoryrichtextOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectiontheoryrichtext>;
+  kdsectiontheoryrichtextsConnection: (args?: {
+    where?: kdsectiontheoryrichtextWhereInput;
+    orderBy?: kdsectiontheoryrichtextOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectiontheoryrichtextConnectionPromise;
+  kdsectiontype: (
+    where: kdsectiontypeWhereUniqueInput
+  ) => kdsectiontypeNullablePromise;
+  kdsectiontypes: (args?: {
+    where?: kdsectiontypeWhereInput;
+    orderBy?: kdsectiontypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectiontype>;
+  kdsectiontypesConnection: (args?: {
+    where?: kdsectiontypeWhereInput;
+    orderBy?: kdsectiontypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectiontypeConnectionPromise;
+  kdsectionvideo: (
+    where: kdsectionvideoWhereUniqueInput
+  ) => kdsectionvideoNullablePromise;
+  kdsectionvideos: (args?: {
+    where?: kdsectionvideoWhereInput;
+    orderBy?: kdsectionvideoOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectionvideo>;
+  kdsectionvideosConnection: (args?: {
+    where?: kdsectionvideoWhereInput;
+    orderBy?: kdsectionvideoOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectionvideoConnectionPromise;
+  kdsectionvideosolurl: (
+    where: kdsectionvideosolurlWhereUniqueInput
+  ) => kdsectionvideosolurlNullablePromise;
+  kdsectionvideosolurls: (args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsectionvideosolurl>;
+  kdsectionvideosolurlsConnection: (args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsectionvideosolurlConnectionPromise;
+  kdsubject: (where: kdsubjectWhereUniqueInput) => kdsubjectNullablePromise;
+  kdsubjects: (args?: {
+    where?: kdsubjectWhereInput;
+    orderBy?: kdsubjectOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdsubject>;
+  kdsubjectsConnection: (args?: {
+    where?: kdsubjectWhereInput;
+    orderBy?: kdsubjectOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdsubjectConnectionPromise;
+  kdtopic: (where: kdtopicWhereUniqueInput) => kdtopicNullablePromise;
+  kdtopics: (args?: {
+    where?: kdtopicWhereInput;
+    orderBy?: kdtopicOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<kdtopic>;
+  kdtopicsConnection: (args?: {
+    where?: kdtopicWhereInput;
+    orderBy?: kdtopicOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => kdtopicConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
    * Mutations
    */
 
-  createPost: (data: PostCreateInput) => PostPromise;
-  updatePost: (args: {
-    data: PostUpdateInput;
-    where: PostWhereUniqueInput;
-  }) => PostPromise;
-  updateManyPosts: (args: {
-    data: PostUpdateManyMutationInput;
-    where?: PostWhereInput;
+  createkdchapter: (data: kdchapterCreateInput) => kdchapterPromise;
+  updatekdchapter: (args: {
+    data: kdchapterUpdateInput;
+    where: kdchapterWhereUniqueInput;
+  }) => kdchapterPromise;
+  updateManykdchapters: (args: {
+    data: kdchapterUpdateManyMutationInput;
+    where?: kdchapterWhereInput;
   }) => BatchPayloadPromise;
-  upsertPost: (args: {
-    where: PostWhereUniqueInput;
-    create: PostCreateInput;
-    update: PostUpdateInput;
-  }) => PostPromise;
-  deletePost: (where: PostWhereUniqueInput) => PostPromise;
-  deleteManyPosts: (where?: PostWhereInput) => BatchPayloadPromise;
-  createUser: (data: UserCreateInput) => UserPromise;
-  updateUser: (args: {
-    data: UserUpdateInput;
-    where: UserWhereUniqueInput;
-  }) => UserPromise;
-  updateManyUsers: (args: {
-    data: UserUpdateManyMutationInput;
-    where?: UserWhereInput;
+  upsertkdchapter: (args: {
+    where: kdchapterWhereUniqueInput;
+    create: kdchapterCreateInput;
+    update: kdchapterUpdateInput;
+  }) => kdchapterPromise;
+  deletekdchapter: (where: kdchapterWhereUniqueInput) => kdchapterPromise;
+  deleteManykdchapters: (where?: kdchapterWhereInput) => BatchPayloadPromise;
+  createkdpage: (data: kdpageCreateInput) => kdpagePromise;
+  updatekdpage: (args: {
+    data: kdpageUpdateInput;
+    where: kdpageWhereUniqueInput;
+  }) => kdpagePromise;
+  updateManykdpages: (args: {
+    data: kdpageUpdateManyMutationInput;
+    where?: kdpageWhereInput;
   }) => BatchPayloadPromise;
-  upsertUser: (args: {
-    where: UserWhereUniqueInput;
-    create: UserCreateInput;
-    update: UserUpdateInput;
-  }) => UserPromise;
-  deleteUser: (where: UserWhereUniqueInput) => UserPromise;
-  deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
+  upsertkdpage: (args: {
+    where: kdpageWhereUniqueInput;
+    create: kdpageCreateInput;
+    update: kdpageUpdateInput;
+  }) => kdpagePromise;
+  deletekdpage: (where: kdpageWhereUniqueInput) => kdpagePromise;
+  deleteManykdpages: (where?: kdpageWhereInput) => BatchPayloadPromise;
+  createkdsection: (data: kdsectionCreateInput) => kdsectionPromise;
+  updatekdsection: (args: {
+    data: kdsectionUpdateInput;
+    where: kdsectionWhereUniqueInput;
+  }) => kdsectionPromise;
+  updateManykdsections: (args: {
+    data: kdsectionUpdateManyMutationInput;
+    where?: kdsectionWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsection: (args: {
+    where: kdsectionWhereUniqueInput;
+    create: kdsectionCreateInput;
+    update: kdsectionUpdateInput;
+  }) => kdsectionPromise;
+  deletekdsection: (where: kdsectionWhereUniqueInput) => kdsectionPromise;
+  deleteManykdsections: (where?: kdsectionWhereInput) => BatchPayloadPromise;
+  createkdsectionassignment: (
+    data: kdsectionassignmentCreateInput
+  ) => kdsectionassignmentPromise;
+  updatekdsectionassignment: (args: {
+    data: kdsectionassignmentUpdateInput;
+    where: kdsectionassignmentWhereUniqueInput;
+  }) => kdsectionassignmentPromise;
+  updateManykdsectionassignments: (args: {
+    data: kdsectionassignmentUpdateManyMutationInput;
+    where?: kdsectionassignmentWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectionassignment: (args: {
+    where: kdsectionassignmentWhereUniqueInput;
+    create: kdsectionassignmentCreateInput;
+    update: kdsectionassignmentUpdateInput;
+  }) => kdsectionassignmentPromise;
+  deletekdsectionassignment: (
+    where: kdsectionassignmentWhereUniqueInput
+  ) => kdsectionassignmentPromise;
+  deleteManykdsectionassignments: (
+    where?: kdsectionassignmentWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectionquiz: (data: kdsectionquizCreateInput) => kdsectionquizPromise;
+  updatekdsectionquiz: (args: {
+    data: kdsectionquizUpdateInput;
+    where: kdsectionquizWhereUniqueInput;
+  }) => kdsectionquizPromise;
+  updateManykdsectionquizzes: (args: {
+    data: kdsectionquizUpdateManyMutationInput;
+    where?: kdsectionquizWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectionquiz: (args: {
+    where: kdsectionquizWhereUniqueInput;
+    create: kdsectionquizCreateInput;
+    update: kdsectionquizUpdateInput;
+  }) => kdsectionquizPromise;
+  deletekdsectionquiz: (
+    where: kdsectionquizWhereUniqueInput
+  ) => kdsectionquizPromise;
+  deleteManykdsectionquizzes: (
+    where?: kdsectionquizWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectiontheoryimage: (
+    data: kdsectiontheoryimageCreateInput
+  ) => kdsectiontheoryimagePromise;
+  updatekdsectiontheoryimage: (args: {
+    data: kdsectiontheoryimageUpdateInput;
+    where: kdsectiontheoryimageWhereUniqueInput;
+  }) => kdsectiontheoryimagePromise;
+  updateManykdsectiontheoryimages: (args: {
+    data: kdsectiontheoryimageUpdateManyMutationInput;
+    where?: kdsectiontheoryimageWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectiontheoryimage: (args: {
+    where: kdsectiontheoryimageWhereUniqueInput;
+    create: kdsectiontheoryimageCreateInput;
+    update: kdsectiontheoryimageUpdateInput;
+  }) => kdsectiontheoryimagePromise;
+  deletekdsectiontheoryimage: (
+    where: kdsectiontheoryimageWhereUniqueInput
+  ) => kdsectiontheoryimagePromise;
+  deleteManykdsectiontheoryimages: (
+    where?: kdsectiontheoryimageWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectiontheoryrichtext: (
+    data: kdsectiontheoryrichtextCreateInput
+  ) => kdsectiontheoryrichtextPromise;
+  updatekdsectiontheoryrichtext: (args: {
+    data: kdsectiontheoryrichtextUpdateInput;
+    where: kdsectiontheoryrichtextWhereUniqueInput;
+  }) => kdsectiontheoryrichtextPromise;
+  updateManykdsectiontheoryrichtexts: (args: {
+    data: kdsectiontheoryrichtextUpdateManyMutationInput;
+    where?: kdsectiontheoryrichtextWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectiontheoryrichtext: (args: {
+    where: kdsectiontheoryrichtextWhereUniqueInput;
+    create: kdsectiontheoryrichtextCreateInput;
+    update: kdsectiontheoryrichtextUpdateInput;
+  }) => kdsectiontheoryrichtextPromise;
+  deletekdsectiontheoryrichtext: (
+    where: kdsectiontheoryrichtextWhereUniqueInput
+  ) => kdsectiontheoryrichtextPromise;
+  deleteManykdsectiontheoryrichtexts: (
+    where?: kdsectiontheoryrichtextWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectiontype: (data: kdsectiontypeCreateInput) => kdsectiontypePromise;
+  updatekdsectiontype: (args: {
+    data: kdsectiontypeUpdateInput;
+    where: kdsectiontypeWhereUniqueInput;
+  }) => kdsectiontypePromise;
+  upsertkdsectiontype: (args: {
+    where: kdsectiontypeWhereUniqueInput;
+    create: kdsectiontypeCreateInput;
+    update: kdsectiontypeUpdateInput;
+  }) => kdsectiontypePromise;
+  deletekdsectiontype: (
+    where: kdsectiontypeWhereUniqueInput
+  ) => kdsectiontypePromise;
+  deleteManykdsectiontypes: (
+    where?: kdsectiontypeWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectionvideo: (
+    data: kdsectionvideoCreateInput
+  ) => kdsectionvideoPromise;
+  updatekdsectionvideo: (args: {
+    data: kdsectionvideoUpdateInput;
+    where: kdsectionvideoWhereUniqueInput;
+  }) => kdsectionvideoPromise;
+  updateManykdsectionvideos: (args: {
+    data: kdsectionvideoUpdateManyMutationInput;
+    where?: kdsectionvideoWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectionvideo: (args: {
+    where: kdsectionvideoWhereUniqueInput;
+    create: kdsectionvideoCreateInput;
+    update: kdsectionvideoUpdateInput;
+  }) => kdsectionvideoPromise;
+  deletekdsectionvideo: (
+    where: kdsectionvideoWhereUniqueInput
+  ) => kdsectionvideoPromise;
+  deleteManykdsectionvideos: (
+    where?: kdsectionvideoWhereInput
+  ) => BatchPayloadPromise;
+  createkdsectionvideosolurl: (
+    data: kdsectionvideosolurlCreateInput
+  ) => kdsectionvideosolurlPromise;
+  updatekdsectionvideosolurl: (args: {
+    data: kdsectionvideosolurlUpdateInput;
+    where: kdsectionvideosolurlWhereUniqueInput;
+  }) => kdsectionvideosolurlPromise;
+  updateManykdsectionvideosolurls: (args: {
+    data: kdsectionvideosolurlUpdateManyMutationInput;
+    where?: kdsectionvideosolurlWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsectionvideosolurl: (args: {
+    where: kdsectionvideosolurlWhereUniqueInput;
+    create: kdsectionvideosolurlCreateInput;
+    update: kdsectionvideosolurlUpdateInput;
+  }) => kdsectionvideosolurlPromise;
+  deletekdsectionvideosolurl: (
+    where: kdsectionvideosolurlWhereUniqueInput
+  ) => kdsectionvideosolurlPromise;
+  deleteManykdsectionvideosolurls: (
+    where?: kdsectionvideosolurlWhereInput
+  ) => BatchPayloadPromise;
+  createkdsubject: (data: kdsubjectCreateInput) => kdsubjectPromise;
+  updatekdsubject: (args: {
+    data: kdsubjectUpdateInput;
+    where: kdsubjectWhereUniqueInput;
+  }) => kdsubjectPromise;
+  updateManykdsubjects: (args: {
+    data: kdsubjectUpdateManyMutationInput;
+    where?: kdsubjectWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdsubject: (args: {
+    where: kdsubjectWhereUniqueInput;
+    create: kdsubjectCreateInput;
+    update: kdsubjectUpdateInput;
+  }) => kdsubjectPromise;
+  deletekdsubject: (where: kdsubjectWhereUniqueInput) => kdsubjectPromise;
+  deleteManykdsubjects: (where?: kdsubjectWhereInput) => BatchPayloadPromise;
+  createkdtopic: (data: kdtopicCreateInput) => kdtopicPromise;
+  updatekdtopic: (args: {
+    data: kdtopicUpdateInput;
+    where: kdtopicWhereUniqueInput;
+  }) => kdtopicPromise;
+  updateManykdtopics: (args: {
+    data: kdtopicUpdateManyMutationInput;
+    where?: kdtopicWhereInput;
+  }) => BatchPayloadPromise;
+  upsertkdtopic: (args: {
+    where: kdtopicWhereUniqueInput;
+    create: kdtopicCreateInput;
+    update: kdtopicUpdateInput;
+  }) => kdtopicPromise;
+  deletekdtopic: (where: kdtopicWhereUniqueInput) => kdtopicPromise;
+  deleteManykdtopics: (where?: kdtopicWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -124,12 +540,42 @@ export interface Prisma {
 }
 
 export interface Subscription {
-  post: (
-    where?: PostSubscriptionWhereInput
-  ) => PostSubscriptionPayloadSubscription;
-  user: (
-    where?: UserSubscriptionWhereInput
-  ) => UserSubscriptionPayloadSubscription;
+  kdchapter: (
+    where?: kdchapterSubscriptionWhereInput
+  ) => kdchapterSubscriptionPayloadSubscription;
+  kdpage: (
+    where?: kdpageSubscriptionWhereInput
+  ) => kdpageSubscriptionPayloadSubscription;
+  kdsection: (
+    where?: kdsectionSubscriptionWhereInput
+  ) => kdsectionSubscriptionPayloadSubscription;
+  kdsectionassignment: (
+    where?: kdsectionassignmentSubscriptionWhereInput
+  ) => kdsectionassignmentSubscriptionPayloadSubscription;
+  kdsectionquiz: (
+    where?: kdsectionquizSubscriptionWhereInput
+  ) => kdsectionquizSubscriptionPayloadSubscription;
+  kdsectiontheoryimage: (
+    where?: kdsectiontheoryimageSubscriptionWhereInput
+  ) => kdsectiontheoryimageSubscriptionPayloadSubscription;
+  kdsectiontheoryrichtext: (
+    where?: kdsectiontheoryrichtextSubscriptionWhereInput
+  ) => kdsectiontheoryrichtextSubscriptionPayloadSubscription;
+  kdsectiontype: (
+    where?: kdsectiontypeSubscriptionWhereInput
+  ) => kdsectiontypeSubscriptionPayloadSubscription;
+  kdsectionvideo: (
+    where?: kdsectionvideoSubscriptionWhereInput
+  ) => kdsectionvideoSubscriptionPayloadSubscription;
+  kdsectionvideosolurl: (
+    where?: kdsectionvideosolurlSubscriptionWhereInput
+  ) => kdsectionvideosolurlSubscriptionPayloadSubscription;
+  kdsubject: (
+    where?: kdsubjectSubscriptionWhereInput
+  ) => kdsubjectSubscriptionPayloadSubscription;
+  kdtopic: (
+    where?: kdtopicSubscriptionWhereInput
+  ) => kdtopicSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -140,131 +586,779 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type PostOrderByInput =
+export type kdsectiontheoryrichtextOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "published_ASC"
-  | "published_DESC";
+  | "textData_ASC"
+  | "textData_DESC";
 
-export type UserOrderByInput =
+export type kdtopicOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "name_ASC"
-  | "name_DESC";
+  | "chapterTitle_ASC"
+  | "chapterTitle_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "topicTitle_ASC"
+  | "topicTitle_DESC"
+  | "chapterId_ASC"
+  | "chapterId_DESC";
+
+export type kdsectiontheoryimageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "imagePath_ASC"
+  | "imagePath_DESC";
+
+export type kdsubjectOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "subjectTitle_ASC"
+  | "subjectTitle_DESC"
+  | "description_ASC"
+  | "description_DESC";
+
+export type kdpageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "topicTitle_ASC"
+  | "topicTitle_DESC"
+  | "topicId_ASC"
+  | "topicId_DESC"
+  | "pageType_ASC"
+  | "pageType_DESC"
+  | "pageTitle_ASC"
+  | "pageTitle_DESC";
+
+export type kdsectionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "sectionTitle_ASC"
+  | "sectionTitle_DESC"
+  | "topicTitle_ASC"
+  | "topicTitle_DESC";
+
+export type kdsectiontypeOrderByInput = "id_ASC" | "id_DESC";
+
+export type kdsectionvideoOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "link_ASC"
+  | "link_DESC";
+
+export type kdchapterOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "subjectTitle_ASC"
+  | "subjectTitle_DESC"
+  | "chapterTitle_ASC"
+  | "chapterTitle_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "subjectId_ASC"
+  | "subjectId_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface UserUpdateOneWithoutPostsInput {
-  create?: Maybe<UserCreateWithoutPostsInput>;
-  update?: Maybe<UserUpdateWithoutPostsDataInput>;
-  upsert?: Maybe<UserUpsertWithoutPostsInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
+export type kdsectionquizOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "questionsImagePath_ASC"
+  | "questionsImagePath_DESC"
+  | "answerImagePath_ASC"
+  | "answerImagePath_DESC"
+  | "answerKey_ASC"
+  | "answerKey_DESC";
+
+export type kdsectionvideosolurlOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "videoUrl_ASC"
+  | "videoUrl_DESC";
+
+export type kdsectionassignmentOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "questionImagePath_ASC"
+  | "questionImagePath_DESC"
+  | "answerImagePath_ASC"
+  | "answerImagePath_DESC";
+
+export interface kdsectionvideoUpdateWithWhereUniqueNestedInput {
+  where: kdsectionvideoWhereUniqueInput;
+  data: kdsectionvideoUpdateDataInput;
 }
 
-export type PostWhereUniqueInput = AtLeastOne<{
+export type kdchapterWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
-  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+export interface kdpageCreateInput {
+  id?: Maybe<ID_Input>;
+  topicTitle: String;
+  topicId?: Maybe<String>;
+  pageType: String;
+  pageTitle: String;
+  sections?: Maybe<kdsectionCreateManyInput>;
+}
+
+export interface kdsectionUpdateManyDataInput {
+  sectionTitle?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+}
+
+export interface kdsectionCreateManyInput {
+  create?: Maybe<kdsectionCreateInput[] | kdsectionCreateInput>;
+  connect?: Maybe<kdsectionWhereUniqueInput[] | kdsectionWhereUniqueInput>;
+}
+
+export interface kdsectiontheoryimageUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontheoryimageWhereUniqueInput;
+  data: kdsectiontheoryimageUpdateDataInput;
+}
+
+export interface kdsectionCreateInput {
+  id?: Maybe<ID_Input>;
+  sectionTitle?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  sectionType?: Maybe<kdsectiontypeCreateManyInput>;
+}
+
+export interface kdtopicSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdtopicWhereInput>;
+  AND?: Maybe<kdtopicSubscriptionWhereInput[] | kdtopicSubscriptionWhereInput>;
+  OR?: Maybe<kdtopicSubscriptionWhereInput[] | kdtopicSubscriptionWhereInput>;
+  NOT?: Maybe<kdtopicSubscriptionWhereInput[] | kdtopicSubscriptionWhereInput>;
+}
+
+export interface kdsectiontypeCreateManyInput {
+  create?: Maybe<kdsectiontypeCreateInput[] | kdsectiontypeCreateInput>;
+  connect?: Maybe<
+    kdsectiontypeWhereUniqueInput[] | kdsectiontypeWhereUniqueInput
+  >;
+}
+
+export interface kdsubjectSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsubjectWhereInput>;
+  AND?: Maybe<
+    kdsubjectSubscriptionWhereInput[] | kdsubjectSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    kdsubjectSubscriptionWhereInput[] | kdsubjectSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    kdsubjectSubscriptionWhereInput[] | kdsubjectSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectiontypeCreateInput {
+  id?: Maybe<ID_Input>;
+  videos?: Maybe<kdsectionvideoCreateManyInput>;
+  theoryImage?: Maybe<kdsectiontheoryimageCreateManyInput>;
+  theoryRichText?: Maybe<kdsectiontheoryrichtextCreateManyInput>;
+  quiz?: Maybe<kdsectionquizCreateManyInput>;
+  assignment?: Maybe<kdsectionassignmentCreateManyInput>;
+}
+
+export interface kdsectionvideosolurlSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectionvideosolurlWhereInput>;
+  AND?: Maybe<
+    | kdsectionvideosolurlSubscriptionWhereInput[]
+    | kdsectionvideosolurlSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectionvideosolurlSubscriptionWhereInput[]
+    | kdsectionvideosolurlSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectionvideosolurlSubscriptionWhereInput[]
+    | kdsectionvideosolurlSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectionvideoCreateManyInput {
+  create?: Maybe<kdsectionvideoCreateInput[] | kdsectionvideoCreateInput>;
+  connect?: Maybe<
+    kdsectionvideoWhereUniqueInput[] | kdsectionvideoWhereUniqueInput
+  >;
+}
+
+export interface kdsectionvideoSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectionvideoWhereInput>;
+  AND?: Maybe<
+    | kdsectionvideoSubscriptionWhereInput[]
+    | kdsectionvideoSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectionvideoSubscriptionWhereInput[]
+    | kdsectionvideoSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectionvideoSubscriptionWhereInput[]
+    | kdsectionvideoSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectionvideoCreateInput {
+  id?: Maybe<ID_Input>;
+  link?: Maybe<String>;
+}
+
+export interface kdsectiontypeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectiontypeWhereInput>;
+  AND?: Maybe<
+    kdsectiontypeSubscriptionWhereInput[] | kdsectiontypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    kdsectiontypeSubscriptionWhereInput[] | kdsectiontypeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    kdsectiontypeSubscriptionWhereInput[] | kdsectiontypeSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectiontheoryimageCreateManyInput {
+  create?: Maybe<
+    kdsectiontheoryimageCreateInput[] | kdsectiontheoryimageCreateInput
+  >;
+  connect?: Maybe<
+    | kdsectiontheoryimageWhereUniqueInput[]
+    | kdsectiontheoryimageWhereUniqueInput
+  >;
+}
+
+export interface kdsectiontheoryrichtextSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectiontheoryrichtextWhereInput>;
+  AND?: Maybe<
+    | kdsectiontheoryrichtextSubscriptionWhereInput[]
+    | kdsectiontheoryrichtextSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectiontheoryrichtextSubscriptionWhereInput[]
+    | kdsectiontheoryrichtextSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectiontheoryrichtextSubscriptionWhereInput[]
+    | kdsectiontheoryrichtextSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectiontheoryimageCreateInput {
+  id?: Maybe<ID_Input>;
+  imagePath?: Maybe<String>;
+}
+
+export interface kdsectiontheoryimageSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectiontheoryimageWhereInput>;
+  AND?: Maybe<
+    | kdsectiontheoryimageSubscriptionWhereInput[]
+    | kdsectiontheoryimageSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectiontheoryimageSubscriptionWhereInput[]
+    | kdsectiontheoryimageSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectiontheoryimageSubscriptionWhereInput[]
+    | kdsectiontheoryimageSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectiontheoryrichtextCreateManyInput {
+  create?: Maybe<
+    kdsectiontheoryrichtextCreateInput[] | kdsectiontheoryrichtextCreateInput
+  >;
+  connect?: Maybe<
+    | kdsectiontheoryrichtextWhereUniqueInput[]
+    | kdsectiontheoryrichtextWhereUniqueInput
+  >;
+}
+
+export interface kdsectionquizSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectionquizWhereInput>;
+  AND?: Maybe<
+    kdsectionquizSubscriptionWhereInput[] | kdsectionquizSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    kdsectionquizSubscriptionWhereInput[] | kdsectionquizSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    kdsectionquizSubscriptionWhereInput[] | kdsectionquizSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectiontheoryrichtextCreateInput {
+  id?: Maybe<ID_Input>;
+  textData?: Maybe<String>;
+}
+
+export interface kdsectionassignmentSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdsectionassignmentWhereInput>;
+  AND?: Maybe<
+    | kdsectionassignmentSubscriptionWhereInput[]
+    | kdsectionassignmentSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectionassignmentSubscriptionWhereInput[]
+    | kdsectionassignmentSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectionassignmentSubscriptionWhereInput[]
+    | kdsectionassignmentSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectionquizCreateManyInput {
+  create?: Maybe<kdsectionquizCreateInput[] | kdsectionquizCreateInput>;
+  connect?: Maybe<
+    kdsectionquizWhereUniqueInput[] | kdsectionquizWhereUniqueInput
+  >;
+}
+
+export interface kdtopicWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  chapterTitle?: Maybe<String>;
+  chapterTitle_not?: Maybe<String>;
+  chapterTitle_in?: Maybe<String[] | String>;
+  chapterTitle_not_in?: Maybe<String[] | String>;
+  chapterTitle_lt?: Maybe<String>;
+  chapterTitle_lte?: Maybe<String>;
+  chapterTitle_gt?: Maybe<String>;
+  chapterTitle_gte?: Maybe<String>;
+  chapterTitle_contains?: Maybe<String>;
+  chapterTitle_not_contains?: Maybe<String>;
+  chapterTitle_starts_with?: Maybe<String>;
+  chapterTitle_not_starts_with?: Maybe<String>;
+  chapterTitle_ends_with?: Maybe<String>;
+  chapterTitle_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  chapterId?: Maybe<String>;
+  chapterId_not?: Maybe<String>;
+  chapterId_in?: Maybe<String[] | String>;
+  chapterId_not_in?: Maybe<String[] | String>;
+  chapterId_lt?: Maybe<String>;
+  chapterId_lte?: Maybe<String>;
+  chapterId_gt?: Maybe<String>;
+  chapterId_gte?: Maybe<String>;
+  chapterId_contains?: Maybe<String>;
+  chapterId_not_contains?: Maybe<String>;
+  chapterId_starts_with?: Maybe<String>;
+  chapterId_not_starts_with?: Maybe<String>;
+  chapterId_ends_with?: Maybe<String>;
+  chapterId_not_ends_with?: Maybe<String>;
+  pages_every?: Maybe<kdpageWhereInput>;
+  pages_some?: Maybe<kdpageWhereInput>;
+  pages_none?: Maybe<kdpageWhereInput>;
+  AND?: Maybe<kdtopicWhereInput[] | kdtopicWhereInput>;
+  OR?: Maybe<kdtopicWhereInput[] | kdtopicWhereInput>;
+  NOT?: Maybe<kdtopicWhereInput[] | kdtopicWhereInput>;
+}
+
+export interface kdsectionquizCreateInput {
+  id?: Maybe<ID_Input>;
+  questionsImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerKey?: Maybe<String>;
+  videoSolutionUrl?: Maybe<kdsectionvideosolurlCreateManyInput>;
+}
+
+export interface kdpageSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdpageWhereInput>;
+  AND?: Maybe<kdpageSubscriptionWhereInput[] | kdpageSubscriptionWhereInput>;
+  OR?: Maybe<kdpageSubscriptionWhereInput[] | kdpageSubscriptionWhereInput>;
+  NOT?: Maybe<kdpageSubscriptionWhereInput[] | kdpageSubscriptionWhereInput>;
+}
+
+export interface kdsectionvideosolurlCreateManyInput {
+  create?: Maybe<
+    kdsectionvideosolurlCreateInput[] | kdsectionvideosolurlCreateInput
+  >;
+  connect?: Maybe<
+    | kdsectionvideosolurlWhereUniqueInput[]
+    | kdsectionvideosolurlWhereUniqueInput
+  >;
+}
+
+export interface kdtopicUpdateManyMutationInput {
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  chapterId?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlCreateInput {
+  id?: Maybe<ID_Input>;
+  videoUrl?: Maybe<String>;
+}
+
+export type kdpageWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectionassignmentCreateManyInput {
+  create?: Maybe<
+    kdsectionassignmentCreateInput[] | kdsectionassignmentCreateInput
+  >;
+  connect?: Maybe<
+    kdsectionassignmentWhereUniqueInput[] | kdsectionassignmentWhereUniqueInput
+  >;
+}
+
+export interface kdchapterUpdateManyDataInput {
+  subjectTitle?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  subjectId?: Maybe<String>;
+}
+
+export interface kdsectionassignmentCreateInput {
+  id?: Maybe<ID_Input>;
+  questionImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  assignmentVideoSolution?: Maybe<kdsectionvideosolurlCreateManyInput>;
+}
+
+export type kdsectionWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdchapterUpdateInput {
+  subjectTitle?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topics?: Maybe<kdtopicUpdateManyInput>;
+  subjectId?: Maybe<String>;
+}
+
+export interface kdchapterUpsertWithWhereUniqueNestedInput {
+  where: kdchapterWhereUniqueInput;
+  update: kdchapterUpdateDataInput;
+  create: kdchapterCreateInput;
+}
+
+export interface kdtopicUpdateManyInput {
+  create?: Maybe<kdtopicCreateInput[] | kdtopicCreateInput>;
   update?: Maybe<
-    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    | PostUpdateWithWhereUniqueWithoutAuthorInput
+    | kdtopicUpdateWithWhereUniqueNestedInput[]
+    | kdtopicUpdateWithWhereUniqueNestedInput
   >;
   upsert?: Maybe<
-    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    | PostUpsertWithWhereUniqueWithoutAuthorInput
+    | kdtopicUpsertWithWhereUniqueNestedInput[]
+    | kdtopicUpsertWithWhereUniqueNestedInput
   >;
-  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
+  delete?: Maybe<kdtopicWhereUniqueInput[] | kdtopicWhereUniqueInput>;
+  connect?: Maybe<kdtopicWhereUniqueInput[] | kdtopicWhereUniqueInput>;
+  set?: Maybe<kdtopicWhereUniqueInput[] | kdtopicWhereUniqueInput>;
+  disconnect?: Maybe<kdtopicWhereUniqueInput[] | kdtopicWhereUniqueInput>;
+  deleteMany?: Maybe<kdtopicScalarWhereInput[] | kdtopicScalarWhereInput>;
   updateMany?: Maybe<
-    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
+    | kdtopicUpdateManyWithWhereNestedInput[]
+    | kdtopicUpdateManyWithWhereNestedInput
   >;
 }
 
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  name: String;
-  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
-}
-
-export interface PostUpdateManyMutationInput {
-  title?: Maybe<String>;
-  published?: Maybe<Boolean>;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface PostCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  published?: Maybe<Boolean>;
-  author?: Maybe<UserCreateOneWithoutPostsInput>;
-}
-
-export interface UserUpdateManyMutationInput {
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-}
-
-export interface UserCreateOneWithoutPostsInput {
-  create?: Maybe<UserCreateWithoutPostsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput;
-  data: PostUpdateManyDataInput;
-}
-
-export interface UserCreateWithoutPostsInput {
-  id?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  name: String;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
+export type kdsectionassignmentWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  email?: Maybe<String>;
 }>;
 
-export interface PostUpdateInput {
-  title?: Maybe<String>;
-  published?: Maybe<Boolean>;
-  author?: Maybe<UserUpdateOneWithoutPostsInput>;
+export interface kdtopicUpdateWithWhereUniqueNestedInput {
+  where: kdtopicWhereUniqueInput;
+  data: kdtopicUpdateDataInput;
 }
 
-export interface PostUpdateWithoutAuthorDataInput {
-  title?: Maybe<String>;
-  published?: Maybe<Boolean>;
+export interface kdchapterUpdateManyInput {
+  create?: Maybe<kdchapterCreateInput[] | kdchapterCreateInput>;
+  update?: Maybe<
+    | kdchapterUpdateWithWhereUniqueNestedInput[]
+    | kdchapterUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdchapterUpsertWithWhereUniqueNestedInput[]
+    | kdchapterUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<kdchapterWhereUniqueInput[] | kdchapterWhereUniqueInput>;
+  connect?: Maybe<kdchapterWhereUniqueInput[] | kdchapterWhereUniqueInput>;
+  set?: Maybe<kdchapterWhereUniqueInput[] | kdchapterWhereUniqueInput>;
+  disconnect?: Maybe<kdchapterWhereUniqueInput[] | kdchapterWhereUniqueInput>;
+  deleteMany?: Maybe<kdchapterScalarWhereInput[] | kdchapterScalarWhereInput>;
+  updateMany?: Maybe<
+    | kdchapterUpdateManyWithWhereNestedInput[]
+    | kdchapterUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface UserUpdateInput {
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
+export interface kdtopicUpdateDataInput {
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  chapterId?: Maybe<String>;
+  pages?: Maybe<kdpageUpdateManyInput>;
 }
 
-export interface UserWhereInput {
+export type kdsectionquizWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdpageUpdateManyInput {
+  create?: Maybe<kdpageCreateInput[] | kdpageCreateInput>;
+  update?: Maybe<
+    | kdpageUpdateWithWhereUniqueNestedInput[]
+    | kdpageUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdpageUpsertWithWhereUniqueNestedInput[]
+    | kdpageUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<kdpageWhereUniqueInput[] | kdpageWhereUniqueInput>;
+  connect?: Maybe<kdpageWhereUniqueInput[] | kdpageWhereUniqueInput>;
+  set?: Maybe<kdpageWhereUniqueInput[] | kdpageWhereUniqueInput>;
+  disconnect?: Maybe<kdpageWhereUniqueInput[] | kdpageWhereUniqueInput>;
+  deleteMany?: Maybe<kdpageScalarWhereInput[] | kdpageScalarWhereInput>;
+  updateMany?: Maybe<
+    | kdpageUpdateManyWithWhereNestedInput[]
+    | kdpageUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdsubjectCreateInput {
+  id?: Maybe<ID_Input>;
+  subjectTitle: String;
+  description: String;
+  chapters?: Maybe<kdchapterCreateManyInput>;
+}
+
+export interface kdpageUpdateWithWhereUniqueNestedInput {
+  where: kdpageWhereUniqueInput;
+  data: kdpageUpdateDataInput;
+}
+
+export type kdsectiontheoryimageWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdpageUpdateDataInput {
+  topicTitle?: Maybe<String>;
+  topicId?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+  sections?: Maybe<kdsectionUpdateManyInput>;
+}
+
+export interface kdsectionvideoUpdateManyMutationInput {
+  link?: Maybe<String>;
+}
+
+export interface kdsectionUpdateManyInput {
+  create?: Maybe<kdsectionCreateInput[] | kdsectionCreateInput>;
+  update?: Maybe<
+    | kdsectionUpdateWithWhereUniqueNestedInput[]
+    | kdsectionUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectionUpsertWithWhereUniqueNestedInput[]
+    | kdsectionUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<kdsectionWhereUniqueInput[] | kdsectionWhereUniqueInput>;
+  connect?: Maybe<kdsectionWhereUniqueInput[] | kdsectionWhereUniqueInput>;
+  set?: Maybe<kdsectionWhereUniqueInput[] | kdsectionWhereUniqueInput>;
+  disconnect?: Maybe<kdsectionWhereUniqueInput[] | kdsectionWhereUniqueInput>;
+  deleteMany?: Maybe<kdsectionScalarWhereInput[] | kdsectionScalarWhereInput>;
+  updateMany?: Maybe<
+    | kdsectionUpdateManyWithWhereNestedInput[]
+    | kdsectionUpdateManyWithWhereNestedInput
+  >;
+}
+
+export type kdsectiontheoryrichtextWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectionUpdateWithWhereUniqueNestedInput {
+  where: kdsectionWhereUniqueInput;
+  data: kdsectionUpdateDataInput;
+}
+
+export interface kdsectiontheoryrichtextUpdateManyMutationInput {
+  textData?: Maybe<String>;
+}
+
+export interface kdsectionUpdateDataInput {
+  sectionTitle?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  sectionType?: Maybe<kdsectiontypeUpdateManyInput>;
+}
+
+export type kdsectiontypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectiontypeUpdateManyInput {
+  create?: Maybe<kdsectiontypeCreateInput[] | kdsectiontypeCreateInput>;
+  update?: Maybe<
+    | kdsectiontypeUpdateWithWhereUniqueNestedInput[]
+    | kdsectiontypeUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectiontypeUpsertWithWhereUniqueNestedInput[]
+    | kdsectiontypeUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    kdsectiontypeWhereUniqueInput[] | kdsectiontypeWhereUniqueInput
+  >;
+  connect?: Maybe<
+    kdsectiontypeWhereUniqueInput[] | kdsectiontypeWhereUniqueInput
+  >;
+  set?: Maybe<kdsectiontypeWhereUniqueInput[] | kdsectiontypeWhereUniqueInput>;
+  disconnect?: Maybe<
+    kdsectiontypeWhereUniqueInput[] | kdsectiontypeWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    kdsectiontypeScalarWhereInput[] | kdsectiontypeScalarWhereInput
+  >;
+}
+
+export interface kdsectiontheoryimageUpdateInput {
+  imagePath?: Maybe<String>;
+}
+
+export interface kdsectiontypeUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontypeWhereUniqueInput;
+  data: kdsectiontypeUpdateDataInput;
+}
+
+export type kdsectionvideoWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectiontypeUpdateDataInput {
+  videos?: Maybe<kdsectionvideoUpdateManyInput>;
+  theoryImage?: Maybe<kdsectiontheoryimageUpdateManyInput>;
+  theoryRichText?: Maybe<kdsectiontheoryrichtextUpdateManyInput>;
+  quiz?: Maybe<kdsectionquizUpdateManyInput>;
+  assignment?: Maybe<kdsectionassignmentUpdateManyInput>;
+}
+
+export interface kdsectionassignmentUpdateManyMutationInput {
+  questionImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+}
+
+export interface kdsectionvideoUpdateManyInput {
+  create?: Maybe<kdsectionvideoCreateInput[] | kdsectionvideoCreateInput>;
+  update?: Maybe<
+    | kdsectionvideoUpdateWithWhereUniqueNestedInput[]
+    | kdsectionvideoUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectionvideoUpsertWithWhereUniqueNestedInput[]
+    | kdsectionvideoUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    kdsectionvideoWhereUniqueInput[] | kdsectionvideoWhereUniqueInput
+  >;
+  connect?: Maybe<
+    kdsectionvideoWhereUniqueInput[] | kdsectionvideoWhereUniqueInput
+  >;
+  set?: Maybe<
+    kdsectionvideoWhereUniqueInput[] | kdsectionvideoWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    kdsectionvideoWhereUniqueInput[] | kdsectionvideoWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    kdsectionvideoScalarWhereInput[] | kdsectionvideoScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectionvideoUpdateManyWithWhereNestedInput[]
+    | kdsectionvideoUpdateManyWithWhereNestedInput
+  >;
+}
+
+export type kdsectionvideosolurlWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdpageScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -279,106 +1373,88 @@ export interface UserWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  posts_every?: Maybe<PostWhereInput>;
-  posts_some?: Maybe<PostWhereInput>;
-  posts_none?: Maybe<PostWhereInput>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  topicId?: Maybe<String>;
+  topicId_not?: Maybe<String>;
+  topicId_in?: Maybe<String[] | String>;
+  topicId_not_in?: Maybe<String[] | String>;
+  topicId_lt?: Maybe<String>;
+  topicId_lte?: Maybe<String>;
+  topicId_gt?: Maybe<String>;
+  topicId_gte?: Maybe<String>;
+  topicId_contains?: Maybe<String>;
+  topicId_not_contains?: Maybe<String>;
+  topicId_starts_with?: Maybe<String>;
+  topicId_not_starts_with?: Maybe<String>;
+  topicId_ends_with?: Maybe<String>;
+  topicId_not_ends_with?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageType_not?: Maybe<String>;
+  pageType_in?: Maybe<String[] | String>;
+  pageType_not_in?: Maybe<String[] | String>;
+  pageType_lt?: Maybe<String>;
+  pageType_lte?: Maybe<String>;
+  pageType_gt?: Maybe<String>;
+  pageType_gte?: Maybe<String>;
+  pageType_contains?: Maybe<String>;
+  pageType_not_contains?: Maybe<String>;
+  pageType_starts_with?: Maybe<String>;
+  pageType_not_starts_with?: Maybe<String>;
+  pageType_ends_with?: Maybe<String>;
+  pageType_not_ends_with?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+  pageTitle_not?: Maybe<String>;
+  pageTitle_in?: Maybe<String[] | String>;
+  pageTitle_not_in?: Maybe<String[] | String>;
+  pageTitle_lt?: Maybe<String>;
+  pageTitle_lte?: Maybe<String>;
+  pageTitle_gt?: Maybe<String>;
+  pageTitle_gte?: Maybe<String>;
+  pageTitle_contains?: Maybe<String>;
+  pageTitle_not_contains?: Maybe<String>;
+  pageTitle_starts_with?: Maybe<String>;
+  pageTitle_not_starts_with?: Maybe<String>;
+  pageTitle_ends_with?: Maybe<String>;
+  pageTitle_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdpageScalarWhereInput[] | kdpageScalarWhereInput>;
+  OR?: Maybe<kdpageScalarWhereInput[] | kdpageScalarWhereInput>;
+  NOT?: Maybe<kdpageScalarWhereInput[] | kdpageScalarWhereInput>;
 }
 
-export interface UserUpdateWithoutPostsDataInput {
-  email?: Maybe<String>;
-  name?: Maybe<String>;
+export interface kdsectionUpdateInput {
+  sectionTitle?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  sectionType?: Maybe<kdsectiontypeUpdateManyInput>;
 }
 
-export interface PostUpdateManyDataInput {
-  title?: Maybe<String>;
-  published?: Maybe<Boolean>;
+export interface kdsectionvideoUpdateDataInput {
+  link?: Maybe<String>;
 }
 
-export interface PostCreateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+export type kdsubjectWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectionvideoUpsertWithWhereUniqueNestedInput {
+  where: kdsectionvideoWhereUniqueInput;
+  update: kdsectionvideoUpdateDataInput;
+  create: kdsectionvideoCreateInput;
 }
 
-export interface PostCreateWithoutAuthorInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  published?: Maybe<Boolean>;
-}
-
-export interface PostWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  published?: Maybe<Boolean>;
-  published_not?: Maybe<Boolean>;
-  author?: Maybe<UserWhereInput>;
-  AND?: Maybe<PostWhereInput[] | PostWhereInput>;
-  OR?: Maybe<PostWhereInput[] | PostWhereInput>;
-  NOT?: Maybe<PostWhereInput[] | PostWhereInput>;
-}
-
-export interface UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput;
-  create: UserCreateWithoutPostsInput;
-}
-
-export interface PostScalarWhereInput {
+export interface kdsubjectWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -393,73 +1469,2070 @@ export interface PostScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  published?: Maybe<Boolean>;
-  published_not?: Maybe<Boolean>;
-  AND?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  OR?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  NOT?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
+  subjectTitle?: Maybe<String>;
+  subjectTitle_not?: Maybe<String>;
+  subjectTitle_in?: Maybe<String[] | String>;
+  subjectTitle_not_in?: Maybe<String[] | String>;
+  subjectTitle_lt?: Maybe<String>;
+  subjectTitle_lte?: Maybe<String>;
+  subjectTitle_gt?: Maybe<String>;
+  subjectTitle_gte?: Maybe<String>;
+  subjectTitle_contains?: Maybe<String>;
+  subjectTitle_not_contains?: Maybe<String>;
+  subjectTitle_starts_with?: Maybe<String>;
+  subjectTitle_not_starts_with?: Maybe<String>;
+  subjectTitle_ends_with?: Maybe<String>;
+  subjectTitle_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  chapters_every?: Maybe<kdchapterWhereInput>;
+  chapters_some?: Maybe<kdchapterWhereInput>;
+  chapters_none?: Maybe<kdchapterWhereInput>;
+  AND?: Maybe<kdsubjectWhereInput[] | kdsubjectWhereInput>;
+  OR?: Maybe<kdsubjectWhereInput[] | kdsubjectWhereInput>;
+  NOT?: Maybe<kdsubjectWhereInput[] | kdsubjectWhereInput>;
 }
 
-export interface PostSubscriptionWhereInput {
+export interface kdsectionvideoScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  link?: Maybe<String>;
+  link_not?: Maybe<String>;
+  link_in?: Maybe<String[] | String>;
+  link_not_in?: Maybe<String[] | String>;
+  link_lt?: Maybe<String>;
+  link_lte?: Maybe<String>;
+  link_gt?: Maybe<String>;
+  link_gte?: Maybe<String>;
+  link_contains?: Maybe<String>;
+  link_not_contains?: Maybe<String>;
+  link_starts_with?: Maybe<String>;
+  link_not_starts_with?: Maybe<String>;
+  link_ends_with?: Maybe<String>;
+  link_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    kdsectionvideoScalarWhereInput[] | kdsectionvideoScalarWhereInput
+  >;
+  OR?: Maybe<kdsectionvideoScalarWhereInput[] | kdsectionvideoScalarWhereInput>;
+  NOT?: Maybe<
+    kdsectionvideoScalarWhereInput[] | kdsectionvideoScalarWhereInput
+  >;
+}
+
+export interface kdtopicUpdateManyDataInput {
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  chapterId?: Maybe<String>;
+}
+
+export interface kdsectionvideoUpdateManyWithWhereNestedInput {
+  where: kdsectionvideoScalarWhereInput;
+  data: kdsectionvideoUpdateManyDataInput;
+}
+
+export interface kdtopicScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  chapterTitle?: Maybe<String>;
+  chapterTitle_not?: Maybe<String>;
+  chapterTitle_in?: Maybe<String[] | String>;
+  chapterTitle_not_in?: Maybe<String[] | String>;
+  chapterTitle_lt?: Maybe<String>;
+  chapterTitle_lte?: Maybe<String>;
+  chapterTitle_gt?: Maybe<String>;
+  chapterTitle_gte?: Maybe<String>;
+  chapterTitle_contains?: Maybe<String>;
+  chapterTitle_not_contains?: Maybe<String>;
+  chapterTitle_starts_with?: Maybe<String>;
+  chapterTitle_not_starts_with?: Maybe<String>;
+  chapterTitle_ends_with?: Maybe<String>;
+  chapterTitle_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  chapterId?: Maybe<String>;
+  chapterId_not?: Maybe<String>;
+  chapterId_in?: Maybe<String[] | String>;
+  chapterId_not_in?: Maybe<String[] | String>;
+  chapterId_lt?: Maybe<String>;
+  chapterId_lte?: Maybe<String>;
+  chapterId_gt?: Maybe<String>;
+  chapterId_gte?: Maybe<String>;
+  chapterId_contains?: Maybe<String>;
+  chapterId_not_contains?: Maybe<String>;
+  chapterId_starts_with?: Maybe<String>;
+  chapterId_not_starts_with?: Maybe<String>;
+  chapterId_ends_with?: Maybe<String>;
+  chapterId_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdtopicScalarWhereInput[] | kdtopicScalarWhereInput>;
+  OR?: Maybe<kdtopicScalarWhereInput[] | kdtopicScalarWhereInput>;
+  NOT?: Maybe<kdtopicScalarWhereInput[] | kdtopicScalarWhereInput>;
+}
+
+export interface kdsectionvideoUpdateManyDataInput {
+  link?: Maybe<String>;
+}
+
+export interface kdtopicUpsertWithWhereUniqueNestedInput {
+  where: kdtopicWhereUniqueInput;
+  update: kdtopicUpdateDataInput;
+  create: kdtopicCreateInput;
+}
+
+export interface kdsectiontheoryimageUpdateManyInput {
+  create?: Maybe<
+    kdsectiontheoryimageCreateInput[] | kdsectiontheoryimageCreateInput
+  >;
+  update?: Maybe<
+    | kdsectiontheoryimageUpdateWithWhereUniqueNestedInput[]
+    | kdsectiontheoryimageUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectiontheoryimageUpsertWithWhereUniqueNestedInput[]
+    | kdsectiontheoryimageUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    | kdsectiontheoryimageWhereUniqueInput[]
+    | kdsectiontheoryimageWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | kdsectiontheoryimageWhereUniqueInput[]
+    | kdsectiontheoryimageWhereUniqueInput
+  >;
+  set?: Maybe<
+    | kdsectiontheoryimageWhereUniqueInput[]
+    | kdsectiontheoryimageWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | kdsectiontheoryimageWhereUniqueInput[]
+    | kdsectiontheoryimageWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    | kdsectiontheoryimageScalarWhereInput[]
+    | kdsectiontheoryimageScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectiontheoryimageUpdateManyWithWhereNestedInput[]
+    | kdsectiontheoryimageUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdpageUpdateManyWithWhereNestedInput {
+  where: kdpageScalarWhereInput;
+  data: kdpageUpdateManyDataInput;
+}
+
+export interface kdpageUpsertWithWhereUniqueNestedInput {
+  where: kdpageWhereUniqueInput;
+  update: kdpageUpdateDataInput;
+  create: kdpageCreateInput;
+}
+
+export interface kdchapterCreateInput {
+  id?: Maybe<ID_Input>;
+  subjectTitle: String;
+  chapterTitle: String;
+  description: String;
+  topics?: Maybe<kdtopicCreateManyInput>;
+  subjectId?: Maybe<String>;
+}
+
+export interface kdsectiontheoryimageUpdateDataInput {
+  imagePath?: Maybe<String>;
+}
+
+export interface kdtopicCreateInput {
+  id?: Maybe<ID_Input>;
+  chapterTitle: String;
+  description: String;
+  topicTitle: String;
+  chapterId?: Maybe<String>;
+  pages?: Maybe<kdpageCreateManyInput>;
+}
+
+export interface kdsectiontheoryimageUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontheoryimageWhereUniqueInput;
+  update: kdsectiontheoryimageUpdateDataInput;
+  create: kdsectiontheoryimageCreateInput;
+}
+
+export interface kdsectionassignmentWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  questionImagePath?: Maybe<String>;
+  questionImagePath_not?: Maybe<String>;
+  questionImagePath_in?: Maybe<String[] | String>;
+  questionImagePath_not_in?: Maybe<String[] | String>;
+  questionImagePath_lt?: Maybe<String>;
+  questionImagePath_lte?: Maybe<String>;
+  questionImagePath_gt?: Maybe<String>;
+  questionImagePath_gte?: Maybe<String>;
+  questionImagePath_contains?: Maybe<String>;
+  questionImagePath_not_contains?: Maybe<String>;
+  questionImagePath_starts_with?: Maybe<String>;
+  questionImagePath_not_starts_with?: Maybe<String>;
+  questionImagePath_ends_with?: Maybe<String>;
+  questionImagePath_not_ends_with?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerImagePath_not?: Maybe<String>;
+  answerImagePath_in?: Maybe<String[] | String>;
+  answerImagePath_not_in?: Maybe<String[] | String>;
+  answerImagePath_lt?: Maybe<String>;
+  answerImagePath_lte?: Maybe<String>;
+  answerImagePath_gt?: Maybe<String>;
+  answerImagePath_gte?: Maybe<String>;
+  answerImagePath_contains?: Maybe<String>;
+  answerImagePath_not_contains?: Maybe<String>;
+  answerImagePath_starts_with?: Maybe<String>;
+  answerImagePath_not_starts_with?: Maybe<String>;
+  answerImagePath_ends_with?: Maybe<String>;
+  answerImagePath_not_ends_with?: Maybe<String>;
+  assignmentVideoSolution_every?: Maybe<kdsectionvideosolurlWhereInput>;
+  assignmentVideoSolution_some?: Maybe<kdsectionvideosolurlWhereInput>;
+  assignmentVideoSolution_none?: Maybe<kdsectionvideosolurlWhereInput>;
+  AND?: Maybe<kdsectionassignmentWhereInput[] | kdsectionassignmentWhereInput>;
+  OR?: Maybe<kdsectionassignmentWhereInput[] | kdsectionassignmentWhereInput>;
+  NOT?: Maybe<kdsectionassignmentWhereInput[] | kdsectionassignmentWhereInput>;
+}
+
+export interface kdsectiontheoryimageScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  imagePath?: Maybe<String>;
+  imagePath_not?: Maybe<String>;
+  imagePath_in?: Maybe<String[] | String>;
+  imagePath_not_in?: Maybe<String[] | String>;
+  imagePath_lt?: Maybe<String>;
+  imagePath_lte?: Maybe<String>;
+  imagePath_gt?: Maybe<String>;
+  imagePath_gte?: Maybe<String>;
+  imagePath_contains?: Maybe<String>;
+  imagePath_not_contains?: Maybe<String>;
+  imagePath_starts_with?: Maybe<String>;
+  imagePath_not_starts_with?: Maybe<String>;
+  imagePath_ends_with?: Maybe<String>;
+  imagePath_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    | kdsectiontheoryimageScalarWhereInput[]
+    | kdsectiontheoryimageScalarWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectiontheoryimageScalarWhereInput[]
+    | kdsectiontheoryimageScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectiontheoryimageScalarWhereInput[]
+    | kdsectiontheoryimageScalarWhereInput
+  >;
+}
+
+export interface kdsectionquizWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  questionsImagePath?: Maybe<String>;
+  questionsImagePath_not?: Maybe<String>;
+  questionsImagePath_in?: Maybe<String[] | String>;
+  questionsImagePath_not_in?: Maybe<String[] | String>;
+  questionsImagePath_lt?: Maybe<String>;
+  questionsImagePath_lte?: Maybe<String>;
+  questionsImagePath_gt?: Maybe<String>;
+  questionsImagePath_gte?: Maybe<String>;
+  questionsImagePath_contains?: Maybe<String>;
+  questionsImagePath_not_contains?: Maybe<String>;
+  questionsImagePath_starts_with?: Maybe<String>;
+  questionsImagePath_not_starts_with?: Maybe<String>;
+  questionsImagePath_ends_with?: Maybe<String>;
+  questionsImagePath_not_ends_with?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerImagePath_not?: Maybe<String>;
+  answerImagePath_in?: Maybe<String[] | String>;
+  answerImagePath_not_in?: Maybe<String[] | String>;
+  answerImagePath_lt?: Maybe<String>;
+  answerImagePath_lte?: Maybe<String>;
+  answerImagePath_gt?: Maybe<String>;
+  answerImagePath_gte?: Maybe<String>;
+  answerImagePath_contains?: Maybe<String>;
+  answerImagePath_not_contains?: Maybe<String>;
+  answerImagePath_starts_with?: Maybe<String>;
+  answerImagePath_not_starts_with?: Maybe<String>;
+  answerImagePath_ends_with?: Maybe<String>;
+  answerImagePath_not_ends_with?: Maybe<String>;
+  answerKey?: Maybe<String>;
+  answerKey_not?: Maybe<String>;
+  answerKey_in?: Maybe<String[] | String>;
+  answerKey_not_in?: Maybe<String[] | String>;
+  answerKey_lt?: Maybe<String>;
+  answerKey_lte?: Maybe<String>;
+  answerKey_gt?: Maybe<String>;
+  answerKey_gte?: Maybe<String>;
+  answerKey_contains?: Maybe<String>;
+  answerKey_not_contains?: Maybe<String>;
+  answerKey_starts_with?: Maybe<String>;
+  answerKey_not_starts_with?: Maybe<String>;
+  answerKey_ends_with?: Maybe<String>;
+  answerKey_not_ends_with?: Maybe<String>;
+  videoSolutionUrl_every?: Maybe<kdsectionvideosolurlWhereInput>;
+  videoSolutionUrl_some?: Maybe<kdsectionvideosolurlWhereInput>;
+  videoSolutionUrl_none?: Maybe<kdsectionvideosolurlWhereInput>;
+  AND?: Maybe<kdsectionquizWhereInput[] | kdsectionquizWhereInput>;
+  OR?: Maybe<kdsectionquizWhereInput[] | kdsectionquizWhereInput>;
+  NOT?: Maybe<kdsectionquizWhereInput[] | kdsectionquizWhereInput>;
+}
+
+export interface kdsectiontheoryimageUpdateManyWithWhereNestedInput {
+  where: kdsectiontheoryimageScalarWhereInput;
+  data: kdsectiontheoryimageUpdateManyDataInput;
+}
+
+export interface kdsectiontheoryimageWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  imagePath?: Maybe<String>;
+  imagePath_not?: Maybe<String>;
+  imagePath_in?: Maybe<String[] | String>;
+  imagePath_not_in?: Maybe<String[] | String>;
+  imagePath_lt?: Maybe<String>;
+  imagePath_lte?: Maybe<String>;
+  imagePath_gt?: Maybe<String>;
+  imagePath_gte?: Maybe<String>;
+  imagePath_contains?: Maybe<String>;
+  imagePath_not_contains?: Maybe<String>;
+  imagePath_starts_with?: Maybe<String>;
+  imagePath_not_starts_with?: Maybe<String>;
+  imagePath_ends_with?: Maybe<String>;
+  imagePath_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    kdsectiontheoryimageWhereInput[] | kdsectiontheoryimageWhereInput
+  >;
+  OR?: Maybe<kdsectiontheoryimageWhereInput[] | kdsectiontheoryimageWhereInput>;
+  NOT?: Maybe<
+    kdsectiontheoryimageWhereInput[] | kdsectiontheoryimageWhereInput
+  >;
+}
+
+export interface kdsectiontheoryimageUpdateManyDataInput {
+  imagePath?: Maybe<String>;
+}
+
+export interface kdsectiontypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  videos_every?: Maybe<kdsectionvideoWhereInput>;
+  videos_some?: Maybe<kdsectionvideoWhereInput>;
+  videos_none?: Maybe<kdsectionvideoWhereInput>;
+  theoryImage_every?: Maybe<kdsectiontheoryimageWhereInput>;
+  theoryImage_some?: Maybe<kdsectiontheoryimageWhereInput>;
+  theoryImage_none?: Maybe<kdsectiontheoryimageWhereInput>;
+  theoryRichText_every?: Maybe<kdsectiontheoryrichtextWhereInput>;
+  theoryRichText_some?: Maybe<kdsectiontheoryrichtextWhereInput>;
+  theoryRichText_none?: Maybe<kdsectiontheoryrichtextWhereInput>;
+  quiz_every?: Maybe<kdsectionquizWhereInput>;
+  quiz_some?: Maybe<kdsectionquizWhereInput>;
+  quiz_none?: Maybe<kdsectionquizWhereInput>;
+  assignment_every?: Maybe<kdsectionassignmentWhereInput>;
+  assignment_some?: Maybe<kdsectionassignmentWhereInput>;
+  assignment_none?: Maybe<kdsectionassignmentWhereInput>;
+  AND?: Maybe<kdsectiontypeWhereInput[] | kdsectiontypeWhereInput>;
+  OR?: Maybe<kdsectiontypeWhereInput[] | kdsectiontypeWhereInput>;
+  NOT?: Maybe<kdsectiontypeWhereInput[] | kdsectiontypeWhereInput>;
+}
+
+export interface kdsectiontheoryrichtextUpdateManyInput {
+  create?: Maybe<
+    kdsectiontheoryrichtextCreateInput[] | kdsectiontheoryrichtextCreateInput
+  >;
+  update?: Maybe<
+    | kdsectiontheoryrichtextUpdateWithWhereUniqueNestedInput[]
+    | kdsectiontheoryrichtextUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectiontheoryrichtextUpsertWithWhereUniqueNestedInput[]
+    | kdsectiontheoryrichtextUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    | kdsectiontheoryrichtextWhereUniqueInput[]
+    | kdsectiontheoryrichtextWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | kdsectiontheoryrichtextWhereUniqueInput[]
+    | kdsectiontheoryrichtextWhereUniqueInput
+  >;
+  set?: Maybe<
+    | kdsectiontheoryrichtextWhereUniqueInput[]
+    | kdsectiontheoryrichtextWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | kdsectiontheoryrichtextWhereUniqueInput[]
+    | kdsectiontheoryrichtextWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    | kdsectiontheoryrichtextScalarWhereInput[]
+    | kdsectiontheoryrichtextScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectiontheoryrichtextUpdateManyWithWhereNestedInput[]
+    | kdsectiontheoryrichtextUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdpageWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  topicId?: Maybe<String>;
+  topicId_not?: Maybe<String>;
+  topicId_in?: Maybe<String[] | String>;
+  topicId_not_in?: Maybe<String[] | String>;
+  topicId_lt?: Maybe<String>;
+  topicId_lte?: Maybe<String>;
+  topicId_gt?: Maybe<String>;
+  topicId_gte?: Maybe<String>;
+  topicId_contains?: Maybe<String>;
+  topicId_not_contains?: Maybe<String>;
+  topicId_starts_with?: Maybe<String>;
+  topicId_not_starts_with?: Maybe<String>;
+  topicId_ends_with?: Maybe<String>;
+  topicId_not_ends_with?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageType_not?: Maybe<String>;
+  pageType_in?: Maybe<String[] | String>;
+  pageType_not_in?: Maybe<String[] | String>;
+  pageType_lt?: Maybe<String>;
+  pageType_lte?: Maybe<String>;
+  pageType_gt?: Maybe<String>;
+  pageType_gte?: Maybe<String>;
+  pageType_contains?: Maybe<String>;
+  pageType_not_contains?: Maybe<String>;
+  pageType_starts_with?: Maybe<String>;
+  pageType_not_starts_with?: Maybe<String>;
+  pageType_ends_with?: Maybe<String>;
+  pageType_not_ends_with?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+  pageTitle_not?: Maybe<String>;
+  pageTitle_in?: Maybe<String[] | String>;
+  pageTitle_not_in?: Maybe<String[] | String>;
+  pageTitle_lt?: Maybe<String>;
+  pageTitle_lte?: Maybe<String>;
+  pageTitle_gt?: Maybe<String>;
+  pageTitle_gte?: Maybe<String>;
+  pageTitle_contains?: Maybe<String>;
+  pageTitle_not_contains?: Maybe<String>;
+  pageTitle_starts_with?: Maybe<String>;
+  pageTitle_not_starts_with?: Maybe<String>;
+  pageTitle_ends_with?: Maybe<String>;
+  pageTitle_not_ends_with?: Maybe<String>;
+  sections_every?: Maybe<kdsectionWhereInput>;
+  sections_some?: Maybe<kdsectionWhereInput>;
+  sections_none?: Maybe<kdsectionWhereInput>;
+  AND?: Maybe<kdpageWhereInput[] | kdpageWhereInput>;
+  OR?: Maybe<kdpageWhereInput[] | kdpageWhereInput>;
+  NOT?: Maybe<kdpageWhereInput[] | kdpageWhereInput>;
+}
+
+export interface kdsectiontheoryrichtextUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontheoryrichtextWhereUniqueInput;
+  data: kdsectiontheoryrichtextUpdateDataInput;
+}
+
+export interface kdsectionSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<PostWhereInput>;
-  AND?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
-  OR?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
-  NOT?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+  node?: Maybe<kdsectionWhereInput>;
+  AND?: Maybe<
+    kdsectionSubscriptionWhereInput[] | kdsectionSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    kdsectionSubscriptionWhereInput[] | kdsectionSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    kdsectionSubscriptionWhereInput[] | kdsectionSubscriptionWhereInput
+  >;
 }
 
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  data: PostUpdateWithoutAuthorDataInput;
+export interface kdsectiontheoryrichtextUpdateDataInput {
+  textData?: Maybe<String>;
 }
 
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  update: PostUpdateWithoutAuthorDataInput;
-  create: PostCreateWithoutAuthorInput;
+export interface kdtopicUpdateInput {
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  chapterId?: Maybe<String>;
+  pages?: Maybe<kdpageUpdateManyInput>;
+}
+
+export interface kdsectiontheoryrichtextUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontheoryrichtextWhereUniqueInput;
+  update: kdsectiontheoryrichtextUpdateDataInput;
+  create: kdsectiontheoryrichtextCreateInput;
+}
+
+export interface kdchapterUpdateManyWithWhereNestedInput {
+  where: kdchapterScalarWhereInput;
+  data: kdchapterUpdateManyDataInput;
+}
+
+export interface kdsectiontheoryrichtextScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  textData?: Maybe<String>;
+  textData_not?: Maybe<String>;
+  textData_in?: Maybe<String[] | String>;
+  textData_not_in?: Maybe<String[] | String>;
+  textData_lt?: Maybe<String>;
+  textData_lte?: Maybe<String>;
+  textData_gt?: Maybe<String>;
+  textData_gte?: Maybe<String>;
+  textData_contains?: Maybe<String>;
+  textData_not_contains?: Maybe<String>;
+  textData_starts_with?: Maybe<String>;
+  textData_not_starts_with?: Maybe<String>;
+  textData_ends_with?: Maybe<String>;
+  textData_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    | kdsectiontheoryrichtextScalarWhereInput[]
+    | kdsectiontheoryrichtextScalarWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectiontheoryrichtextScalarWhereInput[]
+    | kdsectiontheoryrichtextScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectiontheoryrichtextScalarWhereInput[]
+    | kdsectiontheoryrichtextScalarWhereInput
+  >;
+}
+
+export interface kdchapterUpdateDataInput {
+  subjectTitle?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  topics?: Maybe<kdtopicUpdateManyInput>;
+  subjectId?: Maybe<String>;
+}
+
+export interface kdsectiontheoryrichtextUpdateManyWithWhereNestedInput {
+  where: kdsectiontheoryrichtextScalarWhereInput;
+  data: kdsectiontheoryrichtextUpdateManyDataInput;
+}
+
+export interface kdsubjectUpdateInput {
+  subjectTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  chapters?: Maybe<kdchapterUpdateManyInput>;
+}
+
+export interface kdsectiontheoryrichtextUpdateManyDataInput {
+  textData?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlUpdateManyMutationInput {
+  videoUrl?: Maybe<String>;
+}
+
+export interface kdsectionquizUpdateManyInput {
+  create?: Maybe<kdsectionquizCreateInput[] | kdsectionquizCreateInput>;
+  update?: Maybe<
+    | kdsectionquizUpdateWithWhereUniqueNestedInput[]
+    | kdsectionquizUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectionquizUpsertWithWhereUniqueNestedInput[]
+    | kdsectionquizUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    kdsectionquizWhereUniqueInput[] | kdsectionquizWhereUniqueInput
+  >;
+  connect?: Maybe<
+    kdsectionquizWhereUniqueInput[] | kdsectionquizWhereUniqueInput
+  >;
+  set?: Maybe<kdsectionquizWhereUniqueInput[] | kdsectionquizWhereUniqueInput>;
+  disconnect?: Maybe<
+    kdsectionquizWhereUniqueInput[] | kdsectionquizWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    kdsectionquizScalarWhereInput[] | kdsectionquizScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectionquizUpdateManyWithWhereNestedInput[]
+    | kdsectionquizUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdsectionvideoUpdateInput {
+  link?: Maybe<String>;
+}
+
+export interface kdsectionquizUpdateWithWhereUniqueNestedInput {
+  where: kdsectionquizWhereUniqueInput;
+  data: kdsectionquizUpdateDataInput;
+}
+
+export interface kdsectiontheoryrichtextUpdateInput {
+  textData?: Maybe<String>;
+}
+
+export interface kdsectionquizUpdateDataInput {
+  questionsImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerKey?: Maybe<String>;
+  videoSolutionUrl?: Maybe<kdsectionvideosolurlUpdateManyInput>;
+}
+
+export interface kdsectionquizUpdateManyMutationInput {
+  questionsImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerKey?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlUpdateManyInput {
+  create?: Maybe<
+    kdsectionvideosolurlCreateInput[] | kdsectionvideosolurlCreateInput
+  >;
+  update?: Maybe<
+    | kdsectionvideosolurlUpdateWithWhereUniqueNestedInput[]
+    | kdsectionvideosolurlUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectionvideosolurlUpsertWithWhereUniqueNestedInput[]
+    | kdsectionvideosolurlUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    | kdsectionvideosolurlWhereUniqueInput[]
+    | kdsectionvideosolurlWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | kdsectionvideosolurlWhereUniqueInput[]
+    | kdsectionvideosolurlWhereUniqueInput
+  >;
+  set?: Maybe<
+    | kdsectionvideosolurlWhereUniqueInput[]
+    | kdsectionvideosolurlWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | kdsectionvideosolurlWhereUniqueInput[]
+    | kdsectionvideosolurlWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    | kdsectionvideosolurlScalarWhereInput[]
+    | kdsectionvideosolurlScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectionvideosolurlUpdateManyWithWhereNestedInput[]
+    | kdsectionvideosolurlUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdsectionassignmentUpdateInput {
+  questionImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  assignmentVideoSolution?: Maybe<kdsectionvideosolurlUpdateManyInput>;
+}
+
+export interface kdsectionvideosolurlUpdateWithWhereUniqueNestedInput {
+  where: kdsectionvideosolurlWhereUniqueInput;
+  data: kdsectionvideosolurlUpdateDataInput;
+}
+
+export interface kdpageUpdateManyMutationInput {
+  topicTitle?: Maybe<String>;
+  topicId?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlUpdateDataInput {
+  videoUrl?: Maybe<String>;
+}
+
+export interface kdchapterUpdateManyMutationInput {
+  subjectTitle?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  description?: Maybe<String>;
+  subjectId?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlUpsertWithWhereUniqueNestedInput {
+  where: kdsectionvideosolurlWhereUniqueInput;
+  update: kdsectionvideosolurlUpdateDataInput;
+  create: kdsectionvideosolurlCreateInput;
+}
+
+export type kdtopicWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface kdsectionvideosolurlScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  videoUrl?: Maybe<String>;
+  videoUrl_not?: Maybe<String>;
+  videoUrl_in?: Maybe<String[] | String>;
+  videoUrl_not_in?: Maybe<String[] | String>;
+  videoUrl_lt?: Maybe<String>;
+  videoUrl_lte?: Maybe<String>;
+  videoUrl_gt?: Maybe<String>;
+  videoUrl_gte?: Maybe<String>;
+  videoUrl_contains?: Maybe<String>;
+  videoUrl_not_contains?: Maybe<String>;
+  videoUrl_starts_with?: Maybe<String>;
+  videoUrl_not_starts_with?: Maybe<String>;
+  videoUrl_ends_with?: Maybe<String>;
+  videoUrl_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    | kdsectionvideosolurlScalarWhereInput[]
+    | kdsectionvideosolurlScalarWhereInput
+  >;
+  OR?: Maybe<
+    | kdsectionvideosolurlScalarWhereInput[]
+    | kdsectionvideosolurlScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | kdsectionvideosolurlScalarWhereInput[]
+    | kdsectionvideosolurlScalarWhereInput
+  >;
+}
+
+export interface kdpageCreateManyInput {
+  create?: Maybe<kdpageCreateInput[] | kdpageCreateInput>;
+  connect?: Maybe<kdpageWhereUniqueInput[] | kdpageWhereUniqueInput>;
+}
+
+export interface kdsectionvideosolurlUpdateManyWithWhereNestedInput {
+  where: kdsectionvideosolurlScalarWhereInput;
+  data: kdsectionvideosolurlUpdateManyDataInput;
+}
+
+export interface kdsectiontheoryrichtextWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  textData?: Maybe<String>;
+  textData_not?: Maybe<String>;
+  textData_in?: Maybe<String[] | String>;
+  textData_not_in?: Maybe<String[] | String>;
+  textData_lt?: Maybe<String>;
+  textData_lte?: Maybe<String>;
+  textData_gt?: Maybe<String>;
+  textData_gte?: Maybe<String>;
+  textData_contains?: Maybe<String>;
+  textData_not_contains?: Maybe<String>;
+  textData_starts_with?: Maybe<String>;
+  textData_not_starts_with?: Maybe<String>;
+  textData_ends_with?: Maybe<String>;
+  textData_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    kdsectiontheoryrichtextWhereInput[] | kdsectiontheoryrichtextWhereInput
+  >;
+  OR?: Maybe<
+    kdsectiontheoryrichtextWhereInput[] | kdsectiontheoryrichtextWhereInput
+  >;
+  NOT?: Maybe<
+    kdsectiontheoryrichtextWhereInput[] | kdsectiontheoryrichtextWhereInput
+  >;
+}
+
+export interface kdsectionvideosolurlUpdateManyDataInput {
+  videoUrl?: Maybe<String>;
+}
+
+export interface kdsectionWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  sectionTitle?: Maybe<String>;
+  sectionTitle_not?: Maybe<String>;
+  sectionTitle_in?: Maybe<String[] | String>;
+  sectionTitle_not_in?: Maybe<String[] | String>;
+  sectionTitle_lt?: Maybe<String>;
+  sectionTitle_lte?: Maybe<String>;
+  sectionTitle_gt?: Maybe<String>;
+  sectionTitle_gte?: Maybe<String>;
+  sectionTitle_contains?: Maybe<String>;
+  sectionTitle_not_contains?: Maybe<String>;
+  sectionTitle_starts_with?: Maybe<String>;
+  sectionTitle_not_starts_with?: Maybe<String>;
+  sectionTitle_ends_with?: Maybe<String>;
+  sectionTitle_not_ends_with?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  sectionType_every?: Maybe<kdsectiontypeWhereInput>;
+  sectionType_some?: Maybe<kdsectiontypeWhereInput>;
+  sectionType_none?: Maybe<kdsectiontypeWhereInput>;
+  AND?: Maybe<kdsectionWhereInput[] | kdsectionWhereInput>;
+  OR?: Maybe<kdsectionWhereInput[] | kdsectionWhereInput>;
+  NOT?: Maybe<kdsectionWhereInput[] | kdsectionWhereInput>;
+}
+
+export interface kdsectionquizUpsertWithWhereUniqueNestedInput {
+  where: kdsectionquizWhereUniqueInput;
+  update: kdsectionquizUpdateDataInput;
+  create: kdsectionquizCreateInput;
+}
+
+export interface kdchapterSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<kdchapterWhereInput>;
+  AND?: Maybe<
+    kdchapterSubscriptionWhereInput[] | kdchapterSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    kdchapterSubscriptionWhereInput[] | kdchapterSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    kdchapterSubscriptionWhereInput[] | kdchapterSubscriptionWhereInput
+  >;
+}
+
+export interface kdsectionquizScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  questionsImagePath?: Maybe<String>;
+  questionsImagePath_not?: Maybe<String>;
+  questionsImagePath_in?: Maybe<String[] | String>;
+  questionsImagePath_not_in?: Maybe<String[] | String>;
+  questionsImagePath_lt?: Maybe<String>;
+  questionsImagePath_lte?: Maybe<String>;
+  questionsImagePath_gt?: Maybe<String>;
+  questionsImagePath_gte?: Maybe<String>;
+  questionsImagePath_contains?: Maybe<String>;
+  questionsImagePath_not_contains?: Maybe<String>;
+  questionsImagePath_starts_with?: Maybe<String>;
+  questionsImagePath_not_starts_with?: Maybe<String>;
+  questionsImagePath_ends_with?: Maybe<String>;
+  questionsImagePath_not_ends_with?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerImagePath_not?: Maybe<String>;
+  answerImagePath_in?: Maybe<String[] | String>;
+  answerImagePath_not_in?: Maybe<String[] | String>;
+  answerImagePath_lt?: Maybe<String>;
+  answerImagePath_lte?: Maybe<String>;
+  answerImagePath_gt?: Maybe<String>;
+  answerImagePath_gte?: Maybe<String>;
+  answerImagePath_contains?: Maybe<String>;
+  answerImagePath_not_contains?: Maybe<String>;
+  answerImagePath_starts_with?: Maybe<String>;
+  answerImagePath_not_starts_with?: Maybe<String>;
+  answerImagePath_ends_with?: Maybe<String>;
+  answerImagePath_not_ends_with?: Maybe<String>;
+  answerKey?: Maybe<String>;
+  answerKey_not?: Maybe<String>;
+  answerKey_in?: Maybe<String[] | String>;
+  answerKey_not_in?: Maybe<String[] | String>;
+  answerKey_lt?: Maybe<String>;
+  answerKey_lte?: Maybe<String>;
+  answerKey_gt?: Maybe<String>;
+  answerKey_gte?: Maybe<String>;
+  answerKey_contains?: Maybe<String>;
+  answerKey_not_contains?: Maybe<String>;
+  answerKey_starts_with?: Maybe<String>;
+  answerKey_not_starts_with?: Maybe<String>;
+  answerKey_ends_with?: Maybe<String>;
+  answerKey_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdsectionquizScalarWhereInput[] | kdsectionquizScalarWhereInput>;
+  OR?: Maybe<kdsectionquizScalarWhereInput[] | kdsectionquizScalarWhereInput>;
+  NOT?: Maybe<kdsectionquizScalarWhereInput[] | kdsectionquizScalarWhereInput>;
+}
+
+export interface kdchapterScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  subjectTitle?: Maybe<String>;
+  subjectTitle_not?: Maybe<String>;
+  subjectTitle_in?: Maybe<String[] | String>;
+  subjectTitle_not_in?: Maybe<String[] | String>;
+  subjectTitle_lt?: Maybe<String>;
+  subjectTitle_lte?: Maybe<String>;
+  subjectTitle_gt?: Maybe<String>;
+  subjectTitle_gte?: Maybe<String>;
+  subjectTitle_contains?: Maybe<String>;
+  subjectTitle_not_contains?: Maybe<String>;
+  subjectTitle_starts_with?: Maybe<String>;
+  subjectTitle_not_starts_with?: Maybe<String>;
+  subjectTitle_ends_with?: Maybe<String>;
+  subjectTitle_not_ends_with?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  chapterTitle_not?: Maybe<String>;
+  chapterTitle_in?: Maybe<String[] | String>;
+  chapterTitle_not_in?: Maybe<String[] | String>;
+  chapterTitle_lt?: Maybe<String>;
+  chapterTitle_lte?: Maybe<String>;
+  chapterTitle_gt?: Maybe<String>;
+  chapterTitle_gte?: Maybe<String>;
+  chapterTitle_contains?: Maybe<String>;
+  chapterTitle_not_contains?: Maybe<String>;
+  chapterTitle_starts_with?: Maybe<String>;
+  chapterTitle_not_starts_with?: Maybe<String>;
+  chapterTitle_ends_with?: Maybe<String>;
+  chapterTitle_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  subjectId?: Maybe<String>;
+  subjectId_not?: Maybe<String>;
+  subjectId_in?: Maybe<String[] | String>;
+  subjectId_not_in?: Maybe<String[] | String>;
+  subjectId_lt?: Maybe<String>;
+  subjectId_lte?: Maybe<String>;
+  subjectId_gt?: Maybe<String>;
+  subjectId_gte?: Maybe<String>;
+  subjectId_contains?: Maybe<String>;
+  subjectId_not_contains?: Maybe<String>;
+  subjectId_starts_with?: Maybe<String>;
+  subjectId_not_starts_with?: Maybe<String>;
+  subjectId_ends_with?: Maybe<String>;
+  subjectId_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdchapterScalarWhereInput[] | kdchapterScalarWhereInput>;
+  OR?: Maybe<kdchapterScalarWhereInput[] | kdchapterScalarWhereInput>;
+  NOT?: Maybe<kdchapterScalarWhereInput[] | kdchapterScalarWhereInput>;
+}
+
+export interface kdsectionquizUpdateManyWithWhereNestedInput {
+  where: kdsectionquizScalarWhereInput;
+  data: kdsectionquizUpdateManyDataInput;
+}
+
+export interface kdchapterCreateManyInput {
+  create?: Maybe<kdchapterCreateInput[] | kdchapterCreateInput>;
+  connect?: Maybe<kdchapterWhereUniqueInput[] | kdchapterWhereUniqueInput>;
+}
+
+export interface kdsectionquizUpdateManyDataInput {
+  questionsImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerKey?: Maybe<String>;
+}
+
+export interface kdsectiontypeUpdateInput {
+  videos?: Maybe<kdsectionvideoUpdateManyInput>;
+  theoryImage?: Maybe<kdsectiontheoryimageUpdateManyInput>;
+  theoryRichText?: Maybe<kdsectiontheoryrichtextUpdateManyInput>;
+  quiz?: Maybe<kdsectionquizUpdateManyInput>;
+  assignment?: Maybe<kdsectionassignmentUpdateManyInput>;
+}
+
+export interface kdsectionassignmentUpdateManyInput {
+  create?: Maybe<
+    kdsectionassignmentCreateInput[] | kdsectionassignmentCreateInput
+  >;
+  update?: Maybe<
+    | kdsectionassignmentUpdateWithWhereUniqueNestedInput[]
+    | kdsectionassignmentUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | kdsectionassignmentUpsertWithWhereUniqueNestedInput[]
+    | kdsectionassignmentUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    kdsectionassignmentWhereUniqueInput[] | kdsectionassignmentWhereUniqueInput
+  >;
+  connect?: Maybe<
+    kdsectionassignmentWhereUniqueInput[] | kdsectionassignmentWhereUniqueInput
+  >;
+  set?: Maybe<
+    kdsectionassignmentWhereUniqueInput[] | kdsectionassignmentWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    kdsectionassignmentWhereUniqueInput[] | kdsectionassignmentWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    kdsectionassignmentScalarWhereInput[] | kdsectionassignmentScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | kdsectionassignmentUpdateManyWithWhereNestedInput[]
+    | kdsectionassignmentUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface kdsectionquizUpdateInput {
+  questionsImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerKey?: Maybe<String>;
+  videoSolutionUrl?: Maybe<kdsectionvideosolurlUpdateManyInput>;
+}
+
+export interface kdsectionassignmentUpdateWithWhereUniqueNestedInput {
+  where: kdsectionassignmentWhereUniqueInput;
+  data: kdsectionassignmentUpdateDataInput;
+}
+
+export interface kdpageUpdateInput {
+  topicTitle?: Maybe<String>;
+  topicId?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+  sections?: Maybe<kdsectionUpdateManyInput>;
+}
+
+export interface kdsectionassignmentUpdateDataInput {
+  questionImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  assignmentVideoSolution?: Maybe<kdsectionvideosolurlUpdateManyInput>;
+}
+
+export interface kdpageUpdateManyDataInput {
+  topicTitle?: Maybe<String>;
+  topicId?: Maybe<String>;
+  pageType?: Maybe<String>;
+  pageTitle?: Maybe<String>;
+}
+
+export interface kdsectionassignmentUpsertWithWhereUniqueNestedInput {
+  where: kdsectionassignmentWhereUniqueInput;
+  update: kdsectionassignmentUpdateDataInput;
+  create: kdsectionassignmentCreateInput;
+}
+
+export interface kdsectionvideosolurlWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  videoUrl?: Maybe<String>;
+  videoUrl_not?: Maybe<String>;
+  videoUrl_in?: Maybe<String[] | String>;
+  videoUrl_not_in?: Maybe<String[] | String>;
+  videoUrl_lt?: Maybe<String>;
+  videoUrl_lte?: Maybe<String>;
+  videoUrl_gt?: Maybe<String>;
+  videoUrl_gte?: Maybe<String>;
+  videoUrl_contains?: Maybe<String>;
+  videoUrl_not_contains?: Maybe<String>;
+  videoUrl_starts_with?: Maybe<String>;
+  videoUrl_not_starts_with?: Maybe<String>;
+  videoUrl_ends_with?: Maybe<String>;
+  videoUrl_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    kdsectionvideosolurlWhereInput[] | kdsectionvideosolurlWhereInput
+  >;
+  OR?: Maybe<kdsectionvideosolurlWhereInput[] | kdsectionvideosolurlWhereInput>;
+  NOT?: Maybe<
+    kdsectionvideosolurlWhereInput[] | kdsectionvideosolurlWhereInput
+  >;
+}
+
+export interface kdsectionassignmentScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  questionImagePath?: Maybe<String>;
+  questionImagePath_not?: Maybe<String>;
+  questionImagePath_in?: Maybe<String[] | String>;
+  questionImagePath_not_in?: Maybe<String[] | String>;
+  questionImagePath_lt?: Maybe<String>;
+  questionImagePath_lte?: Maybe<String>;
+  questionImagePath_gt?: Maybe<String>;
+  questionImagePath_gte?: Maybe<String>;
+  questionImagePath_contains?: Maybe<String>;
+  questionImagePath_not_contains?: Maybe<String>;
+  questionImagePath_starts_with?: Maybe<String>;
+  questionImagePath_not_starts_with?: Maybe<String>;
+  questionImagePath_ends_with?: Maybe<String>;
+  questionImagePath_not_ends_with?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+  answerImagePath_not?: Maybe<String>;
+  answerImagePath_in?: Maybe<String[] | String>;
+  answerImagePath_not_in?: Maybe<String[] | String>;
+  answerImagePath_lt?: Maybe<String>;
+  answerImagePath_lte?: Maybe<String>;
+  answerImagePath_gt?: Maybe<String>;
+  answerImagePath_gte?: Maybe<String>;
+  answerImagePath_contains?: Maybe<String>;
+  answerImagePath_not_contains?: Maybe<String>;
+  answerImagePath_starts_with?: Maybe<String>;
+  answerImagePath_not_starts_with?: Maybe<String>;
+  answerImagePath_ends_with?: Maybe<String>;
+  answerImagePath_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    kdsectionassignmentScalarWhereInput[] | kdsectionassignmentScalarWhereInput
+  >;
+  OR?: Maybe<
+    kdsectionassignmentScalarWhereInput[] | kdsectionassignmentScalarWhereInput
+  >;
+  NOT?: Maybe<
+    kdsectionassignmentScalarWhereInput[] | kdsectionassignmentScalarWhereInput
+  >;
+}
+
+export interface kdchapterWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  subjectTitle?: Maybe<String>;
+  subjectTitle_not?: Maybe<String>;
+  subjectTitle_in?: Maybe<String[] | String>;
+  subjectTitle_not_in?: Maybe<String[] | String>;
+  subjectTitle_lt?: Maybe<String>;
+  subjectTitle_lte?: Maybe<String>;
+  subjectTitle_gt?: Maybe<String>;
+  subjectTitle_gte?: Maybe<String>;
+  subjectTitle_contains?: Maybe<String>;
+  subjectTitle_not_contains?: Maybe<String>;
+  subjectTitle_starts_with?: Maybe<String>;
+  subjectTitle_not_starts_with?: Maybe<String>;
+  subjectTitle_ends_with?: Maybe<String>;
+  subjectTitle_not_ends_with?: Maybe<String>;
+  chapterTitle?: Maybe<String>;
+  chapterTitle_not?: Maybe<String>;
+  chapterTitle_in?: Maybe<String[] | String>;
+  chapterTitle_not_in?: Maybe<String[] | String>;
+  chapterTitle_lt?: Maybe<String>;
+  chapterTitle_lte?: Maybe<String>;
+  chapterTitle_gt?: Maybe<String>;
+  chapterTitle_gte?: Maybe<String>;
+  chapterTitle_contains?: Maybe<String>;
+  chapterTitle_not_contains?: Maybe<String>;
+  chapterTitle_starts_with?: Maybe<String>;
+  chapterTitle_not_starts_with?: Maybe<String>;
+  chapterTitle_ends_with?: Maybe<String>;
+  chapterTitle_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  topics_every?: Maybe<kdtopicWhereInput>;
+  topics_some?: Maybe<kdtopicWhereInput>;
+  topics_none?: Maybe<kdtopicWhereInput>;
+  subjectId?: Maybe<String>;
+  subjectId_not?: Maybe<String>;
+  subjectId_in?: Maybe<String[] | String>;
+  subjectId_not_in?: Maybe<String[] | String>;
+  subjectId_lt?: Maybe<String>;
+  subjectId_lte?: Maybe<String>;
+  subjectId_gt?: Maybe<String>;
+  subjectId_gte?: Maybe<String>;
+  subjectId_contains?: Maybe<String>;
+  subjectId_not_contains?: Maybe<String>;
+  subjectId_starts_with?: Maybe<String>;
+  subjectId_not_starts_with?: Maybe<String>;
+  subjectId_ends_with?: Maybe<String>;
+  subjectId_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdchapterWhereInput[] | kdchapterWhereInput>;
+  OR?: Maybe<kdchapterWhereInput[] | kdchapterWhereInput>;
+  NOT?: Maybe<kdchapterWhereInput[] | kdchapterWhereInput>;
+}
+
+export interface kdsectionassignmentUpdateManyWithWhereNestedInput {
+  where: kdsectionassignmentScalarWhereInput;
+  data: kdsectionassignmentUpdateManyDataInput;
+}
+
+export interface kdchapterUpdateWithWhereUniqueNestedInput {
+  where: kdchapterWhereUniqueInput;
+  data: kdchapterUpdateDataInput;
+}
+
+export interface kdsectionassignmentUpdateManyDataInput {
+  questionImagePath?: Maybe<String>;
+  answerImagePath?: Maybe<String>;
+}
+
+export interface kdsectiontheoryimageUpdateManyMutationInput {
+  imagePath?: Maybe<String>;
+}
+
+export interface kdsectiontypeUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontypeWhereUniqueInput;
+  update: kdsectiontypeUpdateDataInput;
+  create: kdsectiontypeCreateInput;
+}
+
+export interface kdtopicUpdateManyWithWhereNestedInput {
+  where: kdtopicScalarWhereInput;
+  data: kdtopicUpdateManyDataInput;
+}
+
+export interface kdsectionUpdateManyWithWhereNestedInput {
+  where: kdsectionScalarWhereInput;
+  data: kdsectionUpdateManyDataInput;
+}
+
+export interface kdsectionScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  sectionTitle?: Maybe<String>;
+  sectionTitle_not?: Maybe<String>;
+  sectionTitle_in?: Maybe<String[] | String>;
+  sectionTitle_not_in?: Maybe<String[] | String>;
+  sectionTitle_lt?: Maybe<String>;
+  sectionTitle_lte?: Maybe<String>;
+  sectionTitle_gt?: Maybe<String>;
+  sectionTitle_gte?: Maybe<String>;
+  sectionTitle_contains?: Maybe<String>;
+  sectionTitle_not_contains?: Maybe<String>;
+  sectionTitle_starts_with?: Maybe<String>;
+  sectionTitle_not_starts_with?: Maybe<String>;
+  sectionTitle_ends_with?: Maybe<String>;
+  sectionTitle_not_ends_with?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+  topicTitle_not?: Maybe<String>;
+  topicTitle_in?: Maybe<String[] | String>;
+  topicTitle_not_in?: Maybe<String[] | String>;
+  topicTitle_lt?: Maybe<String>;
+  topicTitle_lte?: Maybe<String>;
+  topicTitle_gt?: Maybe<String>;
+  topicTitle_gte?: Maybe<String>;
+  topicTitle_contains?: Maybe<String>;
+  topicTitle_not_contains?: Maybe<String>;
+  topicTitle_starts_with?: Maybe<String>;
+  topicTitle_not_starts_with?: Maybe<String>;
+  topicTitle_ends_with?: Maybe<String>;
+  topicTitle_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdsectionScalarWhereInput[] | kdsectionScalarWhereInput>;
+  OR?: Maybe<kdsectionScalarWhereInput[] | kdsectionScalarWhereInput>;
+  NOT?: Maybe<kdsectionScalarWhereInput[] | kdsectionScalarWhereInput>;
+}
+
+export interface kdsectionUpsertWithWhereUniqueNestedInput {
+  where: kdsectionWhereUniqueInput;
+  update: kdsectionUpdateDataInput;
+  create: kdsectionCreateInput;
+}
+
+export interface kdsectiontypeScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  AND?: Maybe<kdsectiontypeScalarWhereInput[] | kdsectiontypeScalarWhereInput>;
+  OR?: Maybe<kdsectiontypeScalarWhereInput[] | kdsectiontypeScalarWhereInput>;
+  NOT?: Maybe<kdsectiontypeScalarWhereInput[] | kdsectiontypeScalarWhereInput>;
+}
+
+export interface kdtopicCreateManyInput {
+  create?: Maybe<kdtopicCreateInput[] | kdtopicCreateInput>;
+  connect?: Maybe<kdtopicWhereUniqueInput[] | kdtopicWhereUniqueInput>;
+}
+
+export interface kdsectionUpdateManyMutationInput {
+  sectionTitle?: Maybe<String>;
+  topicTitle?: Maybe<String>;
+}
+
+export interface kdsectionvideosolurlUpdateInput {
+  videoUrl?: Maybe<String>;
+}
+
+export interface kdsubjectUpdateManyMutationInput {
+  subjectTitle?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface kdsectionvideoWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  link?: Maybe<String>;
+  link_not?: Maybe<String>;
+  link_in?: Maybe<String[] | String>;
+  link_not_in?: Maybe<String[] | String>;
+  link_lt?: Maybe<String>;
+  link_lte?: Maybe<String>;
+  link_gt?: Maybe<String>;
+  link_gte?: Maybe<String>;
+  link_contains?: Maybe<String>;
+  link_not_contains?: Maybe<String>;
+  link_starts_with?: Maybe<String>;
+  link_not_starts_with?: Maybe<String>;
+  link_ends_with?: Maybe<String>;
+  link_not_ends_with?: Maybe<String>;
+  AND?: Maybe<kdsectionvideoWhereInput[] | kdsectionvideoWhereInput>;
+  OR?: Maybe<kdsectionvideoWhereInput[] | kdsectionvideoWhereInput>;
+  NOT?: Maybe<kdsectionvideoWhereInput[] | kdsectionvideoWhereInput>;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface UserPreviousValues {
+export interface kdtopicPreviousValues {
   id: ID_Output;
-  email?: String;
-  name: String;
+  chapterTitle: String;
+  description: String;
+  topicTitle: String;
+  chapterId?: String;
 }
 
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
+export interface kdtopicPreviousValuesPromise
+  extends Promise<kdtopicPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+  chapterId: () => Promise<String>;
 }
 
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
+export interface kdtopicPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdtopicPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
+  chapterTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+  chapterId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Aggregatekdchapter {
+  count: Int;
+}
+
+export interface AggregatekdchapterPromise
+  extends Promise<Aggregatekdchapter>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdchapterSubscription
+  extends Promise<AsyncIterator<Aggregatekdchapter>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdtopic {
+  id: ID_Output;
+  chapterTitle: String;
+  description: String;
+  topicTitle: String;
+  chapterId?: String;
+}
+
+export interface kdtopicPromise extends Promise<kdtopic>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+  chapterId: () => Promise<String>;
+  pages: <T = FragmentableArray<kdpage>>(args?: {
+    where?: kdpageWhereInput;
+    orderBy?: kdpageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdtopicSubscription
+  extends Promise<AsyncIterator<kdtopic>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  chapterTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+  chapterId: () => Promise<AsyncIterator<String>>;
+  pages: <T = Promise<AsyncIterator<kdpageSubscription>>>(args?: {
+    where?: kdpageWhereInput;
+    orderBy?: kdpageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdtopicNullablePromise
+  extends Promise<kdtopic | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+  chapterId: () => Promise<String>;
+  pages: <T = FragmentableArray<kdpage>>(args?: {
+    where?: kdpageWhereInput;
+    orderBy?: kdpageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdchapterEdge {
+  node: kdchapter;
+  cursor: String;
+}
+
+export interface kdchapterEdgePromise
+  extends Promise<kdchapterEdge>,
+    Fragmentable {
+  node: <T = kdchapterPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdchapterEdgeSubscription
+  extends Promise<AsyncIterator<kdchapterEdge>>,
+    Fragmentable {
+  node: <T = kdchapterSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Aggregatekdtopic {
+  count: Int;
+}
+
+export interface AggregatekdtopicPromise
+  extends Promise<Aggregatekdtopic>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdtopicSubscription
+  extends Promise<AsyncIterator<Aggregatekdtopic>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsubjectPreviousValues {
+  id: ID_Output;
+  subjectTitle: String;
+  description: String;
+}
+
+export interface kdsubjectPreviousValuesPromise
+  extends Promise<kdsubjectPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface kdsubjectPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsubjectPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  subjectTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsubjectSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsubject;
+  updatedFields: String[];
+  previousValues: kdsubjectPreviousValues;
+}
+
+export interface kdsubjectSubscriptionPayloadPromise
+  extends Promise<kdsubjectSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsubjectPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsubjectPreviousValuesPromise>() => T;
+}
+
+export interface kdsubjectSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsubjectSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsubjectSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsubjectPreviousValuesSubscription>() => T;
+}
+
+export interface kdtopicEdge {
+  node: kdtopic;
+  cursor: String;
+}
+
+export interface kdtopicEdgePromise extends Promise<kdtopicEdge>, Fragmentable {
+  node: <T = kdtopicPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdtopicEdgeSubscription
+  extends Promise<AsyncIterator<kdtopicEdge>>,
+    Fragmentable {
+  node: <T = kdtopicSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdtopicConnection {
+  pageInfo: PageInfo;
+  edges: kdtopicEdge[];
+}
+
+export interface kdtopicConnectionPromise
+  extends Promise<kdtopicConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdtopicEdge>>() => T;
+  aggregate: <T = AggregatekdtopicPromise>() => T;
+}
+
+export interface kdtopicConnectionSubscription
+  extends Promise<AsyncIterator<kdtopicConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdtopicEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdtopicSubscription>() => T;
+}
+
+export interface Aggregatekdsubject {
+  count: Int;
+}
+
+export interface AggregatekdsubjectPromise
+  extends Promise<Aggregatekdsubject>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsubjectSubscription
+  extends Promise<AsyncIterator<Aggregatekdsubject>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsubjectConnection {
+  pageInfo: PageInfo;
+  edges: kdsubjectEdge[];
+}
+
+export interface kdsubjectConnectionPromise
+  extends Promise<kdsubjectConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsubjectEdge>>() => T;
+  aggregate: <T = AggregatekdsubjectPromise>() => T;
+}
+
+export interface kdsubjectConnectionSubscription
+  extends Promise<AsyncIterator<kdsubjectConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdsubjectEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdsubjectSubscription>() => T;
+}
+
+export interface kdchapter {
+  id: ID_Output;
+  subjectTitle: String;
+  chapterTitle: String;
+  description: String;
+  subjectId?: String;
+}
+
+export interface kdchapterPromise extends Promise<kdchapter>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  topics: <T = FragmentableArray<kdtopic>>(args?: {
+    where?: kdtopicWhereInput;
+    orderBy?: kdtopicOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  subjectId: () => Promise<String>;
+}
+
+export interface kdchapterSubscription
+  extends Promise<AsyncIterator<kdchapter>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  subjectTitle: () => Promise<AsyncIterator<String>>;
+  chapterTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  topics: <T = Promise<AsyncIterator<kdtopicSubscription>>>(args?: {
+    where?: kdtopicWhereInput;
+    orderBy?: kdtopicOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  subjectId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdchapterNullablePromise
+  extends Promise<kdchapter | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  topics: <T = FragmentableArray<kdtopic>>(args?: {
+    where?: kdtopicWhereInput;
+    orderBy?: kdtopicOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  subjectId: () => Promise<String>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface kdchapterSubscriptionPayload {
+  mutation: MutationType;
+  node: kdchapter;
+  updatedFields: String[];
+  previousValues: kdchapterPreviousValues;
+}
+
+export interface kdchapterSubscriptionPayloadPromise
+  extends Promise<kdchapterSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdchapterPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdchapterPreviousValuesPromise>() => T;
+}
+
+export interface kdchapterSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdchapterSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdchapterSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdchapterPreviousValuesSubscription>() => T;
+}
+
+export interface kdsubject {
+  id: ID_Output;
+  subjectTitle: String;
+  description: String;
+}
+
+export interface kdsubjectPromise extends Promise<kdsubject>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  chapters: <T = FragmentableArray<kdchapter>>(args?: {
+    where?: kdchapterWhereInput;
+    orderBy?: kdchapterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsubjectSubscription
+  extends Promise<AsyncIterator<kdsubject>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  subjectTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  chapters: <T = Promise<AsyncIterator<kdchapterSubscription>>>(args?: {
+    where?: kdchapterWhereInput;
+    orderBy?: kdchapterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsubjectNullablePromise
+  extends Promise<kdsubject | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  chapters: <T = FragmentableArray<kdchapter>>(args?: {
+    where?: kdchapterWhereInput;
+    orderBy?: kdchapterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdchapterPreviousValues {
+  id: ID_Output;
+  subjectTitle: String;
+  chapterTitle: String;
+  description: String;
+  subjectId?: String;
+}
+
+export interface kdchapterPreviousValuesPromise
+  extends Promise<kdchapterPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  subjectTitle: () => Promise<String>;
+  chapterTitle: () => Promise<String>;
+  description: () => Promise<String>;
+  subjectId: () => Promise<String>;
+}
+
+export interface kdchapterPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdchapterPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  subjectTitle: () => Promise<AsyncIterator<String>>;
+  chapterTitle: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  subjectId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideosolurlEdge {
+  node: kdsectionvideosolurl;
+  cursor: String;
+}
+
+export interface kdsectionvideosolurlEdgePromise
+  extends Promise<kdsectionvideosolurlEdge>,
+    Fragmentable {
+  node: <T = kdsectionvideosolurlPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectionvideosolurlEdgeSubscription
+  extends Promise<AsyncIterator<kdsectionvideosolurlEdge>>,
+    Fragmentable {
+  node: <T = kdsectionvideosolurlSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface PageInfo {
@@ -485,300 +3558,1488 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface User {
-  id: ID_Output;
-  email?: String;
-  name: String;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface PostEdge {
-  node: Post;
-  cursor: String;
-}
-
-export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
-  node: <T = PostPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PostEdgeSubscription
-  extends Promise<AsyncIterator<PostEdge>>,
-    Fragmentable {
-  node: <T = PostSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface PostSubscriptionPayload {
-  mutation: MutationType;
-  node: Post;
-  updatedFields: String[];
-  previousValues: PostPreviousValues;
-}
-
-export interface PostSubscriptionPayloadPromise
-  extends Promise<PostSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PostPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PostPreviousValuesPromise>() => T;
-}
-
-export interface PostSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PostSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PostPreviousValuesSubscription>() => T;
-}
-
-export interface PostConnection {
-  pageInfo: PageInfo;
-  edges: PostEdge[];
-}
-
-export interface PostConnectionPromise
-  extends Promise<PostConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PostEdge>>() => T;
-  aggregate: <T = AggregatePostPromise>() => T;
-}
-
-export interface PostConnectionSubscription
-  extends Promise<AsyncIterator<PostConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePostSubscription>() => T;
-}
-
-export interface Post {
-  id: ID_Output;
-  title: String;
-  published: Boolean;
-}
-
-export interface PostPromise extends Promise<Post>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  published: () => Promise<Boolean>;
-  author: <T = UserPromise>() => T;
-}
-
-export interface PostSubscription
-  extends Promise<AsyncIterator<Post>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  published: () => Promise<AsyncIterator<Boolean>>;
-  author: <T = UserSubscription>() => T;
-}
-
-export interface PostNullablePromise
-  extends Promise<Post | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  published: () => Promise<Boolean>;
-  author: <T = UserPromise>() => T;
-}
-
-export interface PostPreviousValues {
-  id: ID_Output;
-  title: String;
-  published: Boolean;
-}
-
-export interface PostPreviousValuesPromise
-  extends Promise<PostPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  published: () => Promise<Boolean>;
-}
-
-export interface PostPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  published: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface AggregateUser {
+export interface Aggregatekdsectionvideo {
   count: Int;
 }
 
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
+export interface AggregatekdsectionvideoPromise
+  extends Promise<Aggregatekdsectionvideo>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
+export interface AggregatekdsectionvideoSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectionvideo>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface BatchPayload {
-  count: Long;
+export interface kdpageSubscriptionPayload {
+  mutation: MutationType;
+  node: kdpage;
+  updatedFields: String[];
+  previousValues: kdpagePreviousValues;
 }
 
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
+export interface kdpageSubscriptionPayloadPromise
+  extends Promise<kdpageSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Long>;
+  mutation: () => Promise<MutationType>;
+  node: <T = kdpagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdpagePreviousValuesPromise>() => T;
 }
 
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
+export interface kdpageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdpageSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdpageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdpagePreviousValuesSubscription>() => T;
 }
 
-export interface UserEdge {
-  node: User;
+export interface kdsectionvideoConnection {
+  pageInfo: PageInfo;
+  edges: kdsectionvideoEdge[];
+}
+
+export interface kdsectionvideoConnectionPromise
+  extends Promise<kdsectionvideoConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectionvideoEdge>>() => T;
+  aggregate: <T = AggregatekdsectionvideoPromise>() => T;
+}
+
+export interface kdsectionvideoConnectionSubscription
+  extends Promise<AsyncIterator<kdsectionvideoConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdsectionvideoEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdsectionvideoSubscription>() => T;
+}
+
+export interface kdpagePreviousValues {
+  id: ID_Output;
+  topicTitle: String;
+  topicId?: String;
+  pageType: String;
+  pageTitle: String;
+}
+
+export interface kdpagePreviousValuesPromise
+  extends Promise<kdpagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  topicTitle: () => Promise<String>;
+  topicId: () => Promise<String>;
+  pageType: () => Promise<String>;
+  pageTitle: () => Promise<String>;
+}
+
+export interface kdpagePreviousValuesSubscription
+  extends Promise<AsyncIterator<kdpagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+  topicId: () => Promise<AsyncIterator<String>>;
+  pageType: () => Promise<AsyncIterator<String>>;
+  pageTitle: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontypeEdge {
+  node: kdsectiontype;
   cursor: String;
 }
 
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
+export interface kdsectiontypeEdgePromise
+  extends Promise<kdsectiontypeEdge>,
+    Fragmentable {
+  node: <T = kdsectiontypePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
+export interface kdsectiontypeEdgeSubscription
+  extends Promise<AsyncIterator<kdsectiontypeEdge>>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
+  node: <T = kdsectiontypeSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregatePost {
+export interface kdchapterConnection {
+  pageInfo: PageInfo;
+  edges: kdchapterEdge[];
+}
+
+export interface kdchapterConnectionPromise
+  extends Promise<kdchapterConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdchapterEdge>>() => T;
+  aggregate: <T = AggregatekdchapterPromise>() => T;
+}
+
+export interface kdchapterConnectionSubscription
+  extends Promise<AsyncIterator<kdchapterConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdchapterEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdchapterSubscription>() => T;
+}
+
+export interface Aggregatekdsectiontheoryrichtext {
   count: Int;
 }
 
-export interface AggregatePostPromise
-  extends Promise<AggregatePost>,
+export interface AggregatekdsectiontheoryrichtextPromise
+  extends Promise<Aggregatekdsectiontheoryrichtext>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregatePostSubscription
-  extends Promise<AsyncIterator<AggregatePost>>,
+export interface AggregatekdsectiontheoryrichtextSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectiontheoryrichtext>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface UserSubscriptionPayload {
+export interface kdsectionSubscriptionPayload {
   mutation: MutationType;
-  node: User;
+  node: kdsection;
   updatedFields: String[];
-  previousValues: UserPreviousValues;
+  previousValues: kdsectionPreviousValues;
 }
 
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
+export interface kdsectionSubscriptionPayloadPromise
+  extends Promise<kdsectionSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
+  node: <T = kdsectionPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
+  previousValues: <T = kdsectionPreviousValuesPromise>() => T;
 }
 
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+export interface kdsectionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectionSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
+  node: <T = kdsectionSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
+  previousValues: <T = kdsectionPreviousValuesSubscription>() => T;
 }
 
-export interface UserConnection {
+export interface kdsectiontheoryrichtextConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: kdsectiontheoryrichtextEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface kdsectiontheoryrichtextConnectionPromise
+  extends Promise<kdsectiontheoryrichtextConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<kdsectiontheoryrichtextEdge>>() => T;
+  aggregate: <T = AggregatekdsectiontheoryrichtextPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface kdsectiontheoryrichtextConnectionSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryrichtextConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<kdsectiontheoryrichtextEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregatekdsectiontheoryrichtextSubscription>() => T;
 }
 
-export type Long = string;
+export interface kdsectionPreviousValues {
+  id: ID_Output;
+  sectionTitle?: String;
+  topicTitle?: String;
+}
 
-/*
-The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
-*/
-export type ID_Input = string | number;
-export type ID_Output = string;
+export interface kdsectionPreviousValuesPromise
+  extends Promise<kdsectionPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  sectionTitle: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+}
 
-/*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string;
+export interface kdsectionPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectionPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  sectionTitle: () => Promise<AsyncIterator<String>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryimageEdge {
+  node: kdsectiontheoryimage;
+  cursor: String;
+}
+
+export interface kdsectiontheoryimageEdgePromise
+  extends Promise<kdsectiontheoryimageEdge>,
+    Fragmentable {
+  node: <T = kdsectiontheoryimagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectiontheoryimageEdgeSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryimageEdge>>,
+    Fragmentable {
+  node: <T = kdsectiontheoryimageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionassignment {
+  id: ID_Output;
+  questionImagePath?: String;
+  answerImagePath?: String;
+}
+
+export interface kdsectionassignmentPromise
+  extends Promise<kdsectionassignment>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+  assignmentVideoSolution: <
+    T = FragmentableArray<kdsectionvideosolurl>
+  >(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionassignmentSubscription
+  extends Promise<AsyncIterator<kdsectionassignment>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  questionImagePath: () => Promise<AsyncIterator<String>>;
+  answerImagePath: () => Promise<AsyncIterator<String>>;
+  assignmentVideoSolution: <
+    T = Promise<AsyncIterator<kdsectionvideosolurlSubscription>>
+  >(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionassignmentNullablePromise
+  extends Promise<kdsectionassignment | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+  assignmentVideoSolution: <
+    T = FragmentableArray<kdsectionvideosolurl>
+  >(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface Aggregatekdsectionquiz {
+  count: Int;
+}
+
+export interface AggregatekdsectionquizPromise
+  extends Promise<Aggregatekdsectionquiz>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectionquizSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectionquiz>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectionassignmentSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectionassignment;
+  updatedFields: String[];
+  previousValues: kdsectionassignmentPreviousValues;
+}
+
+export interface kdsectionassignmentSubscriptionPayloadPromise
+  extends Promise<kdsectionassignmentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectionassignmentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectionassignmentPreviousValuesPromise>() => T;
+}
+
+export interface kdsectionassignmentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectionassignmentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectionassignmentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectionassignmentPreviousValuesSubscription>() => T;
+}
+
+export interface kdsectionquizConnection {
+  pageInfo: PageInfo;
+  edges: kdsectionquizEdge[];
+}
+
+export interface kdsectionquizConnectionPromise
+  extends Promise<kdsectionquizConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectionquizEdge>>() => T;
+  aggregate: <T = AggregatekdsectionquizPromise>() => T;
+}
+
+export interface kdsectionquizConnectionSubscription
+  extends Promise<AsyncIterator<kdsectionquizConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdsectionquizEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdsectionquizSubscription>() => T;
+}
+
+export interface kdsectionassignmentPreviousValues {
+  id: ID_Output;
+  questionImagePath?: String;
+  answerImagePath?: String;
+}
+
+export interface kdsectionassignmentPreviousValuesPromise
+  extends Promise<kdsectionassignmentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+}
+
+export interface kdsectionassignmentPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectionassignmentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  questionImagePath: () => Promise<AsyncIterator<String>>;
+  answerImagePath: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionassignmentEdge {
+  node: kdsectionassignment;
+  cursor: String;
+}
+
+export interface kdsectionassignmentEdgePromise
+  extends Promise<kdsectionassignmentEdge>,
+    Fragmentable {
+  node: <T = kdsectionassignmentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectionassignmentEdgeSubscription
+  extends Promise<AsyncIterator<kdsectionassignmentEdge>>,
+    Fragmentable {
+  node: <T = kdsectionassignmentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideosolurl {
+  id: ID_Output;
+  videoUrl?: String;
+}
+
+export interface kdsectionvideosolurlPromise
+  extends Promise<kdsectionvideosolurl>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  videoUrl: () => Promise<String>;
+}
+
+export interface kdsectionvideosolurlSubscription
+  extends Promise<AsyncIterator<kdsectionvideosolurl>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  videoUrl: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideosolurlNullablePromise
+  extends Promise<kdsectionvideosolurl | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  videoUrl: () => Promise<String>;
+}
+
+export interface Aggregatekdsection {
+  count: Int;
+}
+
+export interface AggregatekdsectionPromise
+  extends Promise<Aggregatekdsection>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectionSubscription
+  extends Promise<AsyncIterator<Aggregatekdsection>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectionquizSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectionquiz;
+  updatedFields: String[];
+  previousValues: kdsectionquizPreviousValues;
+}
+
+export interface kdsectionquizSubscriptionPayloadPromise
+  extends Promise<kdsectionquizSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectionquizPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectionquizPreviousValuesPromise>() => T;
+}
+
+export interface kdsectionquizSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectionquizSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectionquizSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectionquizPreviousValuesSubscription>() => T;
+}
+
+export interface kdsectionConnection {
+  pageInfo: PageInfo;
+  edges: kdsectionEdge[];
+}
+
+export interface kdsectionConnectionPromise
+  extends Promise<kdsectionConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectionEdge>>() => T;
+  aggregate: <T = AggregatekdsectionPromise>() => T;
+}
+
+export interface kdsectionConnectionSubscription
+  extends Promise<AsyncIterator<kdsectionConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdsectionEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdsectionSubscription>() => T;
+}
+
+export interface kdsectionquizPreviousValues {
+  id: ID_Output;
+  questionsImagePath?: String;
+  answerImagePath?: String;
+  answerKey?: String;
+}
+
+export interface kdsectionquizPreviousValuesPromise
+  extends Promise<kdsectionquizPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionsImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+  answerKey: () => Promise<String>;
+}
+
+export interface kdsectionquizPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectionquizPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  questionsImagePath: () => Promise<AsyncIterator<String>>;
+  answerImagePath: () => Promise<AsyncIterator<String>>;
+  answerKey: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdpageEdge {
+  node: kdpage;
+  cursor: String;
+}
+
+export interface kdpageEdgePromise extends Promise<kdpageEdge>, Fragmentable {
+  node: <T = kdpagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdpageEdgeSubscription
+  extends Promise<AsyncIterator<kdpageEdge>>,
+    Fragmentable {
+  node: <T = kdpageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionquiz {
+  id: ID_Output;
+  questionsImagePath?: String;
+  answerImagePath?: String;
+  answerKey?: String;
+}
+
+export interface kdsectionquizPromise
+  extends Promise<kdsectionquiz>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionsImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+  answerKey: () => Promise<String>;
+  videoSolutionUrl: <T = FragmentableArray<kdsectionvideosolurl>>(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionquizSubscription
+  extends Promise<AsyncIterator<kdsectionquiz>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  questionsImagePath: () => Promise<AsyncIterator<String>>;
+  answerImagePath: () => Promise<AsyncIterator<String>>;
+  answerKey: () => Promise<AsyncIterator<String>>;
+  videoSolutionUrl: <
+    T = Promise<AsyncIterator<kdsectionvideosolurlSubscription>>
+  >(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionquizNullablePromise
+  extends Promise<kdsectionquiz | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  questionsImagePath: () => Promise<String>;
+  answerImagePath: () => Promise<String>;
+  answerKey: () => Promise<String>;
+  videoSolutionUrl: <T = FragmentableArray<kdsectionvideosolurl>>(args?: {
+    where?: kdsectionvideosolurlWhereInput;
+    orderBy?: kdsectionvideosolurlOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsubjectEdge {
+  node: kdsubject;
+  cursor: String;
+}
+
+export interface kdsubjectEdgePromise
+  extends Promise<kdsubjectEdge>,
+    Fragmentable {
+  node: <T = kdsubjectPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsubjectEdgeSubscription
+  extends Promise<AsyncIterator<kdsubjectEdge>>,
+    Fragmentable {
+  node: <T = kdsubjectSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryimageSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectiontheoryimage;
+  updatedFields: String[];
+  previousValues: kdsectiontheoryimagePreviousValues;
+}
+
+export interface kdsectiontheoryimageSubscriptionPayloadPromise
+  extends Promise<kdsectiontheoryimageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectiontheoryimagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectiontheoryimagePreviousValuesPromise>() => T;
+}
+
+export interface kdsectiontheoryimageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryimageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectiontheoryimageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectiontheoryimagePreviousValuesSubscription>() => T;
+}
+
+export interface kdpage {
+  id: ID_Output;
+  topicTitle: String;
+  topicId?: String;
+  pageType: String;
+  pageTitle: String;
+}
+
+export interface kdpagePromise extends Promise<kdpage>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  topicTitle: () => Promise<String>;
+  topicId: () => Promise<String>;
+  pageType: () => Promise<String>;
+  pageTitle: () => Promise<String>;
+  sections: <T = FragmentableArray<kdsection>>(args?: {
+    where?: kdsectionWhereInput;
+    orderBy?: kdsectionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdpageSubscription
+  extends Promise<AsyncIterator<kdpage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+  topicId: () => Promise<AsyncIterator<String>>;
+  pageType: () => Promise<AsyncIterator<String>>;
+  pageTitle: () => Promise<AsyncIterator<String>>;
+  sections: <T = Promise<AsyncIterator<kdsectionSubscription>>>(args?: {
+    where?: kdsectionWhereInput;
+    orderBy?: kdsectionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdpageNullablePromise
+  extends Promise<kdpage | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  topicTitle: () => Promise<String>;
+  topicId: () => Promise<String>;
+  pageType: () => Promise<String>;
+  pageTitle: () => Promise<String>;
+  sections: <T = FragmentableArray<kdsection>>(args?: {
+    where?: kdsectionWhereInput;
+    orderBy?: kdsectionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectiontheoryimagePreviousValues {
+  id: ID_Output;
+  imagePath?: String;
+}
+
+export interface kdsectiontheoryimagePreviousValuesPromise
+  extends Promise<kdsectiontheoryimagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imagePath: () => Promise<String>;
+}
+
+export interface kdsectiontheoryimagePreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryimagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imagePath: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideosolurlConnection {
+  pageInfo: PageInfo;
+  edges: kdsectionvideosolurlEdge[];
+}
+
+export interface kdsectionvideosolurlConnectionPromise
+  extends Promise<kdsectionvideosolurlConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectionvideosolurlEdge>>() => T;
+  aggregate: <T = AggregatekdsectionvideosolurlPromise>() => T;
+}
+
+export interface kdsectionvideosolurlConnectionSubscription
+  extends Promise<AsyncIterator<kdsectionvideosolurlConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<kdsectionvideosolurlEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregatekdsectionvideosolurlSubscription>() => T;
+}
+
+export interface kdsectiontheoryrichtext {
+  id: ID_Output;
+  textData?: String;
+}
+
+export interface kdsectiontheoryrichtextPromise
+  extends Promise<kdsectiontheoryrichtext>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  textData: () => Promise<String>;
+}
+
+export interface kdsectiontheoryrichtextSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryrichtext>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  textData: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryrichtextNullablePromise
+  extends Promise<kdsectiontheoryrichtext | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  textData: () => Promise<String>;
+}
+
+export interface Aggregatekdsectiontype {
+  count: Int;
+}
+
+export interface AggregatekdsectiontypePromise
+  extends Promise<Aggregatekdsectiontype>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectiontypeSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectiontype>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectiontheoryrichtextSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectiontheoryrichtext;
+  updatedFields: String[];
+  previousValues: kdsectiontheoryrichtextPreviousValues;
+}
+
+export interface kdsectiontheoryrichtextSubscriptionPayloadPromise
+  extends Promise<kdsectiontheoryrichtextSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectiontheoryrichtextPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectiontheoryrichtextPreviousValuesPromise>() => T;
+}
+
+export interface kdsectiontheoryrichtextSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryrichtextSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectiontheoryrichtextSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <
+    T = kdsectiontheoryrichtextPreviousValuesSubscription
+  >() => T;
+}
+
+export interface kdsectiontheoryrichtextEdge {
+  node: kdsectiontheoryrichtext;
+  cursor: String;
+}
+
+export interface kdsectiontheoryrichtextEdgePromise
+  extends Promise<kdsectiontheoryrichtextEdge>,
+    Fragmentable {
+  node: <T = kdsectiontheoryrichtextPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectiontheoryrichtextEdgeSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryrichtextEdge>>,
+    Fragmentable {
+  node: <T = kdsectiontheoryrichtextSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryrichtextPreviousValues {
+  id: ID_Output;
+  textData?: String;
+}
+
+export interface kdsectiontheoryrichtextPreviousValuesPromise
+  extends Promise<kdsectiontheoryrichtextPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  textData: () => Promise<String>;
+}
+
+export interface kdsectiontheoryrichtextPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryrichtextPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  textData: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryimageConnection {
+  pageInfo: PageInfo;
+  edges: kdsectiontheoryimageEdge[];
+}
+
+export interface kdsectiontheoryimageConnectionPromise
+  extends Promise<kdsectiontheoryimageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectiontheoryimageEdge>>() => T;
+  aggregate: <T = AggregatekdsectiontheoryimagePromise>() => T;
+}
+
+export interface kdsectiontheoryimageConnectionSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryimageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<kdsectiontheoryimageEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregatekdsectiontheoryimageSubscription>() => T;
+}
+
+export interface kdsectiontheoryimage {
+  id: ID_Output;
+  imagePath?: String;
+}
+
+export interface kdsectiontheoryimagePromise
+  extends Promise<kdsectiontheoryimage>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imagePath: () => Promise<String>;
+}
+
+export interface kdsectiontheoryimageSubscription
+  extends Promise<AsyncIterator<kdsectiontheoryimage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imagePath: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontheoryimageNullablePromise
+  extends Promise<kdsectiontheoryimage | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imagePath: () => Promise<String>;
+}
+
+export interface Aggregatekdsectionassignment {
+  count: Int;
+}
+
+export interface AggregatekdsectionassignmentPromise
+  extends Promise<Aggregatekdsectionassignment>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectionassignmentSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectionassignment>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectiontypeSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectiontype;
+  updatedFields: String[];
+  previousValues: kdsectiontypePreviousValues;
+}
+
+export interface kdsectiontypeSubscriptionPayloadPromise
+  extends Promise<kdsectiontypeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectiontypePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectiontypePreviousValuesPromise>() => T;
+}
+
+export interface kdsectiontypeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectiontypeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectiontypeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectiontypePreviousValuesSubscription>() => T;
+}
+
+export interface kdsectionEdge {
+  node: kdsection;
+  cursor: String;
+}
+
+export interface kdsectionEdgePromise
+  extends Promise<kdsectionEdge>,
+    Fragmentable {
+  node: <T = kdsectionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectionEdgeSubscription
+  extends Promise<AsyncIterator<kdsectionEdge>>,
+    Fragmentable {
+  node: <T = kdsectionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectiontypePreviousValues {
+  id: ID_Output;
+}
+
+export interface kdsectiontypePreviousValuesPromise
+  extends Promise<kdsectiontypePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface kdsectiontypePreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectiontypePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface kdpageConnection {
+  pageInfo: PageInfo;
+  edges: kdpageEdge[];
+}
+
+export interface kdpageConnectionPromise
+  extends Promise<kdpageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdpageEdge>>() => T;
+  aggregate: <T = AggregatekdpagePromise>() => T;
+}
+
+export interface kdpageConnectionSubscription
+  extends Promise<AsyncIterator<kdpageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdpageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdpageSubscription>() => T;
+}
+
+export interface kdsectionvideo {
+  id: ID_Output;
+  link?: String;
+}
+
+export interface kdsectionvideoPromise
+  extends Promise<kdsectionvideo>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  link: () => Promise<String>;
+}
+
+export interface kdsectionvideoSubscription
+  extends Promise<AsyncIterator<kdsectionvideo>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  link: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideoNullablePromise
+  extends Promise<kdsectionvideo | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  link: () => Promise<String>;
+}
+
+export interface Aggregatekdsectionvideosolurl {
+  count: Int;
+}
+
+export interface AggregatekdsectionvideosolurlPromise
+  extends Promise<Aggregatekdsectionvideosolurl>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectionvideosolurlSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectionvideosolurl>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectionvideoSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectionvideo;
+  updatedFields: String[];
+  previousValues: kdsectionvideoPreviousValues;
+}
+
+export interface kdsectionvideoSubscriptionPayloadPromise
+  extends Promise<kdsectionvideoSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectionvideoPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectionvideoPreviousValuesPromise>() => T;
+}
+
+export interface kdsectionvideoSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectionvideoSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectionvideoSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectionvideoPreviousValuesSubscription>() => T;
+}
+
+export interface kdsectiontypeConnection {
+  pageInfo: PageInfo;
+  edges: kdsectiontypeEdge[];
+}
+
+export interface kdsectiontypeConnectionPromise
+  extends Promise<kdsectiontypeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectiontypeEdge>>() => T;
+  aggregate: <T = AggregatekdsectiontypePromise>() => T;
+}
+
+export interface kdsectiontypeConnectionSubscription
+  extends Promise<AsyncIterator<kdsectiontypeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<kdsectiontypeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatekdsectiontypeSubscription>() => T;
+}
+
+export interface kdsectionvideoPreviousValues {
+  id: ID_Output;
+  link?: String;
+}
+
+export interface kdsectionvideoPreviousValuesPromise
+  extends Promise<kdsectionvideoPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  link: () => Promise<String>;
+}
+
+export interface kdsectionvideoPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectionvideoPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  link: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionquizEdge {
+  node: kdsectionquiz;
+  cursor: String;
+}
+
+export interface kdsectionquizEdgePromise
+  extends Promise<kdsectionquizEdge>,
+    Fragmentable {
+  node: <T = kdsectionquizPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectionquizEdgeSubscription
+  extends Promise<AsyncIterator<kdsectionquizEdge>>,
+    Fragmentable {
+  node: <T = kdsectionquizSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Aggregatekdpage {
+  count: Int;
+}
+
+export interface AggregatekdpagePromise
+  extends Promise<Aggregatekdpage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdpageSubscription
+  extends Promise<AsyncIterator<Aggregatekdpage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsection {
+  id: ID_Output;
+  sectionTitle?: String;
+  topicTitle?: String;
+}
+
+export interface kdsectionPromise extends Promise<kdsection>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  sectionTitle: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+  sectionType: <T = FragmentableArray<kdsectiontype>>(args?: {
+    where?: kdsectiontypeWhereInput;
+    orderBy?: kdsectiontypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionSubscription
+  extends Promise<AsyncIterator<kdsection>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  sectionTitle: () => Promise<AsyncIterator<String>>;
+  topicTitle: () => Promise<AsyncIterator<String>>;
+  sectionType: <T = Promise<AsyncIterator<kdsectiontypeSubscription>>>(args?: {
+    where?: kdsectiontypeWhereInput;
+    orderBy?: kdsectiontypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionNullablePromise
+  extends Promise<kdsection | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  sectionTitle: () => Promise<String>;
+  topicTitle: () => Promise<String>;
+  sectionType: <T = FragmentableArray<kdsectiontype>>(args?: {
+    where?: kdsectiontypeWhereInput;
+    orderBy?: kdsectiontypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectionvideosolurlPreviousValues {
+  id: ID_Output;
+  videoUrl?: String;
+}
+
+export interface kdsectionvideosolurlPreviousValuesPromise
+  extends Promise<kdsectionvideosolurlPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  videoUrl: () => Promise<String>;
+}
+
+export interface kdsectionvideosolurlPreviousValuesSubscription
+  extends Promise<AsyncIterator<kdsectionvideosolurlPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  videoUrl: () => Promise<AsyncIterator<String>>;
+}
+
+export interface kdsectionvideosolurlSubscriptionPayload {
+  mutation: MutationType;
+  node: kdsectionvideosolurl;
+  updatedFields: String[];
+  previousValues: kdsectionvideosolurlPreviousValues;
+}
+
+export interface kdsectionvideosolurlSubscriptionPayloadPromise
+  extends Promise<kdsectionvideosolurlSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdsectionvideosolurlPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdsectionvideosolurlPreviousValuesPromise>() => T;
+}
+
+export interface kdsectionvideosolurlSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdsectionvideosolurlSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdsectionvideosolurlSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdsectionvideosolurlPreviousValuesSubscription>() => T;
+}
+
+export interface kdsectiontype {
+  id: ID_Output;
+}
+
+export interface kdsectiontypePromise
+  extends Promise<kdsectiontype>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  videos: <T = FragmentableArray<kdsectionvideo>>(args?: {
+    where?: kdsectionvideoWhereInput;
+    orderBy?: kdsectionvideoOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryImage: <T = FragmentableArray<kdsectiontheoryimage>>(args?: {
+    where?: kdsectiontheoryimageWhereInput;
+    orderBy?: kdsectiontheoryimageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryRichText: <T = FragmentableArray<kdsectiontheoryrichtext>>(args?: {
+    where?: kdsectiontheoryrichtextWhereInput;
+    orderBy?: kdsectiontheoryrichtextOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  quiz: <T = FragmentableArray<kdsectionquiz>>(args?: {
+    where?: kdsectionquizWhereInput;
+    orderBy?: kdsectionquizOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assignment: <T = FragmentableArray<kdsectionassignment>>(args?: {
+    where?: kdsectionassignmentWhereInput;
+    orderBy?: kdsectionassignmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectiontypeSubscription
+  extends Promise<AsyncIterator<kdsectiontype>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  videos: <T = Promise<AsyncIterator<kdsectionvideoSubscription>>>(args?: {
+    where?: kdsectionvideoWhereInput;
+    orderBy?: kdsectionvideoOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryImage: <
+    T = Promise<AsyncIterator<kdsectiontheoryimageSubscription>>
+  >(args?: {
+    where?: kdsectiontheoryimageWhereInput;
+    orderBy?: kdsectiontheoryimageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryRichText: <
+    T = Promise<AsyncIterator<kdsectiontheoryrichtextSubscription>>
+  >(args?: {
+    where?: kdsectiontheoryrichtextWhereInput;
+    orderBy?: kdsectiontheoryrichtextOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  quiz: <T = Promise<AsyncIterator<kdsectionquizSubscription>>>(args?: {
+    where?: kdsectionquizWhereInput;
+    orderBy?: kdsectionquizOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assignment: <
+    T = Promise<AsyncIterator<kdsectionassignmentSubscription>>
+  >(args?: {
+    where?: kdsectionassignmentWhereInput;
+    orderBy?: kdsectionassignmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdsectiontypeNullablePromise
+  extends Promise<kdsectiontype | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  videos: <T = FragmentableArray<kdsectionvideo>>(args?: {
+    where?: kdsectionvideoWhereInput;
+    orderBy?: kdsectionvideoOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryImage: <T = FragmentableArray<kdsectiontheoryimage>>(args?: {
+    where?: kdsectiontheoryimageWhereInput;
+    orderBy?: kdsectiontheoryimageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  theoryRichText: <T = FragmentableArray<kdsectiontheoryrichtext>>(args?: {
+    where?: kdsectiontheoryrichtextWhereInput;
+    orderBy?: kdsectiontheoryrichtextOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  quiz: <T = FragmentableArray<kdsectionquiz>>(args?: {
+    where?: kdsectionquizWhereInput;
+    orderBy?: kdsectionquizOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assignment: <T = FragmentableArray<kdsectionassignment>>(args?: {
+    where?: kdsectionassignmentWhereInput;
+    orderBy?: kdsectionassignmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface kdtopicSubscriptionPayload {
+  mutation: MutationType;
+  node: kdtopic;
+  updatedFields: String[];
+  previousValues: kdtopicPreviousValues;
+}
+
+export interface kdtopicSubscriptionPayloadPromise
+  extends Promise<kdtopicSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = kdtopicPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = kdtopicPreviousValuesPromise>() => T;
+}
+
+export interface kdtopicSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<kdtopicSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = kdtopicSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = kdtopicPreviousValuesSubscription>() => T;
+}
+
+export interface kdsectionassignmentConnection {
+  pageInfo: PageInfo;
+  edges: kdsectionassignmentEdge[];
+}
+
+export interface kdsectionassignmentConnectionPromise
+  extends Promise<kdsectionassignmentConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<kdsectionassignmentEdge>>() => T;
+  aggregate: <T = AggregatekdsectionassignmentPromise>() => T;
+}
+
+export interface kdsectionassignmentConnectionSubscription
+  extends Promise<AsyncIterator<kdsectionassignmentConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<kdsectionassignmentEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregatekdsectionassignmentSubscription>() => T;
+}
+
+export interface Aggregatekdsectiontheoryimage {
+  count: Int;
+}
+
+export interface AggregatekdsectiontheoryimagePromise
+  extends Promise<Aggregatekdsectiontheoryimage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatekdsectiontheoryimageSubscription
+  extends Promise<AsyncIterator<Aggregatekdsectiontheoryimage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface kdsectionvideoEdge {
+  node: kdsectionvideo;
+  cursor: String;
+}
+
+export interface kdsectionvideoEdgePromise
+  extends Promise<kdsectionvideoEdge>,
+    Fragmentable {
+  node: <T = kdsectionvideoPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface kdsectionvideoEdgeSubscription
+  extends Promise<AsyncIterator<kdsectionvideoEdge>>,
+    Fragmentable {
+  node: <T = kdsectionvideoSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -790,17 +5051,70 @@ The `Int` scalar type represents non-fractional signed whole numeric values. Int
 */
 export type Int = number;
 
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
+
+export type Long = string;
+
+/*
+The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
+*/
+export type ID_Input = string | number;
+export type ID_Output = string;
+
 /**
  * Model Metadata
  */
 
 export const models: Model[] = [
   {
-    name: "User",
+    name: "kdsubject",
     embedded: false
   },
   {
-    name: "Post",
+    name: "kdchapter",
+    embedded: false
+  },
+  {
+    name: "kdtopic",
+    embedded: false
+  },
+  {
+    name: "kdpage",
+    embedded: false
+  },
+  {
+    name: "kdsection",
+    embedded: false
+  },
+  {
+    name: "kdsectiontype",
+    embedded: false
+  },
+  {
+    name: "kdsectionvideo",
+    embedded: false
+  },
+  {
+    name: "kdsectiontheoryimage",
+    embedded: false
+  },
+  {
+    name: "kdsectiontheoryrichtext",
+    embedded: false
+  },
+  {
+    name: "kdsectionquiz",
+    embedded: false
+  },
+  {
+    name: "kdsectionvideosolurl",
+    embedded: false
+  },
+  {
+    name: "kdsectionassignment",
     embedded: false
   }
 ];

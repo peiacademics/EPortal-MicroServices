@@ -5,11 +5,51 @@ var typeDefs = require("./prisma-schema").typeDefs;
 
 var models = [
   {
-    name: "User",
+    name: "kdsubject",
     embedded: false
   },
   {
-    name: "Post",
+    name: "kdchapter",
+    embedded: false
+  },
+  {
+    name: "kdtopic",
+    embedded: false
+  },
+  {
+    name: "kdpage",
+    embedded: false
+  },
+  {
+    name: "kdsection",
+    embedded: false
+  },
+  {
+    name: "kdsectiontype",
+    embedded: false
+  },
+  {
+    name: "kdsectionvideo",
+    embedded: false
+  },
+  {
+    name: "kdsectiontheoryimage",
+    embedded: false
+  },
+  {
+    name: "kdsectiontheoryrichtext",
+    embedded: false
+  },
+  {
+    name: "kdsectionquiz",
+    embedded: false
+  },
+  {
+    name: "kdsectionvideosolurl",
+    embedded: false
+  },
+  {
+    name: "kdsectionassignment",
     embedded: false
   }
 ];

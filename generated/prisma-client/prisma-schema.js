@@ -3,11 +3,51 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregatePost {
+/* GraphQL */ `type Aggregatekdchapter {
   count: Int!
 }
 
-type AggregateUser {
+type Aggregatekdpage {
+  count: Int!
+}
+
+type Aggregatekdsection {
+  count: Int!
+}
+
+type Aggregatekdsectionassignment {
+  count: Int!
+}
+
+type Aggregatekdsectionquiz {
+  count: Int!
+}
+
+type Aggregatekdsectiontheoryimage {
+  count: Int!
+}
+
+type Aggregatekdsectiontheoryrichtext {
+  count: Int!
+}
+
+type Aggregatekdsectiontype {
+  count: Int!
+}
+
+type Aggregatekdsectionvideo {
+  count: Int!
+}
+
+type Aggregatekdsectionvideosolurl {
+  count: Int!
+}
+
+type Aggregatekdsubject {
+  count: Int!
+}
+
+type Aggregatekdtopic {
   count: Int!
 }
 
@@ -15,21 +55,2605 @@ type BatchPayload {
   count: Long!
 }
 
+type kdchapter {
+  id: ID!
+  subjectTitle: String!
+  chapterTitle: String!
+  description: String!
+  topics(where: kdtopicWhereInput, orderBy: kdtopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdtopic!]
+  subjectId: String
+}
+
+type kdchapterConnection {
+  pageInfo: PageInfo!
+  edges: [kdchapterEdge]!
+  aggregate: Aggregatekdchapter!
+}
+
+input kdchapterCreateInput {
+  id: ID
+  subjectTitle: String!
+  chapterTitle: String!
+  description: String!
+  topics: kdtopicCreateManyInput
+  subjectId: String
+}
+
+input kdchapterCreateManyInput {
+  create: [kdchapterCreateInput!]
+  connect: [kdchapterWhereUniqueInput!]
+}
+
+type kdchapterEdge {
+  node: kdchapter!
+  cursor: String!
+}
+
+enum kdchapterOrderByInput {
+  id_ASC
+  id_DESC
+  subjectTitle_ASC
+  subjectTitle_DESC
+  chapterTitle_ASC
+  chapterTitle_DESC
+  description_ASC
+  description_DESC
+  subjectId_ASC
+  subjectId_DESC
+}
+
+type kdchapterPreviousValues {
+  id: ID!
+  subjectTitle: String!
+  chapterTitle: String!
+  description: String!
+  subjectId: String
+}
+
+input kdchapterScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  subjectTitle: String
+  subjectTitle_not: String
+  subjectTitle_in: [String!]
+  subjectTitle_not_in: [String!]
+  subjectTitle_lt: String
+  subjectTitle_lte: String
+  subjectTitle_gt: String
+  subjectTitle_gte: String
+  subjectTitle_contains: String
+  subjectTitle_not_contains: String
+  subjectTitle_starts_with: String
+  subjectTitle_not_starts_with: String
+  subjectTitle_ends_with: String
+  subjectTitle_not_ends_with: String
+  chapterTitle: String
+  chapterTitle_not: String
+  chapterTitle_in: [String!]
+  chapterTitle_not_in: [String!]
+  chapterTitle_lt: String
+  chapterTitle_lte: String
+  chapterTitle_gt: String
+  chapterTitle_gte: String
+  chapterTitle_contains: String
+  chapterTitle_not_contains: String
+  chapterTitle_starts_with: String
+  chapterTitle_not_starts_with: String
+  chapterTitle_ends_with: String
+  chapterTitle_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  subjectId: String
+  subjectId_not: String
+  subjectId_in: [String!]
+  subjectId_not_in: [String!]
+  subjectId_lt: String
+  subjectId_lte: String
+  subjectId_gt: String
+  subjectId_gte: String
+  subjectId_contains: String
+  subjectId_not_contains: String
+  subjectId_starts_with: String
+  subjectId_not_starts_with: String
+  subjectId_ends_with: String
+  subjectId_not_ends_with: String
+  AND: [kdchapterScalarWhereInput!]
+  OR: [kdchapterScalarWhereInput!]
+  NOT: [kdchapterScalarWhereInput!]
+}
+
+type kdchapterSubscriptionPayload {
+  mutation: MutationType!
+  node: kdchapter
+  updatedFields: [String!]
+  previousValues: kdchapterPreviousValues
+}
+
+input kdchapterSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdchapterWhereInput
+  AND: [kdchapterSubscriptionWhereInput!]
+  OR: [kdchapterSubscriptionWhereInput!]
+  NOT: [kdchapterSubscriptionWhereInput!]
+}
+
+input kdchapterUpdateDataInput {
+  subjectTitle: String
+  chapterTitle: String
+  description: String
+  topics: kdtopicUpdateManyInput
+  subjectId: String
+}
+
+input kdchapterUpdateInput {
+  subjectTitle: String
+  chapterTitle: String
+  description: String
+  topics: kdtopicUpdateManyInput
+  subjectId: String
+}
+
+input kdchapterUpdateManyDataInput {
+  subjectTitle: String
+  chapterTitle: String
+  description: String
+  subjectId: String
+}
+
+input kdchapterUpdateManyInput {
+  create: [kdchapterCreateInput!]
+  update: [kdchapterUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdchapterUpsertWithWhereUniqueNestedInput!]
+  delete: [kdchapterWhereUniqueInput!]
+  connect: [kdchapterWhereUniqueInput!]
+  set: [kdchapterWhereUniqueInput!]
+  disconnect: [kdchapterWhereUniqueInput!]
+  deleteMany: [kdchapterScalarWhereInput!]
+  updateMany: [kdchapterUpdateManyWithWhereNestedInput!]
+}
+
+input kdchapterUpdateManyMutationInput {
+  subjectTitle: String
+  chapterTitle: String
+  description: String
+  subjectId: String
+}
+
+input kdchapterUpdateManyWithWhereNestedInput {
+  where: kdchapterScalarWhereInput!
+  data: kdchapterUpdateManyDataInput!
+}
+
+input kdchapterUpdateWithWhereUniqueNestedInput {
+  where: kdchapterWhereUniqueInput!
+  data: kdchapterUpdateDataInput!
+}
+
+input kdchapterUpsertWithWhereUniqueNestedInput {
+  where: kdchapterWhereUniqueInput!
+  update: kdchapterUpdateDataInput!
+  create: kdchapterCreateInput!
+}
+
+input kdchapterWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  subjectTitle: String
+  subjectTitle_not: String
+  subjectTitle_in: [String!]
+  subjectTitle_not_in: [String!]
+  subjectTitle_lt: String
+  subjectTitle_lte: String
+  subjectTitle_gt: String
+  subjectTitle_gte: String
+  subjectTitle_contains: String
+  subjectTitle_not_contains: String
+  subjectTitle_starts_with: String
+  subjectTitle_not_starts_with: String
+  subjectTitle_ends_with: String
+  subjectTitle_not_ends_with: String
+  chapterTitle: String
+  chapterTitle_not: String
+  chapterTitle_in: [String!]
+  chapterTitle_not_in: [String!]
+  chapterTitle_lt: String
+  chapterTitle_lte: String
+  chapterTitle_gt: String
+  chapterTitle_gte: String
+  chapterTitle_contains: String
+  chapterTitle_not_contains: String
+  chapterTitle_starts_with: String
+  chapterTitle_not_starts_with: String
+  chapterTitle_ends_with: String
+  chapterTitle_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  topics_every: kdtopicWhereInput
+  topics_some: kdtopicWhereInput
+  topics_none: kdtopicWhereInput
+  subjectId: String
+  subjectId_not: String
+  subjectId_in: [String!]
+  subjectId_not_in: [String!]
+  subjectId_lt: String
+  subjectId_lte: String
+  subjectId_gt: String
+  subjectId_gte: String
+  subjectId_contains: String
+  subjectId_not_contains: String
+  subjectId_starts_with: String
+  subjectId_not_starts_with: String
+  subjectId_ends_with: String
+  subjectId_not_ends_with: String
+  AND: [kdchapterWhereInput!]
+  OR: [kdchapterWhereInput!]
+  NOT: [kdchapterWhereInput!]
+}
+
+input kdchapterWhereUniqueInput {
+  id: ID
+}
+
+type kdpage {
+  id: ID!
+  topicTitle: String!
+  topicId: String
+  pageType: String!
+  pageTitle: String!
+  sections(where: kdsectionWhereInput, orderBy: kdsectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsection!]
+}
+
+type kdpageConnection {
+  pageInfo: PageInfo!
+  edges: [kdpageEdge]!
+  aggregate: Aggregatekdpage!
+}
+
+input kdpageCreateInput {
+  id: ID
+  topicTitle: String!
+  topicId: String
+  pageType: String!
+  pageTitle: String!
+  sections: kdsectionCreateManyInput
+}
+
+input kdpageCreateManyInput {
+  create: [kdpageCreateInput!]
+  connect: [kdpageWhereUniqueInput!]
+}
+
+type kdpageEdge {
+  node: kdpage!
+  cursor: String!
+}
+
+enum kdpageOrderByInput {
+  id_ASC
+  id_DESC
+  topicTitle_ASC
+  topicTitle_DESC
+  topicId_ASC
+  topicId_DESC
+  pageType_ASC
+  pageType_DESC
+  pageTitle_ASC
+  pageTitle_DESC
+}
+
+type kdpagePreviousValues {
+  id: ID!
+  topicTitle: String!
+  topicId: String
+  pageType: String!
+  pageTitle: String!
+}
+
+input kdpageScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  topicId: String
+  topicId_not: String
+  topicId_in: [String!]
+  topicId_not_in: [String!]
+  topicId_lt: String
+  topicId_lte: String
+  topicId_gt: String
+  topicId_gte: String
+  topicId_contains: String
+  topicId_not_contains: String
+  topicId_starts_with: String
+  topicId_not_starts_with: String
+  topicId_ends_with: String
+  topicId_not_ends_with: String
+  pageType: String
+  pageType_not: String
+  pageType_in: [String!]
+  pageType_not_in: [String!]
+  pageType_lt: String
+  pageType_lte: String
+  pageType_gt: String
+  pageType_gte: String
+  pageType_contains: String
+  pageType_not_contains: String
+  pageType_starts_with: String
+  pageType_not_starts_with: String
+  pageType_ends_with: String
+  pageType_not_ends_with: String
+  pageTitle: String
+  pageTitle_not: String
+  pageTitle_in: [String!]
+  pageTitle_not_in: [String!]
+  pageTitle_lt: String
+  pageTitle_lte: String
+  pageTitle_gt: String
+  pageTitle_gte: String
+  pageTitle_contains: String
+  pageTitle_not_contains: String
+  pageTitle_starts_with: String
+  pageTitle_not_starts_with: String
+  pageTitle_ends_with: String
+  pageTitle_not_ends_with: String
+  AND: [kdpageScalarWhereInput!]
+  OR: [kdpageScalarWhereInput!]
+  NOT: [kdpageScalarWhereInput!]
+}
+
+type kdpageSubscriptionPayload {
+  mutation: MutationType!
+  node: kdpage
+  updatedFields: [String!]
+  previousValues: kdpagePreviousValues
+}
+
+input kdpageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdpageWhereInput
+  AND: [kdpageSubscriptionWhereInput!]
+  OR: [kdpageSubscriptionWhereInput!]
+  NOT: [kdpageSubscriptionWhereInput!]
+}
+
+input kdpageUpdateDataInput {
+  topicTitle: String
+  topicId: String
+  pageType: String
+  pageTitle: String
+  sections: kdsectionUpdateManyInput
+}
+
+input kdpageUpdateInput {
+  topicTitle: String
+  topicId: String
+  pageType: String
+  pageTitle: String
+  sections: kdsectionUpdateManyInput
+}
+
+input kdpageUpdateManyDataInput {
+  topicTitle: String
+  topicId: String
+  pageType: String
+  pageTitle: String
+}
+
+input kdpageUpdateManyInput {
+  create: [kdpageCreateInput!]
+  update: [kdpageUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdpageUpsertWithWhereUniqueNestedInput!]
+  delete: [kdpageWhereUniqueInput!]
+  connect: [kdpageWhereUniqueInput!]
+  set: [kdpageWhereUniqueInput!]
+  disconnect: [kdpageWhereUniqueInput!]
+  deleteMany: [kdpageScalarWhereInput!]
+  updateMany: [kdpageUpdateManyWithWhereNestedInput!]
+}
+
+input kdpageUpdateManyMutationInput {
+  topicTitle: String
+  topicId: String
+  pageType: String
+  pageTitle: String
+}
+
+input kdpageUpdateManyWithWhereNestedInput {
+  where: kdpageScalarWhereInput!
+  data: kdpageUpdateManyDataInput!
+}
+
+input kdpageUpdateWithWhereUniqueNestedInput {
+  where: kdpageWhereUniqueInput!
+  data: kdpageUpdateDataInput!
+}
+
+input kdpageUpsertWithWhereUniqueNestedInput {
+  where: kdpageWhereUniqueInput!
+  update: kdpageUpdateDataInput!
+  create: kdpageCreateInput!
+}
+
+input kdpageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  topicId: String
+  topicId_not: String
+  topicId_in: [String!]
+  topicId_not_in: [String!]
+  topicId_lt: String
+  topicId_lte: String
+  topicId_gt: String
+  topicId_gte: String
+  topicId_contains: String
+  topicId_not_contains: String
+  topicId_starts_with: String
+  topicId_not_starts_with: String
+  topicId_ends_with: String
+  topicId_not_ends_with: String
+  pageType: String
+  pageType_not: String
+  pageType_in: [String!]
+  pageType_not_in: [String!]
+  pageType_lt: String
+  pageType_lte: String
+  pageType_gt: String
+  pageType_gte: String
+  pageType_contains: String
+  pageType_not_contains: String
+  pageType_starts_with: String
+  pageType_not_starts_with: String
+  pageType_ends_with: String
+  pageType_not_ends_with: String
+  pageTitle: String
+  pageTitle_not: String
+  pageTitle_in: [String!]
+  pageTitle_not_in: [String!]
+  pageTitle_lt: String
+  pageTitle_lte: String
+  pageTitle_gt: String
+  pageTitle_gte: String
+  pageTitle_contains: String
+  pageTitle_not_contains: String
+  pageTitle_starts_with: String
+  pageTitle_not_starts_with: String
+  pageTitle_ends_with: String
+  pageTitle_not_ends_with: String
+  sections_every: kdsectionWhereInput
+  sections_some: kdsectionWhereInput
+  sections_none: kdsectionWhereInput
+  AND: [kdpageWhereInput!]
+  OR: [kdpageWhereInput!]
+  NOT: [kdpageWhereInput!]
+}
+
+input kdpageWhereUniqueInput {
+  id: ID
+}
+
+type kdsection {
+  id: ID!
+  sectionTitle: String
+  topicTitle: String
+  sectionType(where: kdsectiontypeWhereInput, orderBy: kdsectiontypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontype!]
+}
+
+type kdsectionassignment {
+  id: ID!
+  questionImagePath: String
+  answerImagePath: String
+  assignmentVideoSolution(where: kdsectionvideosolurlWhereInput, orderBy: kdsectionvideosolurlOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionvideosolurl!]
+}
+
+type kdsectionassignmentConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectionassignmentEdge]!
+  aggregate: Aggregatekdsectionassignment!
+}
+
+input kdsectionassignmentCreateInput {
+  id: ID
+  questionImagePath: String
+  answerImagePath: String
+  assignmentVideoSolution: kdsectionvideosolurlCreateManyInput
+}
+
+input kdsectionassignmentCreateManyInput {
+  create: [kdsectionassignmentCreateInput!]
+  connect: [kdsectionassignmentWhereUniqueInput!]
+}
+
+type kdsectionassignmentEdge {
+  node: kdsectionassignment!
+  cursor: String!
+}
+
+enum kdsectionassignmentOrderByInput {
+  id_ASC
+  id_DESC
+  questionImagePath_ASC
+  questionImagePath_DESC
+  answerImagePath_ASC
+  answerImagePath_DESC
+}
+
+type kdsectionassignmentPreviousValues {
+  id: ID!
+  questionImagePath: String
+  answerImagePath: String
+}
+
+input kdsectionassignmentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  questionImagePath: String
+  questionImagePath_not: String
+  questionImagePath_in: [String!]
+  questionImagePath_not_in: [String!]
+  questionImagePath_lt: String
+  questionImagePath_lte: String
+  questionImagePath_gt: String
+  questionImagePath_gte: String
+  questionImagePath_contains: String
+  questionImagePath_not_contains: String
+  questionImagePath_starts_with: String
+  questionImagePath_not_starts_with: String
+  questionImagePath_ends_with: String
+  questionImagePath_not_ends_with: String
+  answerImagePath: String
+  answerImagePath_not: String
+  answerImagePath_in: [String!]
+  answerImagePath_not_in: [String!]
+  answerImagePath_lt: String
+  answerImagePath_lte: String
+  answerImagePath_gt: String
+  answerImagePath_gte: String
+  answerImagePath_contains: String
+  answerImagePath_not_contains: String
+  answerImagePath_starts_with: String
+  answerImagePath_not_starts_with: String
+  answerImagePath_ends_with: String
+  answerImagePath_not_ends_with: String
+  AND: [kdsectionassignmentScalarWhereInput!]
+  OR: [kdsectionassignmentScalarWhereInput!]
+  NOT: [kdsectionassignmentScalarWhereInput!]
+}
+
+type kdsectionassignmentSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectionassignment
+  updatedFields: [String!]
+  previousValues: kdsectionassignmentPreviousValues
+}
+
+input kdsectionassignmentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectionassignmentWhereInput
+  AND: [kdsectionassignmentSubscriptionWhereInput!]
+  OR: [kdsectionassignmentSubscriptionWhereInput!]
+  NOT: [kdsectionassignmentSubscriptionWhereInput!]
+}
+
+input kdsectionassignmentUpdateDataInput {
+  questionImagePath: String
+  answerImagePath: String
+  assignmentVideoSolution: kdsectionvideosolurlUpdateManyInput
+}
+
+input kdsectionassignmentUpdateInput {
+  questionImagePath: String
+  answerImagePath: String
+  assignmentVideoSolution: kdsectionvideosolurlUpdateManyInput
+}
+
+input kdsectionassignmentUpdateManyDataInput {
+  questionImagePath: String
+  answerImagePath: String
+}
+
+input kdsectionassignmentUpdateManyInput {
+  create: [kdsectionassignmentCreateInput!]
+  update: [kdsectionassignmentUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectionassignmentUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectionassignmentWhereUniqueInput!]
+  connect: [kdsectionassignmentWhereUniqueInput!]
+  set: [kdsectionassignmentWhereUniqueInput!]
+  disconnect: [kdsectionassignmentWhereUniqueInput!]
+  deleteMany: [kdsectionassignmentScalarWhereInput!]
+  updateMany: [kdsectionassignmentUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectionassignmentUpdateManyMutationInput {
+  questionImagePath: String
+  answerImagePath: String
+}
+
+input kdsectionassignmentUpdateManyWithWhereNestedInput {
+  where: kdsectionassignmentScalarWhereInput!
+  data: kdsectionassignmentUpdateManyDataInput!
+}
+
+input kdsectionassignmentUpdateWithWhereUniqueNestedInput {
+  where: kdsectionassignmentWhereUniqueInput!
+  data: kdsectionassignmentUpdateDataInput!
+}
+
+input kdsectionassignmentUpsertWithWhereUniqueNestedInput {
+  where: kdsectionassignmentWhereUniqueInput!
+  update: kdsectionassignmentUpdateDataInput!
+  create: kdsectionassignmentCreateInput!
+}
+
+input kdsectionassignmentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  questionImagePath: String
+  questionImagePath_not: String
+  questionImagePath_in: [String!]
+  questionImagePath_not_in: [String!]
+  questionImagePath_lt: String
+  questionImagePath_lte: String
+  questionImagePath_gt: String
+  questionImagePath_gte: String
+  questionImagePath_contains: String
+  questionImagePath_not_contains: String
+  questionImagePath_starts_with: String
+  questionImagePath_not_starts_with: String
+  questionImagePath_ends_with: String
+  questionImagePath_not_ends_with: String
+  answerImagePath: String
+  answerImagePath_not: String
+  answerImagePath_in: [String!]
+  answerImagePath_not_in: [String!]
+  answerImagePath_lt: String
+  answerImagePath_lte: String
+  answerImagePath_gt: String
+  answerImagePath_gte: String
+  answerImagePath_contains: String
+  answerImagePath_not_contains: String
+  answerImagePath_starts_with: String
+  answerImagePath_not_starts_with: String
+  answerImagePath_ends_with: String
+  answerImagePath_not_ends_with: String
+  assignmentVideoSolution_every: kdsectionvideosolurlWhereInput
+  assignmentVideoSolution_some: kdsectionvideosolurlWhereInput
+  assignmentVideoSolution_none: kdsectionvideosolurlWhereInput
+  AND: [kdsectionassignmentWhereInput!]
+  OR: [kdsectionassignmentWhereInput!]
+  NOT: [kdsectionassignmentWhereInput!]
+}
+
+input kdsectionassignmentWhereUniqueInput {
+  id: ID
+}
+
+type kdsectionConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectionEdge]!
+  aggregate: Aggregatekdsection!
+}
+
+input kdsectionCreateInput {
+  id: ID
+  sectionTitle: String
+  topicTitle: String
+  sectionType: kdsectiontypeCreateManyInput
+}
+
+input kdsectionCreateManyInput {
+  create: [kdsectionCreateInput!]
+  connect: [kdsectionWhereUniqueInput!]
+}
+
+type kdsectionEdge {
+  node: kdsection!
+  cursor: String!
+}
+
+enum kdsectionOrderByInput {
+  id_ASC
+  id_DESC
+  sectionTitle_ASC
+  sectionTitle_DESC
+  topicTitle_ASC
+  topicTitle_DESC
+}
+
+type kdsectionPreviousValues {
+  id: ID!
+  sectionTitle: String
+  topicTitle: String
+}
+
+type kdsectionquiz {
+  id: ID!
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+  videoSolutionUrl(where: kdsectionvideosolurlWhereInput, orderBy: kdsectionvideosolurlOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionvideosolurl!]
+}
+
+type kdsectionquizConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectionquizEdge]!
+  aggregate: Aggregatekdsectionquiz!
+}
+
+input kdsectionquizCreateInput {
+  id: ID
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+  videoSolutionUrl: kdsectionvideosolurlCreateManyInput
+}
+
+input kdsectionquizCreateManyInput {
+  create: [kdsectionquizCreateInput!]
+  connect: [kdsectionquizWhereUniqueInput!]
+}
+
+type kdsectionquizEdge {
+  node: kdsectionquiz!
+  cursor: String!
+}
+
+enum kdsectionquizOrderByInput {
+  id_ASC
+  id_DESC
+  questionsImagePath_ASC
+  questionsImagePath_DESC
+  answerImagePath_ASC
+  answerImagePath_DESC
+  answerKey_ASC
+  answerKey_DESC
+}
+
+type kdsectionquizPreviousValues {
+  id: ID!
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+}
+
+input kdsectionquizScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  questionsImagePath: String
+  questionsImagePath_not: String
+  questionsImagePath_in: [String!]
+  questionsImagePath_not_in: [String!]
+  questionsImagePath_lt: String
+  questionsImagePath_lte: String
+  questionsImagePath_gt: String
+  questionsImagePath_gte: String
+  questionsImagePath_contains: String
+  questionsImagePath_not_contains: String
+  questionsImagePath_starts_with: String
+  questionsImagePath_not_starts_with: String
+  questionsImagePath_ends_with: String
+  questionsImagePath_not_ends_with: String
+  answerImagePath: String
+  answerImagePath_not: String
+  answerImagePath_in: [String!]
+  answerImagePath_not_in: [String!]
+  answerImagePath_lt: String
+  answerImagePath_lte: String
+  answerImagePath_gt: String
+  answerImagePath_gte: String
+  answerImagePath_contains: String
+  answerImagePath_not_contains: String
+  answerImagePath_starts_with: String
+  answerImagePath_not_starts_with: String
+  answerImagePath_ends_with: String
+  answerImagePath_not_ends_with: String
+  answerKey: String
+  answerKey_not: String
+  answerKey_in: [String!]
+  answerKey_not_in: [String!]
+  answerKey_lt: String
+  answerKey_lte: String
+  answerKey_gt: String
+  answerKey_gte: String
+  answerKey_contains: String
+  answerKey_not_contains: String
+  answerKey_starts_with: String
+  answerKey_not_starts_with: String
+  answerKey_ends_with: String
+  answerKey_not_ends_with: String
+  AND: [kdsectionquizScalarWhereInput!]
+  OR: [kdsectionquizScalarWhereInput!]
+  NOT: [kdsectionquizScalarWhereInput!]
+}
+
+type kdsectionquizSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectionquiz
+  updatedFields: [String!]
+  previousValues: kdsectionquizPreviousValues
+}
+
+input kdsectionquizSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectionquizWhereInput
+  AND: [kdsectionquizSubscriptionWhereInput!]
+  OR: [kdsectionquizSubscriptionWhereInput!]
+  NOT: [kdsectionquizSubscriptionWhereInput!]
+}
+
+input kdsectionquizUpdateDataInput {
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+  videoSolutionUrl: kdsectionvideosolurlUpdateManyInput
+}
+
+input kdsectionquizUpdateInput {
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+  videoSolutionUrl: kdsectionvideosolurlUpdateManyInput
+}
+
+input kdsectionquizUpdateManyDataInput {
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+}
+
+input kdsectionquizUpdateManyInput {
+  create: [kdsectionquizCreateInput!]
+  update: [kdsectionquizUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectionquizUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectionquizWhereUniqueInput!]
+  connect: [kdsectionquizWhereUniqueInput!]
+  set: [kdsectionquizWhereUniqueInput!]
+  disconnect: [kdsectionquizWhereUniqueInput!]
+  deleteMany: [kdsectionquizScalarWhereInput!]
+  updateMany: [kdsectionquizUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectionquizUpdateManyMutationInput {
+  questionsImagePath: String
+  answerImagePath: String
+  answerKey: String
+}
+
+input kdsectionquizUpdateManyWithWhereNestedInput {
+  where: kdsectionquizScalarWhereInput!
+  data: kdsectionquizUpdateManyDataInput!
+}
+
+input kdsectionquizUpdateWithWhereUniqueNestedInput {
+  where: kdsectionquizWhereUniqueInput!
+  data: kdsectionquizUpdateDataInput!
+}
+
+input kdsectionquizUpsertWithWhereUniqueNestedInput {
+  where: kdsectionquizWhereUniqueInput!
+  update: kdsectionquizUpdateDataInput!
+  create: kdsectionquizCreateInput!
+}
+
+input kdsectionquizWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  questionsImagePath: String
+  questionsImagePath_not: String
+  questionsImagePath_in: [String!]
+  questionsImagePath_not_in: [String!]
+  questionsImagePath_lt: String
+  questionsImagePath_lte: String
+  questionsImagePath_gt: String
+  questionsImagePath_gte: String
+  questionsImagePath_contains: String
+  questionsImagePath_not_contains: String
+  questionsImagePath_starts_with: String
+  questionsImagePath_not_starts_with: String
+  questionsImagePath_ends_with: String
+  questionsImagePath_not_ends_with: String
+  answerImagePath: String
+  answerImagePath_not: String
+  answerImagePath_in: [String!]
+  answerImagePath_not_in: [String!]
+  answerImagePath_lt: String
+  answerImagePath_lte: String
+  answerImagePath_gt: String
+  answerImagePath_gte: String
+  answerImagePath_contains: String
+  answerImagePath_not_contains: String
+  answerImagePath_starts_with: String
+  answerImagePath_not_starts_with: String
+  answerImagePath_ends_with: String
+  answerImagePath_not_ends_with: String
+  answerKey: String
+  answerKey_not: String
+  answerKey_in: [String!]
+  answerKey_not_in: [String!]
+  answerKey_lt: String
+  answerKey_lte: String
+  answerKey_gt: String
+  answerKey_gte: String
+  answerKey_contains: String
+  answerKey_not_contains: String
+  answerKey_starts_with: String
+  answerKey_not_starts_with: String
+  answerKey_ends_with: String
+  answerKey_not_ends_with: String
+  videoSolutionUrl_every: kdsectionvideosolurlWhereInput
+  videoSolutionUrl_some: kdsectionvideosolurlWhereInput
+  videoSolutionUrl_none: kdsectionvideosolurlWhereInput
+  AND: [kdsectionquizWhereInput!]
+  OR: [kdsectionquizWhereInput!]
+  NOT: [kdsectionquizWhereInput!]
+}
+
+input kdsectionquizWhereUniqueInput {
+  id: ID
+}
+
+input kdsectionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  sectionTitle: String
+  sectionTitle_not: String
+  sectionTitle_in: [String!]
+  sectionTitle_not_in: [String!]
+  sectionTitle_lt: String
+  sectionTitle_lte: String
+  sectionTitle_gt: String
+  sectionTitle_gte: String
+  sectionTitle_contains: String
+  sectionTitle_not_contains: String
+  sectionTitle_starts_with: String
+  sectionTitle_not_starts_with: String
+  sectionTitle_ends_with: String
+  sectionTitle_not_ends_with: String
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  AND: [kdsectionScalarWhereInput!]
+  OR: [kdsectionScalarWhereInput!]
+  NOT: [kdsectionScalarWhereInput!]
+}
+
+type kdsectionSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsection
+  updatedFields: [String!]
+  previousValues: kdsectionPreviousValues
+}
+
+input kdsectionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectionWhereInput
+  AND: [kdsectionSubscriptionWhereInput!]
+  OR: [kdsectionSubscriptionWhereInput!]
+  NOT: [kdsectionSubscriptionWhereInput!]
+}
+
+type kdsectiontheoryimage {
+  id: ID!
+  imagePath: String
+}
+
+type kdsectiontheoryimageConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectiontheoryimageEdge]!
+  aggregate: Aggregatekdsectiontheoryimage!
+}
+
+input kdsectiontheoryimageCreateInput {
+  id: ID
+  imagePath: String
+}
+
+input kdsectiontheoryimageCreateManyInput {
+  create: [kdsectiontheoryimageCreateInput!]
+  connect: [kdsectiontheoryimageWhereUniqueInput!]
+}
+
+type kdsectiontheoryimageEdge {
+  node: kdsectiontheoryimage!
+  cursor: String!
+}
+
+enum kdsectiontheoryimageOrderByInput {
+  id_ASC
+  id_DESC
+  imagePath_ASC
+  imagePath_DESC
+}
+
+type kdsectiontheoryimagePreviousValues {
+  id: ID!
+  imagePath: String
+}
+
+input kdsectiontheoryimageScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  imagePath: String
+  imagePath_not: String
+  imagePath_in: [String!]
+  imagePath_not_in: [String!]
+  imagePath_lt: String
+  imagePath_lte: String
+  imagePath_gt: String
+  imagePath_gte: String
+  imagePath_contains: String
+  imagePath_not_contains: String
+  imagePath_starts_with: String
+  imagePath_not_starts_with: String
+  imagePath_ends_with: String
+  imagePath_not_ends_with: String
+  AND: [kdsectiontheoryimageScalarWhereInput!]
+  OR: [kdsectiontheoryimageScalarWhereInput!]
+  NOT: [kdsectiontheoryimageScalarWhereInput!]
+}
+
+type kdsectiontheoryimageSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectiontheoryimage
+  updatedFields: [String!]
+  previousValues: kdsectiontheoryimagePreviousValues
+}
+
+input kdsectiontheoryimageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectiontheoryimageWhereInput
+  AND: [kdsectiontheoryimageSubscriptionWhereInput!]
+  OR: [kdsectiontheoryimageSubscriptionWhereInput!]
+  NOT: [kdsectiontheoryimageSubscriptionWhereInput!]
+}
+
+input kdsectiontheoryimageUpdateDataInput {
+  imagePath: String
+}
+
+input kdsectiontheoryimageUpdateInput {
+  imagePath: String
+}
+
+input kdsectiontheoryimageUpdateManyDataInput {
+  imagePath: String
+}
+
+input kdsectiontheoryimageUpdateManyInput {
+  create: [kdsectiontheoryimageCreateInput!]
+  update: [kdsectiontheoryimageUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectiontheoryimageUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectiontheoryimageWhereUniqueInput!]
+  connect: [kdsectiontheoryimageWhereUniqueInput!]
+  set: [kdsectiontheoryimageWhereUniqueInput!]
+  disconnect: [kdsectiontheoryimageWhereUniqueInput!]
+  deleteMany: [kdsectiontheoryimageScalarWhereInput!]
+  updateMany: [kdsectiontheoryimageUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectiontheoryimageUpdateManyMutationInput {
+  imagePath: String
+}
+
+input kdsectiontheoryimageUpdateManyWithWhereNestedInput {
+  where: kdsectiontheoryimageScalarWhereInput!
+  data: kdsectiontheoryimageUpdateManyDataInput!
+}
+
+input kdsectiontheoryimageUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontheoryimageWhereUniqueInput!
+  data: kdsectiontheoryimageUpdateDataInput!
+}
+
+input kdsectiontheoryimageUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontheoryimageWhereUniqueInput!
+  update: kdsectiontheoryimageUpdateDataInput!
+  create: kdsectiontheoryimageCreateInput!
+}
+
+input kdsectiontheoryimageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  imagePath: String
+  imagePath_not: String
+  imagePath_in: [String!]
+  imagePath_not_in: [String!]
+  imagePath_lt: String
+  imagePath_lte: String
+  imagePath_gt: String
+  imagePath_gte: String
+  imagePath_contains: String
+  imagePath_not_contains: String
+  imagePath_starts_with: String
+  imagePath_not_starts_with: String
+  imagePath_ends_with: String
+  imagePath_not_ends_with: String
+  AND: [kdsectiontheoryimageWhereInput!]
+  OR: [kdsectiontheoryimageWhereInput!]
+  NOT: [kdsectiontheoryimageWhereInput!]
+}
+
+input kdsectiontheoryimageWhereUniqueInput {
+  id: ID
+}
+
+type kdsectiontheoryrichtext {
+  id: ID!
+  textData: String
+}
+
+type kdsectiontheoryrichtextConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectiontheoryrichtextEdge]!
+  aggregate: Aggregatekdsectiontheoryrichtext!
+}
+
+input kdsectiontheoryrichtextCreateInput {
+  id: ID
+  textData: String
+}
+
+input kdsectiontheoryrichtextCreateManyInput {
+  create: [kdsectiontheoryrichtextCreateInput!]
+  connect: [kdsectiontheoryrichtextWhereUniqueInput!]
+}
+
+type kdsectiontheoryrichtextEdge {
+  node: kdsectiontheoryrichtext!
+  cursor: String!
+}
+
+enum kdsectiontheoryrichtextOrderByInput {
+  id_ASC
+  id_DESC
+  textData_ASC
+  textData_DESC
+}
+
+type kdsectiontheoryrichtextPreviousValues {
+  id: ID!
+  textData: String
+}
+
+input kdsectiontheoryrichtextScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  textData: String
+  textData_not: String
+  textData_in: [String!]
+  textData_not_in: [String!]
+  textData_lt: String
+  textData_lte: String
+  textData_gt: String
+  textData_gte: String
+  textData_contains: String
+  textData_not_contains: String
+  textData_starts_with: String
+  textData_not_starts_with: String
+  textData_ends_with: String
+  textData_not_ends_with: String
+  AND: [kdsectiontheoryrichtextScalarWhereInput!]
+  OR: [kdsectiontheoryrichtextScalarWhereInput!]
+  NOT: [kdsectiontheoryrichtextScalarWhereInput!]
+}
+
+type kdsectiontheoryrichtextSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectiontheoryrichtext
+  updatedFields: [String!]
+  previousValues: kdsectiontheoryrichtextPreviousValues
+}
+
+input kdsectiontheoryrichtextSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectiontheoryrichtextWhereInput
+  AND: [kdsectiontheoryrichtextSubscriptionWhereInput!]
+  OR: [kdsectiontheoryrichtextSubscriptionWhereInput!]
+  NOT: [kdsectiontheoryrichtextSubscriptionWhereInput!]
+}
+
+input kdsectiontheoryrichtextUpdateDataInput {
+  textData: String
+}
+
+input kdsectiontheoryrichtextUpdateInput {
+  textData: String
+}
+
+input kdsectiontheoryrichtextUpdateManyDataInput {
+  textData: String
+}
+
+input kdsectiontheoryrichtextUpdateManyInput {
+  create: [kdsectiontheoryrichtextCreateInput!]
+  update: [kdsectiontheoryrichtextUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectiontheoryrichtextUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectiontheoryrichtextWhereUniqueInput!]
+  connect: [kdsectiontheoryrichtextWhereUniqueInput!]
+  set: [kdsectiontheoryrichtextWhereUniqueInput!]
+  disconnect: [kdsectiontheoryrichtextWhereUniqueInput!]
+  deleteMany: [kdsectiontheoryrichtextScalarWhereInput!]
+  updateMany: [kdsectiontheoryrichtextUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectiontheoryrichtextUpdateManyMutationInput {
+  textData: String
+}
+
+input kdsectiontheoryrichtextUpdateManyWithWhereNestedInput {
+  where: kdsectiontheoryrichtextScalarWhereInput!
+  data: kdsectiontheoryrichtextUpdateManyDataInput!
+}
+
+input kdsectiontheoryrichtextUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontheoryrichtextWhereUniqueInput!
+  data: kdsectiontheoryrichtextUpdateDataInput!
+}
+
+input kdsectiontheoryrichtextUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontheoryrichtextWhereUniqueInput!
+  update: kdsectiontheoryrichtextUpdateDataInput!
+  create: kdsectiontheoryrichtextCreateInput!
+}
+
+input kdsectiontheoryrichtextWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  textData: String
+  textData_not: String
+  textData_in: [String!]
+  textData_not_in: [String!]
+  textData_lt: String
+  textData_lte: String
+  textData_gt: String
+  textData_gte: String
+  textData_contains: String
+  textData_not_contains: String
+  textData_starts_with: String
+  textData_not_starts_with: String
+  textData_ends_with: String
+  textData_not_ends_with: String
+  AND: [kdsectiontheoryrichtextWhereInput!]
+  OR: [kdsectiontheoryrichtextWhereInput!]
+  NOT: [kdsectiontheoryrichtextWhereInput!]
+}
+
+input kdsectiontheoryrichtextWhereUniqueInput {
+  id: ID
+}
+
+type kdsectiontype {
+  id: ID!
+  videos(where: kdsectionvideoWhereInput, orderBy: kdsectionvideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionvideo!]
+  theoryImage(where: kdsectiontheoryimageWhereInput, orderBy: kdsectiontheoryimageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontheoryimage!]
+  theoryRichText(where: kdsectiontheoryrichtextWhereInput, orderBy: kdsectiontheoryrichtextOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontheoryrichtext!]
+  quiz(where: kdsectionquizWhereInput, orderBy: kdsectionquizOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionquiz!]
+  assignment(where: kdsectionassignmentWhereInput, orderBy: kdsectionassignmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionassignment!]
+}
+
+type kdsectiontypeConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectiontypeEdge]!
+  aggregate: Aggregatekdsectiontype!
+}
+
+input kdsectiontypeCreateInput {
+  id: ID
+  videos: kdsectionvideoCreateManyInput
+  theoryImage: kdsectiontheoryimageCreateManyInput
+  theoryRichText: kdsectiontheoryrichtextCreateManyInput
+  quiz: kdsectionquizCreateManyInput
+  assignment: kdsectionassignmentCreateManyInput
+}
+
+input kdsectiontypeCreateManyInput {
+  create: [kdsectiontypeCreateInput!]
+  connect: [kdsectiontypeWhereUniqueInput!]
+}
+
+type kdsectiontypeEdge {
+  node: kdsectiontype!
+  cursor: String!
+}
+
+enum kdsectiontypeOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type kdsectiontypePreviousValues {
+  id: ID!
+}
+
+input kdsectiontypeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [kdsectiontypeScalarWhereInput!]
+  OR: [kdsectiontypeScalarWhereInput!]
+  NOT: [kdsectiontypeScalarWhereInput!]
+}
+
+type kdsectiontypeSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectiontype
+  updatedFields: [String!]
+  previousValues: kdsectiontypePreviousValues
+}
+
+input kdsectiontypeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectiontypeWhereInput
+  AND: [kdsectiontypeSubscriptionWhereInput!]
+  OR: [kdsectiontypeSubscriptionWhereInput!]
+  NOT: [kdsectiontypeSubscriptionWhereInput!]
+}
+
+input kdsectiontypeUpdateDataInput {
+  videos: kdsectionvideoUpdateManyInput
+  theoryImage: kdsectiontheoryimageUpdateManyInput
+  theoryRichText: kdsectiontheoryrichtextUpdateManyInput
+  quiz: kdsectionquizUpdateManyInput
+  assignment: kdsectionassignmentUpdateManyInput
+}
+
+input kdsectiontypeUpdateInput {
+  videos: kdsectionvideoUpdateManyInput
+  theoryImage: kdsectiontheoryimageUpdateManyInput
+  theoryRichText: kdsectiontheoryrichtextUpdateManyInput
+  quiz: kdsectionquizUpdateManyInput
+  assignment: kdsectionassignmentUpdateManyInput
+}
+
+input kdsectiontypeUpdateManyInput {
+  create: [kdsectiontypeCreateInput!]
+  update: [kdsectiontypeUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectiontypeUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectiontypeWhereUniqueInput!]
+  connect: [kdsectiontypeWhereUniqueInput!]
+  set: [kdsectiontypeWhereUniqueInput!]
+  disconnect: [kdsectiontypeWhereUniqueInput!]
+  deleteMany: [kdsectiontypeScalarWhereInput!]
+}
+
+input kdsectiontypeUpdateWithWhereUniqueNestedInput {
+  where: kdsectiontypeWhereUniqueInput!
+  data: kdsectiontypeUpdateDataInput!
+}
+
+input kdsectiontypeUpsertWithWhereUniqueNestedInput {
+  where: kdsectiontypeWhereUniqueInput!
+  update: kdsectiontypeUpdateDataInput!
+  create: kdsectiontypeCreateInput!
+}
+
+input kdsectiontypeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  videos_every: kdsectionvideoWhereInput
+  videos_some: kdsectionvideoWhereInput
+  videos_none: kdsectionvideoWhereInput
+  theoryImage_every: kdsectiontheoryimageWhereInput
+  theoryImage_some: kdsectiontheoryimageWhereInput
+  theoryImage_none: kdsectiontheoryimageWhereInput
+  theoryRichText_every: kdsectiontheoryrichtextWhereInput
+  theoryRichText_some: kdsectiontheoryrichtextWhereInput
+  theoryRichText_none: kdsectiontheoryrichtextWhereInput
+  quiz_every: kdsectionquizWhereInput
+  quiz_some: kdsectionquizWhereInput
+  quiz_none: kdsectionquizWhereInput
+  assignment_every: kdsectionassignmentWhereInput
+  assignment_some: kdsectionassignmentWhereInput
+  assignment_none: kdsectionassignmentWhereInput
+  AND: [kdsectiontypeWhereInput!]
+  OR: [kdsectiontypeWhereInput!]
+  NOT: [kdsectiontypeWhereInput!]
+}
+
+input kdsectiontypeWhereUniqueInput {
+  id: ID
+}
+
+input kdsectionUpdateDataInput {
+  sectionTitle: String
+  topicTitle: String
+  sectionType: kdsectiontypeUpdateManyInput
+}
+
+input kdsectionUpdateInput {
+  sectionTitle: String
+  topicTitle: String
+  sectionType: kdsectiontypeUpdateManyInput
+}
+
+input kdsectionUpdateManyDataInput {
+  sectionTitle: String
+  topicTitle: String
+}
+
+input kdsectionUpdateManyInput {
+  create: [kdsectionCreateInput!]
+  update: [kdsectionUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectionUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectionWhereUniqueInput!]
+  connect: [kdsectionWhereUniqueInput!]
+  set: [kdsectionWhereUniqueInput!]
+  disconnect: [kdsectionWhereUniqueInput!]
+  deleteMany: [kdsectionScalarWhereInput!]
+  updateMany: [kdsectionUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectionUpdateManyMutationInput {
+  sectionTitle: String
+  topicTitle: String
+}
+
+input kdsectionUpdateManyWithWhereNestedInput {
+  where: kdsectionScalarWhereInput!
+  data: kdsectionUpdateManyDataInput!
+}
+
+input kdsectionUpdateWithWhereUniqueNestedInput {
+  where: kdsectionWhereUniqueInput!
+  data: kdsectionUpdateDataInput!
+}
+
+input kdsectionUpsertWithWhereUniqueNestedInput {
+  where: kdsectionWhereUniqueInput!
+  update: kdsectionUpdateDataInput!
+  create: kdsectionCreateInput!
+}
+
+type kdsectionvideo {
+  id: ID!
+  link: String
+}
+
+type kdsectionvideoConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectionvideoEdge]!
+  aggregate: Aggregatekdsectionvideo!
+}
+
+input kdsectionvideoCreateInput {
+  id: ID
+  link: String
+}
+
+input kdsectionvideoCreateManyInput {
+  create: [kdsectionvideoCreateInput!]
+  connect: [kdsectionvideoWhereUniqueInput!]
+}
+
+type kdsectionvideoEdge {
+  node: kdsectionvideo!
+  cursor: String!
+}
+
+enum kdsectionvideoOrderByInput {
+  id_ASC
+  id_DESC
+  link_ASC
+  link_DESC
+}
+
+type kdsectionvideoPreviousValues {
+  id: ID!
+  link: String
+}
+
+input kdsectionvideoScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  AND: [kdsectionvideoScalarWhereInput!]
+  OR: [kdsectionvideoScalarWhereInput!]
+  NOT: [kdsectionvideoScalarWhereInput!]
+}
+
+type kdsectionvideosolurl {
+  id: ID!
+  videoUrl: String
+}
+
+type kdsectionvideosolurlConnection {
+  pageInfo: PageInfo!
+  edges: [kdsectionvideosolurlEdge]!
+  aggregate: Aggregatekdsectionvideosolurl!
+}
+
+input kdsectionvideosolurlCreateInput {
+  id: ID
+  videoUrl: String
+}
+
+input kdsectionvideosolurlCreateManyInput {
+  create: [kdsectionvideosolurlCreateInput!]
+  connect: [kdsectionvideosolurlWhereUniqueInput!]
+}
+
+type kdsectionvideosolurlEdge {
+  node: kdsectionvideosolurl!
+  cursor: String!
+}
+
+enum kdsectionvideosolurlOrderByInput {
+  id_ASC
+  id_DESC
+  videoUrl_ASC
+  videoUrl_DESC
+}
+
+type kdsectionvideosolurlPreviousValues {
+  id: ID!
+  videoUrl: String
+}
+
+input kdsectionvideosolurlScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  videoUrl: String
+  videoUrl_not: String
+  videoUrl_in: [String!]
+  videoUrl_not_in: [String!]
+  videoUrl_lt: String
+  videoUrl_lte: String
+  videoUrl_gt: String
+  videoUrl_gte: String
+  videoUrl_contains: String
+  videoUrl_not_contains: String
+  videoUrl_starts_with: String
+  videoUrl_not_starts_with: String
+  videoUrl_ends_with: String
+  videoUrl_not_ends_with: String
+  AND: [kdsectionvideosolurlScalarWhereInput!]
+  OR: [kdsectionvideosolurlScalarWhereInput!]
+  NOT: [kdsectionvideosolurlScalarWhereInput!]
+}
+
+type kdsectionvideosolurlSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectionvideosolurl
+  updatedFields: [String!]
+  previousValues: kdsectionvideosolurlPreviousValues
+}
+
+input kdsectionvideosolurlSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectionvideosolurlWhereInput
+  AND: [kdsectionvideosolurlSubscriptionWhereInput!]
+  OR: [kdsectionvideosolurlSubscriptionWhereInput!]
+  NOT: [kdsectionvideosolurlSubscriptionWhereInput!]
+}
+
+input kdsectionvideosolurlUpdateDataInput {
+  videoUrl: String
+}
+
+input kdsectionvideosolurlUpdateInput {
+  videoUrl: String
+}
+
+input kdsectionvideosolurlUpdateManyDataInput {
+  videoUrl: String
+}
+
+input kdsectionvideosolurlUpdateManyInput {
+  create: [kdsectionvideosolurlCreateInput!]
+  update: [kdsectionvideosolurlUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectionvideosolurlUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectionvideosolurlWhereUniqueInput!]
+  connect: [kdsectionvideosolurlWhereUniqueInput!]
+  set: [kdsectionvideosolurlWhereUniqueInput!]
+  disconnect: [kdsectionvideosolurlWhereUniqueInput!]
+  deleteMany: [kdsectionvideosolurlScalarWhereInput!]
+  updateMany: [kdsectionvideosolurlUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectionvideosolurlUpdateManyMutationInput {
+  videoUrl: String
+}
+
+input kdsectionvideosolurlUpdateManyWithWhereNestedInput {
+  where: kdsectionvideosolurlScalarWhereInput!
+  data: kdsectionvideosolurlUpdateManyDataInput!
+}
+
+input kdsectionvideosolurlUpdateWithWhereUniqueNestedInput {
+  where: kdsectionvideosolurlWhereUniqueInput!
+  data: kdsectionvideosolurlUpdateDataInput!
+}
+
+input kdsectionvideosolurlUpsertWithWhereUniqueNestedInput {
+  where: kdsectionvideosolurlWhereUniqueInput!
+  update: kdsectionvideosolurlUpdateDataInput!
+  create: kdsectionvideosolurlCreateInput!
+}
+
+input kdsectionvideosolurlWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  videoUrl: String
+  videoUrl_not: String
+  videoUrl_in: [String!]
+  videoUrl_not_in: [String!]
+  videoUrl_lt: String
+  videoUrl_lte: String
+  videoUrl_gt: String
+  videoUrl_gte: String
+  videoUrl_contains: String
+  videoUrl_not_contains: String
+  videoUrl_starts_with: String
+  videoUrl_not_starts_with: String
+  videoUrl_ends_with: String
+  videoUrl_not_ends_with: String
+  AND: [kdsectionvideosolurlWhereInput!]
+  OR: [kdsectionvideosolurlWhereInput!]
+  NOT: [kdsectionvideosolurlWhereInput!]
+}
+
+input kdsectionvideosolurlWhereUniqueInput {
+  id: ID
+}
+
+type kdsectionvideoSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsectionvideo
+  updatedFields: [String!]
+  previousValues: kdsectionvideoPreviousValues
+}
+
+input kdsectionvideoSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsectionvideoWhereInput
+  AND: [kdsectionvideoSubscriptionWhereInput!]
+  OR: [kdsectionvideoSubscriptionWhereInput!]
+  NOT: [kdsectionvideoSubscriptionWhereInput!]
+}
+
+input kdsectionvideoUpdateDataInput {
+  link: String
+}
+
+input kdsectionvideoUpdateInput {
+  link: String
+}
+
+input kdsectionvideoUpdateManyDataInput {
+  link: String
+}
+
+input kdsectionvideoUpdateManyInput {
+  create: [kdsectionvideoCreateInput!]
+  update: [kdsectionvideoUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdsectionvideoUpsertWithWhereUniqueNestedInput!]
+  delete: [kdsectionvideoWhereUniqueInput!]
+  connect: [kdsectionvideoWhereUniqueInput!]
+  set: [kdsectionvideoWhereUniqueInput!]
+  disconnect: [kdsectionvideoWhereUniqueInput!]
+  deleteMany: [kdsectionvideoScalarWhereInput!]
+  updateMany: [kdsectionvideoUpdateManyWithWhereNestedInput!]
+}
+
+input kdsectionvideoUpdateManyMutationInput {
+  link: String
+}
+
+input kdsectionvideoUpdateManyWithWhereNestedInput {
+  where: kdsectionvideoScalarWhereInput!
+  data: kdsectionvideoUpdateManyDataInput!
+}
+
+input kdsectionvideoUpdateWithWhereUniqueNestedInput {
+  where: kdsectionvideoWhereUniqueInput!
+  data: kdsectionvideoUpdateDataInput!
+}
+
+input kdsectionvideoUpsertWithWhereUniqueNestedInput {
+  where: kdsectionvideoWhereUniqueInput!
+  update: kdsectionvideoUpdateDataInput!
+  create: kdsectionvideoCreateInput!
+}
+
+input kdsectionvideoWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  AND: [kdsectionvideoWhereInput!]
+  OR: [kdsectionvideoWhereInput!]
+  NOT: [kdsectionvideoWhereInput!]
+}
+
+input kdsectionvideoWhereUniqueInput {
+  id: ID
+}
+
+input kdsectionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  sectionTitle: String
+  sectionTitle_not: String
+  sectionTitle_in: [String!]
+  sectionTitle_not_in: [String!]
+  sectionTitle_lt: String
+  sectionTitle_lte: String
+  sectionTitle_gt: String
+  sectionTitle_gte: String
+  sectionTitle_contains: String
+  sectionTitle_not_contains: String
+  sectionTitle_starts_with: String
+  sectionTitle_not_starts_with: String
+  sectionTitle_ends_with: String
+  sectionTitle_not_ends_with: String
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  sectionType_every: kdsectiontypeWhereInput
+  sectionType_some: kdsectiontypeWhereInput
+  sectionType_none: kdsectiontypeWhereInput
+  AND: [kdsectionWhereInput!]
+  OR: [kdsectionWhereInput!]
+  NOT: [kdsectionWhereInput!]
+}
+
+input kdsectionWhereUniqueInput {
+  id: ID
+}
+
+type kdsubject {
+  id: ID!
+  subjectTitle: String!
+  description: String!
+  chapters(where: kdchapterWhereInput, orderBy: kdchapterOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdchapter!]
+}
+
+type kdsubjectConnection {
+  pageInfo: PageInfo!
+  edges: [kdsubjectEdge]!
+  aggregate: Aggregatekdsubject!
+}
+
+input kdsubjectCreateInput {
+  id: ID
+  subjectTitle: String!
+  description: String!
+  chapters: kdchapterCreateManyInput
+}
+
+type kdsubjectEdge {
+  node: kdsubject!
+  cursor: String!
+}
+
+enum kdsubjectOrderByInput {
+  id_ASC
+  id_DESC
+  subjectTitle_ASC
+  subjectTitle_DESC
+  description_ASC
+  description_DESC
+}
+
+type kdsubjectPreviousValues {
+  id: ID!
+  subjectTitle: String!
+  description: String!
+}
+
+type kdsubjectSubscriptionPayload {
+  mutation: MutationType!
+  node: kdsubject
+  updatedFields: [String!]
+  previousValues: kdsubjectPreviousValues
+}
+
+input kdsubjectSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdsubjectWhereInput
+  AND: [kdsubjectSubscriptionWhereInput!]
+  OR: [kdsubjectSubscriptionWhereInput!]
+  NOT: [kdsubjectSubscriptionWhereInput!]
+}
+
+input kdsubjectUpdateInput {
+  subjectTitle: String
+  description: String
+  chapters: kdchapterUpdateManyInput
+}
+
+input kdsubjectUpdateManyMutationInput {
+  subjectTitle: String
+  description: String
+}
+
+input kdsubjectWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  subjectTitle: String
+  subjectTitle_not: String
+  subjectTitle_in: [String!]
+  subjectTitle_not_in: [String!]
+  subjectTitle_lt: String
+  subjectTitle_lte: String
+  subjectTitle_gt: String
+  subjectTitle_gte: String
+  subjectTitle_contains: String
+  subjectTitle_not_contains: String
+  subjectTitle_starts_with: String
+  subjectTitle_not_starts_with: String
+  subjectTitle_ends_with: String
+  subjectTitle_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  chapters_every: kdchapterWhereInput
+  chapters_some: kdchapterWhereInput
+  chapters_none: kdchapterWhereInput
+  AND: [kdsubjectWhereInput!]
+  OR: [kdsubjectWhereInput!]
+  NOT: [kdsubjectWhereInput!]
+}
+
+input kdsubjectWhereUniqueInput {
+  id: ID
+}
+
+type kdtopic {
+  id: ID!
+  chapterTitle: String!
+  description: String!
+  topicTitle: String!
+  chapterId: String
+  pages(where: kdpageWhereInput, orderBy: kdpageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdpage!]
+}
+
+type kdtopicConnection {
+  pageInfo: PageInfo!
+  edges: [kdtopicEdge]!
+  aggregate: Aggregatekdtopic!
+}
+
+input kdtopicCreateInput {
+  id: ID
+  chapterTitle: String!
+  description: String!
+  topicTitle: String!
+  chapterId: String
+  pages: kdpageCreateManyInput
+}
+
+input kdtopicCreateManyInput {
+  create: [kdtopicCreateInput!]
+  connect: [kdtopicWhereUniqueInput!]
+}
+
+type kdtopicEdge {
+  node: kdtopic!
+  cursor: String!
+}
+
+enum kdtopicOrderByInput {
+  id_ASC
+  id_DESC
+  chapterTitle_ASC
+  chapterTitle_DESC
+  description_ASC
+  description_DESC
+  topicTitle_ASC
+  topicTitle_DESC
+  chapterId_ASC
+  chapterId_DESC
+}
+
+type kdtopicPreviousValues {
+  id: ID!
+  chapterTitle: String!
+  description: String!
+  topicTitle: String!
+  chapterId: String
+}
+
+input kdtopicScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  chapterTitle: String
+  chapterTitle_not: String
+  chapterTitle_in: [String!]
+  chapterTitle_not_in: [String!]
+  chapterTitle_lt: String
+  chapterTitle_lte: String
+  chapterTitle_gt: String
+  chapterTitle_gte: String
+  chapterTitle_contains: String
+  chapterTitle_not_contains: String
+  chapterTitle_starts_with: String
+  chapterTitle_not_starts_with: String
+  chapterTitle_ends_with: String
+  chapterTitle_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  chapterId: String
+  chapterId_not: String
+  chapterId_in: [String!]
+  chapterId_not_in: [String!]
+  chapterId_lt: String
+  chapterId_lte: String
+  chapterId_gt: String
+  chapterId_gte: String
+  chapterId_contains: String
+  chapterId_not_contains: String
+  chapterId_starts_with: String
+  chapterId_not_starts_with: String
+  chapterId_ends_with: String
+  chapterId_not_ends_with: String
+  AND: [kdtopicScalarWhereInput!]
+  OR: [kdtopicScalarWhereInput!]
+  NOT: [kdtopicScalarWhereInput!]
+}
+
+type kdtopicSubscriptionPayload {
+  mutation: MutationType!
+  node: kdtopic
+  updatedFields: [String!]
+  previousValues: kdtopicPreviousValues
+}
+
+input kdtopicSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: kdtopicWhereInput
+  AND: [kdtopicSubscriptionWhereInput!]
+  OR: [kdtopicSubscriptionWhereInput!]
+  NOT: [kdtopicSubscriptionWhereInput!]
+}
+
+input kdtopicUpdateDataInput {
+  chapterTitle: String
+  description: String
+  topicTitle: String
+  chapterId: String
+  pages: kdpageUpdateManyInput
+}
+
+input kdtopicUpdateInput {
+  chapterTitle: String
+  description: String
+  topicTitle: String
+  chapterId: String
+  pages: kdpageUpdateManyInput
+}
+
+input kdtopicUpdateManyDataInput {
+  chapterTitle: String
+  description: String
+  topicTitle: String
+  chapterId: String
+}
+
+input kdtopicUpdateManyInput {
+  create: [kdtopicCreateInput!]
+  update: [kdtopicUpdateWithWhereUniqueNestedInput!]
+  upsert: [kdtopicUpsertWithWhereUniqueNestedInput!]
+  delete: [kdtopicWhereUniqueInput!]
+  connect: [kdtopicWhereUniqueInput!]
+  set: [kdtopicWhereUniqueInput!]
+  disconnect: [kdtopicWhereUniqueInput!]
+  deleteMany: [kdtopicScalarWhereInput!]
+  updateMany: [kdtopicUpdateManyWithWhereNestedInput!]
+}
+
+input kdtopicUpdateManyMutationInput {
+  chapterTitle: String
+  description: String
+  topicTitle: String
+  chapterId: String
+}
+
+input kdtopicUpdateManyWithWhereNestedInput {
+  where: kdtopicScalarWhereInput!
+  data: kdtopicUpdateManyDataInput!
+}
+
+input kdtopicUpdateWithWhereUniqueNestedInput {
+  where: kdtopicWhereUniqueInput!
+  data: kdtopicUpdateDataInput!
+}
+
+input kdtopicUpsertWithWhereUniqueNestedInput {
+  where: kdtopicWhereUniqueInput!
+  update: kdtopicUpdateDataInput!
+  create: kdtopicCreateInput!
+}
+
+input kdtopicWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  chapterTitle: String
+  chapterTitle_not: String
+  chapterTitle_in: [String!]
+  chapterTitle_not_in: [String!]
+  chapterTitle_lt: String
+  chapterTitle_lte: String
+  chapterTitle_gt: String
+  chapterTitle_gte: String
+  chapterTitle_contains: String
+  chapterTitle_not_contains: String
+  chapterTitle_starts_with: String
+  chapterTitle_not_starts_with: String
+  chapterTitle_ends_with: String
+  chapterTitle_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  topicTitle: String
+  topicTitle_not: String
+  topicTitle_in: [String!]
+  topicTitle_not_in: [String!]
+  topicTitle_lt: String
+  topicTitle_lte: String
+  topicTitle_gt: String
+  topicTitle_gte: String
+  topicTitle_contains: String
+  topicTitle_not_contains: String
+  topicTitle_starts_with: String
+  topicTitle_not_starts_with: String
+  topicTitle_ends_with: String
+  topicTitle_not_ends_with: String
+  chapterId: String
+  chapterId_not: String
+  chapterId_in: [String!]
+  chapterId_not_in: [String!]
+  chapterId_lt: String
+  chapterId_lte: String
+  chapterId_gt: String
+  chapterId_gte: String
+  chapterId_contains: String
+  chapterId_not_contains: String
+  chapterId_starts_with: String
+  chapterId_not_starts_with: String
+  chapterId_ends_with: String
+  chapterId_not_ends_with: String
+  pages_every: kdpageWhereInput
+  pages_some: kdpageWhereInput
+  pages_none: kdpageWhereInput
+  AND: [kdtopicWhereInput!]
+  OR: [kdtopicWhereInput!]
+  NOT: [kdtopicWhereInput!]
+}
+
+input kdtopicWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
-  createPost(data: PostCreateInput!): Post!
-  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
-  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
-  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
-  deletePost(where: PostWhereUniqueInput!): Post
-  deleteManyPosts(where: PostWhereInput): BatchPayload!
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  deleteUser(where: UserWhereUniqueInput!): User
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createkdchapter(data: kdchapterCreateInput!): kdchapter!
+  updatekdchapter(data: kdchapterUpdateInput!, where: kdchapterWhereUniqueInput!): kdchapter
+  updateManykdchapters(data: kdchapterUpdateManyMutationInput!, where: kdchapterWhereInput): BatchPayload!
+  upsertkdchapter(where: kdchapterWhereUniqueInput!, create: kdchapterCreateInput!, update: kdchapterUpdateInput!): kdchapter!
+  deletekdchapter(where: kdchapterWhereUniqueInput!): kdchapter
+  deleteManykdchapters(where: kdchapterWhereInput): BatchPayload!
+  createkdpage(data: kdpageCreateInput!): kdpage!
+  updatekdpage(data: kdpageUpdateInput!, where: kdpageWhereUniqueInput!): kdpage
+  updateManykdpages(data: kdpageUpdateManyMutationInput!, where: kdpageWhereInput): BatchPayload!
+  upsertkdpage(where: kdpageWhereUniqueInput!, create: kdpageCreateInput!, update: kdpageUpdateInput!): kdpage!
+  deletekdpage(where: kdpageWhereUniqueInput!): kdpage
+  deleteManykdpages(where: kdpageWhereInput): BatchPayload!
+  createkdsection(data: kdsectionCreateInput!): kdsection!
+  updatekdsection(data: kdsectionUpdateInput!, where: kdsectionWhereUniqueInput!): kdsection
+  updateManykdsections(data: kdsectionUpdateManyMutationInput!, where: kdsectionWhereInput): BatchPayload!
+  upsertkdsection(where: kdsectionWhereUniqueInput!, create: kdsectionCreateInput!, update: kdsectionUpdateInput!): kdsection!
+  deletekdsection(where: kdsectionWhereUniqueInput!): kdsection
+  deleteManykdsections(where: kdsectionWhereInput): BatchPayload!
+  createkdsectionassignment(data: kdsectionassignmentCreateInput!): kdsectionassignment!
+  updatekdsectionassignment(data: kdsectionassignmentUpdateInput!, where: kdsectionassignmentWhereUniqueInput!): kdsectionassignment
+  updateManykdsectionassignments(data: kdsectionassignmentUpdateManyMutationInput!, where: kdsectionassignmentWhereInput): BatchPayload!
+  upsertkdsectionassignment(where: kdsectionassignmentWhereUniqueInput!, create: kdsectionassignmentCreateInput!, update: kdsectionassignmentUpdateInput!): kdsectionassignment!
+  deletekdsectionassignment(where: kdsectionassignmentWhereUniqueInput!): kdsectionassignment
+  deleteManykdsectionassignments(where: kdsectionassignmentWhereInput): BatchPayload!
+  createkdsectionquiz(data: kdsectionquizCreateInput!): kdsectionquiz!
+  updatekdsectionquiz(data: kdsectionquizUpdateInput!, where: kdsectionquizWhereUniqueInput!): kdsectionquiz
+  updateManykdsectionquizzes(data: kdsectionquizUpdateManyMutationInput!, where: kdsectionquizWhereInput): BatchPayload!
+  upsertkdsectionquiz(where: kdsectionquizWhereUniqueInput!, create: kdsectionquizCreateInput!, update: kdsectionquizUpdateInput!): kdsectionquiz!
+  deletekdsectionquiz(where: kdsectionquizWhereUniqueInput!): kdsectionquiz
+  deleteManykdsectionquizzes(where: kdsectionquizWhereInput): BatchPayload!
+  createkdsectiontheoryimage(data: kdsectiontheoryimageCreateInput!): kdsectiontheoryimage!
+  updatekdsectiontheoryimage(data: kdsectiontheoryimageUpdateInput!, where: kdsectiontheoryimageWhereUniqueInput!): kdsectiontheoryimage
+  updateManykdsectiontheoryimages(data: kdsectiontheoryimageUpdateManyMutationInput!, where: kdsectiontheoryimageWhereInput): BatchPayload!
+  upsertkdsectiontheoryimage(where: kdsectiontheoryimageWhereUniqueInput!, create: kdsectiontheoryimageCreateInput!, update: kdsectiontheoryimageUpdateInput!): kdsectiontheoryimage!
+  deletekdsectiontheoryimage(where: kdsectiontheoryimageWhereUniqueInput!): kdsectiontheoryimage
+  deleteManykdsectiontheoryimages(where: kdsectiontheoryimageWhereInput): BatchPayload!
+  createkdsectiontheoryrichtext(data: kdsectiontheoryrichtextCreateInput!): kdsectiontheoryrichtext!
+  updatekdsectiontheoryrichtext(data: kdsectiontheoryrichtextUpdateInput!, where: kdsectiontheoryrichtextWhereUniqueInput!): kdsectiontheoryrichtext
+  updateManykdsectiontheoryrichtexts(data: kdsectiontheoryrichtextUpdateManyMutationInput!, where: kdsectiontheoryrichtextWhereInput): BatchPayload!
+  upsertkdsectiontheoryrichtext(where: kdsectiontheoryrichtextWhereUniqueInput!, create: kdsectiontheoryrichtextCreateInput!, update: kdsectiontheoryrichtextUpdateInput!): kdsectiontheoryrichtext!
+  deletekdsectiontheoryrichtext(where: kdsectiontheoryrichtextWhereUniqueInput!): kdsectiontheoryrichtext
+  deleteManykdsectiontheoryrichtexts(where: kdsectiontheoryrichtextWhereInput): BatchPayload!
+  createkdsectiontype(data: kdsectiontypeCreateInput!): kdsectiontype!
+  updatekdsectiontype(data: kdsectiontypeUpdateInput!, where: kdsectiontypeWhereUniqueInput!): kdsectiontype
+  upsertkdsectiontype(where: kdsectiontypeWhereUniqueInput!, create: kdsectiontypeCreateInput!, update: kdsectiontypeUpdateInput!): kdsectiontype!
+  deletekdsectiontype(where: kdsectiontypeWhereUniqueInput!): kdsectiontype
+  deleteManykdsectiontypes(where: kdsectiontypeWhereInput): BatchPayload!
+  createkdsectionvideo(data: kdsectionvideoCreateInput!): kdsectionvideo!
+  updatekdsectionvideo(data: kdsectionvideoUpdateInput!, where: kdsectionvideoWhereUniqueInput!): kdsectionvideo
+  updateManykdsectionvideos(data: kdsectionvideoUpdateManyMutationInput!, where: kdsectionvideoWhereInput): BatchPayload!
+  upsertkdsectionvideo(where: kdsectionvideoWhereUniqueInput!, create: kdsectionvideoCreateInput!, update: kdsectionvideoUpdateInput!): kdsectionvideo!
+  deletekdsectionvideo(where: kdsectionvideoWhereUniqueInput!): kdsectionvideo
+  deleteManykdsectionvideos(where: kdsectionvideoWhereInput): BatchPayload!
+  createkdsectionvideosolurl(data: kdsectionvideosolurlCreateInput!): kdsectionvideosolurl!
+  updatekdsectionvideosolurl(data: kdsectionvideosolurlUpdateInput!, where: kdsectionvideosolurlWhereUniqueInput!): kdsectionvideosolurl
+  updateManykdsectionvideosolurls(data: kdsectionvideosolurlUpdateManyMutationInput!, where: kdsectionvideosolurlWhereInput): BatchPayload!
+  upsertkdsectionvideosolurl(where: kdsectionvideosolurlWhereUniqueInput!, create: kdsectionvideosolurlCreateInput!, update: kdsectionvideosolurlUpdateInput!): kdsectionvideosolurl!
+  deletekdsectionvideosolurl(where: kdsectionvideosolurlWhereUniqueInput!): kdsectionvideosolurl
+  deleteManykdsectionvideosolurls(where: kdsectionvideosolurlWhereInput): BatchPayload!
+  createkdsubject(data: kdsubjectCreateInput!): kdsubject!
+  updatekdsubject(data: kdsubjectUpdateInput!, where: kdsubjectWhereUniqueInput!): kdsubject
+  updateManykdsubjects(data: kdsubjectUpdateManyMutationInput!, where: kdsubjectWhereInput): BatchPayload!
+  upsertkdsubject(where: kdsubjectWhereUniqueInput!, create: kdsubjectCreateInput!, update: kdsubjectUpdateInput!): kdsubject!
+  deletekdsubject(where: kdsubjectWhereUniqueInput!): kdsubject
+  deleteManykdsubjects(where: kdsubjectWhereInput): BatchPayload!
+  createkdtopic(data: kdtopicCreateInput!): kdtopic!
+  updatekdtopic(data: kdtopicUpdateInput!, where: kdtopicWhereUniqueInput!): kdtopic
+  updateManykdtopics(data: kdtopicUpdateManyMutationInput!, where: kdtopicWhereInput): BatchPayload!
+  upsertkdtopic(where: kdtopicWhereUniqueInput!, create: kdtopicCreateInput!, update: kdtopicUpdateInput!): kdtopic!
+  deletekdtopic(where: kdtopicWhereUniqueInput!): kdtopic
+  deleteManykdtopics(where: kdtopicWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -49,369 +2673,59 @@ type PageInfo {
   endCursor: String
 }
 
-type Post {
-  id: ID!
-  title: String!
-  published: Boolean!
-  author: User
-}
-
-type PostConnection {
-  pageInfo: PageInfo!
-  edges: [PostEdge]!
-  aggregate: AggregatePost!
-}
-
-input PostCreateInput {
-  id: ID
-  title: String!
-  published: Boolean
-  author: UserCreateOneWithoutPostsInput
-}
-
-input PostCreateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  connect: [PostWhereUniqueInput!]
-}
-
-input PostCreateWithoutAuthorInput {
-  id: ID
-  title: String!
-  published: Boolean
-}
-
-type PostEdge {
-  node: Post!
-  cursor: String!
-}
-
-enum PostOrderByInput {
-  id_ASC
-  id_DESC
-  title_ASC
-  title_DESC
-  published_ASC
-  published_DESC
-}
-
-type PostPreviousValues {
-  id: ID!
-  title: String!
-  published: Boolean!
-}
-
-input PostScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  AND: [PostScalarWhereInput!]
-  OR: [PostScalarWhereInput!]
-  NOT: [PostScalarWhereInput!]
-}
-
-type PostSubscriptionPayload {
-  mutation: MutationType!
-  node: Post
-  updatedFields: [String!]
-  previousValues: PostPreviousValues
-}
-
-input PostSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: PostWhereInput
-  AND: [PostSubscriptionWhereInput!]
-  OR: [PostSubscriptionWhereInput!]
-  NOT: [PostSubscriptionWhereInput!]
-}
-
-input PostUpdateInput {
-  title: String
-  published: Boolean
-  author: UserUpdateOneWithoutPostsInput
-}
-
-input PostUpdateManyDataInput {
-  title: String
-  published: Boolean
-}
-
-input PostUpdateManyMutationInput {
-  title: String
-  published: Boolean
-}
-
-input PostUpdateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  connect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  deleteMany: [PostScalarWhereInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-}
-
-input PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput!
-  data: PostUpdateManyDataInput!
-}
-
-input PostUpdateWithoutAuthorDataInput {
-  title: String
-  published: Boolean
-}
-
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  data: PostUpdateWithoutAuthorDataInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  create: PostCreateWithoutAuthorInput!
-}
-
-input PostWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  author: UserWhereInput
-  AND: [PostWhereInput!]
-  OR: [PostWhereInput!]
-  NOT: [PostWhereInput!]
-}
-
-input PostWhereUniqueInput {
-  id: ID
-}
-
 type Query {
-  post(where: PostWhereUniqueInput!): Post
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
-  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
-  user(where: UserWhereUniqueInput!): User
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  kdchapter(where: kdchapterWhereUniqueInput!): kdchapter
+  kdchapters(where: kdchapterWhereInput, orderBy: kdchapterOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdchapter]!
+  kdchaptersConnection(where: kdchapterWhereInput, orderBy: kdchapterOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdchapterConnection!
+  kdpage(where: kdpageWhereUniqueInput!): kdpage
+  kdpages(where: kdpageWhereInput, orderBy: kdpageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdpage]!
+  kdpagesConnection(where: kdpageWhereInput, orderBy: kdpageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdpageConnection!
+  kdsection(where: kdsectionWhereUniqueInput!): kdsection
+  kdsections(where: kdsectionWhereInput, orderBy: kdsectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsection]!
+  kdsectionsConnection(where: kdsectionWhereInput, orderBy: kdsectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectionConnection!
+  kdsectionassignment(where: kdsectionassignmentWhereUniqueInput!): kdsectionassignment
+  kdsectionassignments(where: kdsectionassignmentWhereInput, orderBy: kdsectionassignmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionassignment]!
+  kdsectionassignmentsConnection(where: kdsectionassignmentWhereInput, orderBy: kdsectionassignmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectionassignmentConnection!
+  kdsectionquiz(where: kdsectionquizWhereUniqueInput!): kdsectionquiz
+  kdsectionquizzes(where: kdsectionquizWhereInput, orderBy: kdsectionquizOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionquiz]!
+  kdsectionquizzesConnection(where: kdsectionquizWhereInput, orderBy: kdsectionquizOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectionquizConnection!
+  kdsectiontheoryimage(where: kdsectiontheoryimageWhereUniqueInput!): kdsectiontheoryimage
+  kdsectiontheoryimages(where: kdsectiontheoryimageWhereInput, orderBy: kdsectiontheoryimageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontheoryimage]!
+  kdsectiontheoryimagesConnection(where: kdsectiontheoryimageWhereInput, orderBy: kdsectiontheoryimageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectiontheoryimageConnection!
+  kdsectiontheoryrichtext(where: kdsectiontheoryrichtextWhereUniqueInput!): kdsectiontheoryrichtext
+  kdsectiontheoryrichtexts(where: kdsectiontheoryrichtextWhereInput, orderBy: kdsectiontheoryrichtextOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontheoryrichtext]!
+  kdsectiontheoryrichtextsConnection(where: kdsectiontheoryrichtextWhereInput, orderBy: kdsectiontheoryrichtextOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectiontheoryrichtextConnection!
+  kdsectiontype(where: kdsectiontypeWhereUniqueInput!): kdsectiontype
+  kdsectiontypes(where: kdsectiontypeWhereInput, orderBy: kdsectiontypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectiontype]!
+  kdsectiontypesConnection(where: kdsectiontypeWhereInput, orderBy: kdsectiontypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectiontypeConnection!
+  kdsectionvideo(where: kdsectionvideoWhereUniqueInput!): kdsectionvideo
+  kdsectionvideos(where: kdsectionvideoWhereInput, orderBy: kdsectionvideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionvideo]!
+  kdsectionvideosConnection(where: kdsectionvideoWhereInput, orderBy: kdsectionvideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectionvideoConnection!
+  kdsectionvideosolurl(where: kdsectionvideosolurlWhereUniqueInput!): kdsectionvideosolurl
+  kdsectionvideosolurls(where: kdsectionvideosolurlWhereInput, orderBy: kdsectionvideosolurlOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsectionvideosolurl]!
+  kdsectionvideosolurlsConnection(where: kdsectionvideosolurlWhereInput, orderBy: kdsectionvideosolurlOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsectionvideosolurlConnection!
+  kdsubject(where: kdsubjectWhereUniqueInput!): kdsubject
+  kdsubjects(where: kdsubjectWhereInput, orderBy: kdsubjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdsubject]!
+  kdsubjectsConnection(where: kdsubjectWhereInput, orderBy: kdsubjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdsubjectConnection!
+  kdtopic(where: kdtopicWhereUniqueInput!): kdtopic
+  kdtopics(where: kdtopicWhereInput, orderBy: kdtopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [kdtopic]!
+  kdtopicsConnection(where: kdtopicWhereInput, orderBy: kdtopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): kdtopicConnection!
   node(id: ID!): Node
 }
 
 type Subscription {
-  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-}
-
-type User {
-  id: ID!
-  email: String
-  name: String!
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
-}
-
-type UserConnection {
-  pageInfo: PageInfo!
-  edges: [UserEdge]!
-  aggregate: AggregateUser!
-}
-
-input UserCreateInput {
-  id: ID
-  email: String
-  name: String!
-  posts: PostCreateManyWithoutAuthorInput
-}
-
-input UserCreateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutPostsInput {
-  id: ID
-  email: String
-  name: String!
-}
-
-type UserEdge {
-  node: User!
-  cursor: String!
-}
-
-enum UserOrderByInput {
-  id_ASC
-  id_DESC
-  email_ASC
-  email_DESC
-  name_ASC
-  name_DESC
-}
-
-type UserPreviousValues {
-  id: ID!
-  email: String
-  name: String!
-}
-
-type UserSubscriptionPayload {
-  mutation: MutationType!
-  node: User
-  updatedFields: [String!]
-  previousValues: UserPreviousValues
-}
-
-input UserSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: UserWhereInput
-  AND: [UserSubscriptionWhereInput!]
-  OR: [UserSubscriptionWhereInput!]
-  NOT: [UserSubscriptionWhereInput!]
-}
-
-input UserUpdateInput {
-  email: String
-  name: String
-  posts: PostUpdateManyWithoutAuthorInput
-}
-
-input UserUpdateManyMutationInput {
-  email: String
-  name: String
-}
-
-input UserUpdateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  update: UserUpdateWithoutPostsDataInput
-  upsert: UserUpsertWithoutPostsInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateWithoutPostsDataInput {
-  email: String
-  name: String
-}
-
-input UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput!
-  create: UserCreateWithoutPostsInput!
-}
-
-input UserWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  email: String
-  email_not: String
-  email_in: [String!]
-  email_not_in: [String!]
-  email_lt: String
-  email_lte: String
-  email_gt: String
-  email_gte: String
-  email_contains: String
-  email_not_contains: String
-  email_starts_with: String
-  email_not_starts_with: String
-  email_ends_with: String
-  email_not_ends_with: String
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  posts_every: PostWhereInput
-  posts_some: PostWhereInput
-  posts_none: PostWhereInput
-  AND: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  NOT: [UserWhereInput!]
-}
-
-input UserWhereUniqueInput {
-  id: ID
-  email: String
+  kdchapter(where: kdchapterSubscriptionWhereInput): kdchapterSubscriptionPayload
+  kdpage(where: kdpageSubscriptionWhereInput): kdpageSubscriptionPayload
+  kdsection(where: kdsectionSubscriptionWhereInput): kdsectionSubscriptionPayload
+  kdsectionassignment(where: kdsectionassignmentSubscriptionWhereInput): kdsectionassignmentSubscriptionPayload
+  kdsectionquiz(where: kdsectionquizSubscriptionWhereInput): kdsectionquizSubscriptionPayload
+  kdsectiontheoryimage(where: kdsectiontheoryimageSubscriptionWhereInput): kdsectiontheoryimageSubscriptionPayload
+  kdsectiontheoryrichtext(where: kdsectiontheoryrichtextSubscriptionWhereInput): kdsectiontheoryrichtextSubscriptionPayload
+  kdsectiontype(where: kdsectiontypeSubscriptionWhereInput): kdsectiontypeSubscriptionPayload
+  kdsectionvideo(where: kdsectionvideoSubscriptionWhereInput): kdsectionvideoSubscriptionPayload
+  kdsectionvideosolurl(where: kdsectionvideosolurlSubscriptionWhereInput): kdsectionvideosolurlSubscriptionPayload
+  kdsubject(where: kdsubjectSubscriptionWhereInput): kdsubjectSubscriptionPayload
+  kdtopic(where: kdtopicSubscriptionWhereInput): kdtopicSubscriptionPayload
 }
 `
       }
